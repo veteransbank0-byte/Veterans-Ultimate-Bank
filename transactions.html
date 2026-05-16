@@ -14,6 +14,7 @@ transactions.html
             color: white;
         }
 
+        /* NAVIGATION BAR */
         .navbar {
             background-color: #0d2347;
             padding: 15px 40px;
@@ -40,6 +41,10 @@ transactions.html
             font-weight: bold;
         }
 
+        .navbar-links a:hover {
+            color: #d6e4ff;
+        }
+
         .navbar-right img {
             height: 45px;
             width: 45px;
@@ -47,13 +52,14 @@ transactions.html
             object-fit: cover;
         }
 
+        /* CONTAINER */
         .container {
             width: 90%;
             max-width: 1100px;
             margin: 40px auto;
             background-color: #0d2347;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 35px;
+            border-radius: 12px;
             border: 1px solid #1c355c;
         }
 
@@ -61,8 +67,10 @@ transactions.html
             color: #9bbcff;
             text-align: center;
             margin-bottom: 25px;
+            font-size: 30px;
         }
 
+        /* TABLE */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -73,6 +81,7 @@ transactions.html
             padding: 14px;
             border-bottom: 1px solid #1c355c;
             text-align: left;
+            font-size: 16px;
         }
 
         th {
@@ -88,6 +97,7 @@ transactions.html
 
 <body>
 
+    <!-- NAVIGATION BAR -->
     <div class="navbar">
         <div class="navbar-left">
             <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
@@ -96,6 +106,7 @@ transactions.html
                 <a href="dashboard.html">Dashboard</a>
                 <a href="profile.html">Profile</a>
                 <a href="transactions.html">Transactions</a>
+                <a href="transfer.html">Transfer</a>
             </div>
         </div>
 
@@ -104,6 +115,7 @@ transactions.html
         </div>
     </div>
 
+    <!-- TRANSACTIONS CONTENT -->
     <div class="container">
         <h2>Transaction History</h2>
 
@@ -115,14 +127,17 @@ transactions.html
                 <th>Type</th>
             </tr>
 
-            <!-- MAY -->
+            <!-- MAY 2026 -->
+            <tr><td>05/06/2026</td><td>Greg Carter Sent Money</td><td style="color:#4cd964;">+ $45,000.00</td><td>Credit</td></tr>
+            <tr><td>05/06/2026</td><td>Orphanage Home Withdrawal</td><td style="color:#ff4d4d;">- $30,000.00</td><td>Debit</td></tr>
+
             <tr><td>05/05/2026</td><td>Daughter School Fee Deposit</td><td style="color:#4cd964;">+ $20,000.00</td><td>Credit</td></tr>
             <tr><td>05/04/2026</td><td>Cashier Payment</td><td style="color:#ff4d4d;">- $1,500.00</td><td>Debit</td></tr>
             <tr><td>05/03/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
             <tr><td>05/02/2026</td><td>ATM Withdrawal</td><td style="color:#ff4d4d;">- $300.00</td><td>Debit</td></tr>
             <tr><td>05/01/2026</td><td>Electric Bill</td><td style="color:#ff4d4d;">- $210.00</td><td>Debit</td></tr>
 
-            <!-- APRIL -->
+            <!-- APRIL 2026 -->
             <tr><td>04/30/2026</td><td>Water Bill</td><td style="color:#ff4d4d;">- $95.00</td><td>Debit</td></tr>
             <tr><td>04/29/2026</td><td>Online Purchase</td><td style="color:#ff4d4d;">- $140.00</td><td>Debit</td></tr>
             <tr><td>04/28/2026</td><td>Transfer Received</td><td style="color:#4cd964;">+ $3,500.00</td><td>Credit</td></tr>
@@ -135,20 +150,20 @@ transactions.html
             <tr><td>04/21/2026</td><td>Mobile Deposit</td><td style="color:#4cd964;">+ $2,000.00</td><td>Credit</td></tr>
             <tr><td>04/20/2026</td><td>Insurance Payment</td><td style="color:#ff4d4d;">- $350.00</td><td>Debit</td></tr>
 
-            <!-- MARCH -->
+            <!-- MARCH 2026 -->
             <tr><td>03/29/2026</td><td>Subscription Service</td><td style="color:#ff4d4d;">- $19.99</td><td>Debit</td></tr>
             <tr><td>03/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $900.00</td><td>Credit</td></tr>
             <tr><td>03/22/2026</td><td>Car Payment</td><td style="color:#ff4d4d;">- $450.00</td><td>Debit</td></tr>
             <tr><td>03/18/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
             <tr><td>03/15/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $118.20</td><td>Debit</td></tr>
 
-            <!-- FEBRUARY -->
+            <!-- FEBRUARY 2026 -->
             <tr><td>02/28/2026</td><td>Gas Station</td><td style="color:#ff4d4d;">- $52.10</td><td>Debit</td></tr>
             <tr><td>02/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,000.00</td><td>Credit</td></tr>
             <tr><td>02/20/2026</td><td>Restaurant</td><td style="color:#ff4d4d;">- $74.50</td><td>Debit</td></tr>
             <tr><td>02/15/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
 
-            <!-- JANUARY -->
+            <!-- JANUARY 2026 -->
             <tr><td>01/30/2026</td><td>Electric Bill</td><td style="color:#ff4d4d;">- $205.00</td><td>Debit</td></tr>
             <tr><td>01/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,500.00</td><td>Credit</td></tr>
             <tr><td>01/20/2026</td><td>Water Bill</td><td style="color:#ff4d4d;">- $92.00</td><td>Debit</td></tr>
@@ -160,4 +175,4 @@ transactions.html
     </div>
 
 </body>
-                                </html>
+</html>
