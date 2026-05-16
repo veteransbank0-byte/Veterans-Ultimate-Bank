@@ -1,0 +1,210 @@
+settings.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings – Veterans Ultimate Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: white;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: #0d2347;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #1c355c;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left img {
+            height: 45px;
+            margin-right: 15px;
+        }
+
+        .navbar-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #9bbcff;
+            font-weight: bold;
+        }
+
+        .navbar-links a:hover {
+            color: #d6e4ff;
+        }
+
+        .navbar-right img {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .section-box {
+            background-color: #0d2347;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #1c355c;
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            color: #9bbcff;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #d6e4ff;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #1c355c;
+            background-color: #0a1f3d;
+            color: white;
+            font-size: 16px;
+        }
+
+        .toggle {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #1a4fa3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .save-btn:hover {
+            background-color: #2966c7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="transactions.html">Checking Transactions</a>
+                <a href="transfer.html">Transfer</a>
+                <a href="savings.html">Savings</a>
+                <a href="savings-history.html">Savings History</a>
+                <a href="creditcard.html">Credit Card</a>
+                <a href="depositcheck.html">Deposit Check</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <img src="eric_todd.jpeg" alt="Profile Photo">
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- PROFILE SETTINGS -->
+        <div class="section-box">
+            <h2>Profile Settings</h2>
+
+            <label>Full Name</label>
+            <input type="text" value="Eric Todd">
+
+            <label>Email Address</label>
+            <input type="email" value="herictodd66@gmail.com">
+
+            <label>Phone Number</label>
+            <input type="text" value="+1 (813) 555‑0198">
+
+            <button class="save-btn">Save Profile Changes</button>
+        </div>
+
+        <!-- SECURITY SETTINGS -->
+        <div class="section-box">
+            <h2>Security Settings</h2>
+
+            <label>Current Password</label>
+            <input type="password" placeholder="Enter current password">
+
+            <label>New Password</label>
+            <input type="password" placeholder="Enter new password">
+
+            <label>Confirm New Password</label>
+            <input type="password" placeholder="Confirm new password">
+
+            <label>Two‑Factor Authentication</label>
+            <select class="toggle">
+                <option>Enabled</option>
+                <option>Disabled</option>
+            </select>
+
+            <button class="save-btn">Update Security Settings</button>
+        </div>
+
+        <!-- NOTIFICATION SETTINGS -->
+        <div class="section-box">
+            <h2>Notification Settings</h2>
+
+            <label>Email Notifications</label>
+            <select>
+                <option>Enabled</option>
+                <option>Disabled</option>
+            </select>
+
+            <label>SMS Notifications</label>
+            <select>
+                <option>Enabled</option>
+                <option>Disabled</option>
+            </select>
+
+            <label>Transaction Alerts</label>
+            <select>
+                <option>Enabled</option>
+                <option>Disabled</option>
+            </select>
+
+            <button class="save-btn">Save Notification Settings</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
