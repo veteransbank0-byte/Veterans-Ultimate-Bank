@@ -14,6 +14,7 @@ dashboard.html
             color: white;
         }
 
+        /* NAVIGATION BAR */
         .navbar {
             background-color: #0d2347;
             padding: 15px 40px;
@@ -40,6 +41,10 @@ dashboard.html
             font-weight: bold;
         }
 
+        .navbar-links a:hover {
+            color: #d6e4ff;
+        }
+
         .navbar-right img {
             height: 45px;
             width: 45px;
@@ -47,6 +52,7 @@ dashboard.html
             object-fit: cover;
         }
 
+        /* DASHBOARD CONTAINER */
         .dashboard-container {
             width: 90%;
             max-width: 1100px;
@@ -54,25 +60,36 @@ dashboard.html
         }
 
         .welcome {
-            font-size: 28px;
+            font-size: 30px;
             color: #9bbcff;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
+        /* ACCOUNT SUMMARY BOX */
         .account-summary {
             background: #0d2347;
-            padding: 25px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 12px;
             border: 1px solid #1c355c;
+        }
+
+        .account-summary h2 {
+            color: #9bbcff;
+            margin-bottom: 25px;
+        }
+
+        .account-card {
+            margin-bottom: 30px;
         }
 
         .account-card h3 {
             margin: 0;
             color: #9bbcff;
+            font-size: 22px;
         }
 
         .balance {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: bold;
             margin: 10px 0;
             color: #d6e4ff;
@@ -80,12 +97,45 @@ dashboard.html
 
         .label {
             color: #9bbcff;
+            font-size: 16px;
+        }
+
+        /* QUICK LINKS */
+        .quick-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .quick-link-box {
+            flex: 1;
+            background-color: #0d2347;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #1c355c;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .quick-link-box:hover {
+            background-color: #112a4d;
+        }
+
+        .quick-link-box h3 {
+            color: #9bbcff;
+            margin-bottom: 10px;
+        }
+
+        .quick-link-box p {
+            color: #d6e4ff;
+            font-size: 15px;
         }
     </style>
 </head>
 
 <body>
 
+    <!-- NAVIGATION BAR -->
     <div class="navbar">
         <div class="navbar-left">
             <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
@@ -93,6 +143,8 @@ dashboard.html
                 <a href="index.html">Home</a>
                 <a href="dashboard.html">Dashboard</a>
                 <a href="profile.html">Profile</a>
+                <a href="transactions.html">Transactions</a>
+                <a href="transfer.html">Transfer</a>
             </div>
         </div>
 
@@ -101,18 +153,48 @@ dashboard.html
         </div>
     </div>
 
+    <!-- DASHBOARD CONTENT -->
     <div class="dashboard-container">
+
         <div class="welcome">Welcome back, Eric Todd</div>
 
+        <!-- ACCOUNT SUMMARY -->
         <div class="account-summary">
             <h2>Account Summary</h2>
 
+            <!-- CHECKING -->
             <div class="account-card">
                 <h3>Primary Checking</h3>
                 <p class="balance">$629,890,072.00 USD</p>
                 <p class="label">Available Balance</p>
             </div>
+
+            <!-- SAVINGS -->
+            <div class="account-card">
+                <h3>Savings Account</h3>
+                <p class="balance">$98,589,100.03 USD</p>
+                <p class="label">Available Balance</p>
+            </div>
         </div>
+
+        <!-- QUICK LINKS -->
+        <div class="quick-links">
+            <div class="quick-link-box" onclick="window.location.href='transactions.html'">
+                <h3>View Transactions</h3>
+                <p>Review your full transaction history</p>
+            </div>
+
+            <div class="quick-link-box" onclick="window.location.href='transfer.html'">
+                <h3>Transfer Money</h3>
+                <p>Send money securely to any bank</p>
+            </div>
+
+            <div class="quick-link-box" onclick="window.location.href='profile.html'">
+                <h3>Profile Settings</h3>
+                <p>Manage your personal information</p>
+            </div>
+        </div>
+
     </div>
 
 </body>
