@@ -1,5 +1,4 @@
-creditcard.html
-<!DOCTYPE html>
+creditcard.html<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -134,67 +133,75 @@ creditcard.html
 
 <body>
 
-    <!-- NAVIGATION BAR -->
-    <div class="navbar">
-        <div class="navbar-left">
-            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
-            <div class="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="profile.html">Profile</a>
-                <a href="transactions.html">Checking Transactions</a>
-                <a href="transfer.html">Transfer</a>
-                <a href="savings.html">Savings</a>
-                <a href="savings-history.html">Savings History</a>
-                <a href="creditcard.html">Credit Card</a>
-            </div>
-        </div>
+<script>
+    if (!localStorage.getItem("loggedIn")) {
+        window.location.href = "index.html";
+    }
+</script>
 
-        <div class="navbar-right">
-            <img src="eric_todd.jpeg" alt="Profile Photo">
+<!-- NAVIGATION BAR -->
+<div class="navbar">
+    <div class="navbar-left">
+        <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="transactions.html">Checking Transactions</a>
+            <a href="transfer.html">Transfer</a>
+            <a href="savings.html">Savings</a>
+            <a href="savings_history.html">Savings History</a>
+            <a href="creditcard.html">Credit Card</a>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="container">
+    <div class="navbar-right">
+        <img src="eric_todd.jpeg" alt="Profile Photo">
+    </div>
+</div>
 
-        <!-- CREDIT CARD SUMMARY -->
-        <div class="section-box">
-            <h2>Credit Card Summary</h2>
+<!-- MAIN CONTENT -->
+<div class="container">
 
-            <p class="balance">$12,450.22 USD</p>
-            <p class="label">Current Balance</p>
+    <!-- CREDIT CARD SUMMARY -->
+    <div class="section-box">
+        <h2>Credit Card Summary</h2>
 
-            <div class="info-row"><strong>Credit Limit:</strong> $25,000.00</div>
-            <div class="info-row"><strong>Available Credit:</strong> $12,549.78</div>
-            <div class="info-row"><strong>Payment Due Date:</strong> June 12, 2026</div>
-            <div class="info-row"><strong>Minimum Payment:</strong> $325.00</div>
+        <p class="balance">$12,450.22 USD</p>
+        <p class="label">Current Balance</p>
 
+        <div class="info-row"><strong>Credit Limit:</strong> $25,000.00</div>
+        <div class="info-row"><strong>Available Credit:</strong> $12,549.78</div>
+        <div class="info-row"><strong>Payment Due Date:</strong> June 12, 2026</div>
+        <div class="info-row"><strong>Minimum Payment:</strong> $325.00</div>
+
+        <a href="creditcard_payment.html">
             <button class="pay-btn">Make a Payment</button>
-        </div>
-
-        <!-- RECENT CREDIT CARD TRANSACTIONS -->
-        <div class="section-box">
-            <h2>Recent Credit Card Transactions</h2>
-
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Amount</th>
-                    <th>Type</th>
-                </tr>
-
-                <tr><td>05/10/2026</td><td>Amazon Purchase</td><td style="color:#ff4d4d;">- $220.45</td><td>Debit</td></tr>
-                <tr><td>05/08/2026</td><td>Restaurant</td><td style="color:#ff4d4d;">- $89.60</td><td>Debit</td></tr>
-                <tr><td>05/06/2026</td><td>Gas Station</td><td style="color:#ff4d4d;">- $52.30</td><td>Debit</td></tr>
-                <tr><td>05/03/2026</td><td>Payment Received</td><td style="color:#4cd964;">+ $500.00</td><td>Credit</td></tr>
-                <tr><td>05/01/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $142.80</td><td>Debit</td></tr>
-
-            </table>
-        </div>
-
+        </a>
     </div>
+
+    <!-- RECENT CREDIT CARD TRANSACTIONS -->
+    <div class="section-box">
+        <h2>Recent Credit Card Transactions</h2>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Type</th>
+            </tr>
+
+            <tr><td>05/10/2026</td><td>Amazon Purchase</td><td style="color:#ff4d4d;">- $220.45</td><td>Debit</td></tr>
+            <tr><td>05/08/2026</td><td>Restaurant</td><td style="color:#ff4d4d;">- $89.60</td><td>Debit</td></tr>
+            <tr><td>05/06/2026</td><td>Gas Station</td><td style="color:#ff4d4d;">- $52.30</td><td>Debit</td></tr>
+            <tr><td>05/03/2026</td><td>Payment Received</td><td style="color:#4cd964;">+ $500.00</td><td>Credit</td></tr>
+            <tr><td>05/01/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $142.80</td><td>Debit</td></tr>
+
+        </table>
+    </div>
+
+</div>
 
 </body>
-                                                             </html>
+</html>
