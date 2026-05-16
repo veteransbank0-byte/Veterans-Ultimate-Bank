@@ -14,149 +14,145 @@ profile.html
             color: white;
         }
 
-        /* NAVIGATION BAR */
-        .navbar {
-            background-color: #0d2347;
-            padding: 15px 40px;
+        header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #0d2347;
             border-bottom: 1px solid #1c355c;
         }
 
-        .navbar-left {
+        header .left {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        .navbar-left img {
-            height: 45px;
-            margin-right: 15px;
+        header img {
+            height: 40px;
         }
 
-        .navbar-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #9bbcff;
-            font-weight: bold;
-        }
-
-        .navbar-links a:hover {
-            color: #d6e4ff;
-        }
-
-        .navbar-right img {
-            height: 45px;
-            width: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* PROFILE CONTAINER */
-        .profile-container {
-            width: 90%;
-            max-width: 900px;
-            margin: 40px auto;
-            background-color: #0d2347;
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid #1c355c;
-        }
-
-        .profile-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-header img {
-            height: 130px;
-            width: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #1c355c;
-        }
-
-        .profile-header h2 {
+        header h1 {
+            font-size: 20px;
             margin: 0;
             color: #9bbcff;
-            font-size: 28px;
         }
 
-        .profile-details {
-            margin-top: 20px;
-            font-size: 18px;
-            line-height: 1.8;
+        header .right {
+            text-align: right;
+            font-size: 14px;
         }
 
-        .profile-details strong {
-            color: #9bbcff;
-        }
-
-        /* EDIT BUTTON */
-        .edit-btn {
-            margin-top: 30px;
-            width: 100%;
-            padding: 16px;
-            background-color: #1a4fa3;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 18px;
+        #logoutBtn {
+            color: #ff4d4d;
+            font-weight: bold;
+            text-decoration: none;
             cursor: pointer;
+            font-size: 14px;
         }
 
-        .edit-btn:hover {
-            background-color: #2966c7;
+        .container {
+            padding: 20px;
+        }
+
+        .profile-card {
+            background-color: #0d2347;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #1c355c;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .profile-card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #9bbcff;
+            margin-bottom: 15px;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .profile-username {
+            font-size: 14px;
+            color: #9bbcff;
+            margin-bottom: 15px;
+        }
+
+        .profile-info {
+            text-align: left;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        .profile-info p {
+            margin: 6px 0;
+        }
+
+        a.nav-link {
+            color: #9bbcff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a.nav-link:hover {
+            color: #d6e4ff;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- NAVIGATION BAR -->
-    <div class="navbar">
-        <div class="navbar-left">
-            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
-            <div class="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="profile.html">Profile</a>
-                <a href="transactions.html">Transactions</a>
-                <a href="transfer.html">Transfer</a>
+    <script>
+        if (!localStorage.getItem("loggedIn")) {
+            window.location.href = "index.html";
+        }
+    </script>
+
+    <header>
+        <div class="left">
+            <img src="VUB.png" alt="Bank Logo">
+            <h1>Veterans Ultimate Bank</h1>
+        </div>
+        <div class="right">
+            <span>Profile</span>
+            <span><a id="logoutBtn">Logout</a></span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-card">
+            <img src="eric_todd.jpeg" alt="Eric Todd">
+
+            <div class="profile-name">Eric Todd</div>
+            <div class="profile-username">Username: EricTodd1$</div>
+
+            <div class="profile-info">
+                <p><strong>Email:</strong> herictodd66@gmail.com</p>
+                <p><strong>Date of Birth:</strong> 03/06/1957</p>
+                <p><strong>Location:</strong> Tampa, Florida, USA</p>
+                <p><strong>Primary Account:</strong> Checking</p>
             </div>
-        </div>
 
-        <div class="navbar-right">
-            <img src="eric_todd.jpeg" alt="Profile Photo">
+            <p style="margin-top:15px;">
+                <a class="nav-link" href="dashboard.html">Back to Dashboard</a>
+            </p>
         </div>
     </div>
 
-    <!-- PROFILE CONTENT -->
-    <div class="profile-container">
-
-        <div class="profile-header">
-            <img src="eric_todd.jpeg" alt="Profile Photo">
-            <h2>Eric Todd</h2>
-        </div>
-
-        <div class="profile-details">
-            <p><strong>Full Name:</strong> Eric Todd</p>
-            <p><strong>Email:</strong> herictodd66@gmail.com</p>
-            <p><strong>Date of Birth:</strong> 03/06/1957</p>
-            <p><strong>Gender:</strong> Male</p>
-            <p><strong>Location:</strong> Tampa, Florida, USA</p>
-        </div>
-
-        <button class="edit-btn">Edit Profile</button>
-
-    </div>
+    <script>
+        document.getElementById("logoutBtn").onclick = function () {
+            localStorage.removeItem("loggedIn");
+            sessionStorage.removeItem("welcomeShown");
+            window.location.href = "index.html";
+        };
+    </script>
 
 </body>
 </html>
-
-<script>
-    if (!localStorage.getItem("loggedIn")) {
-        window.location.href = "index.html";
-    }
-</script>
