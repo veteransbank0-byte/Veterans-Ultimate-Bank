@@ -4,119 +4,81 @@ dashboard.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Veterans Bank</title>
-
+    <title>Dashboard | Veterans Unlimited Bank</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #1a1a1a;
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .top-nav {
+            background-color: #ffffff; border-bottom: 1px solid #ddd;
+            padding: 10px 30px; display: flex; align-items: center; justify-content: space-between;
         }
-
-        /* Top Navigation */
-        header {
-            background-color: #0a3d62;
-            padding: 20px;
-            text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-            color: white;
+        .nav-left { display: flex; align-items: center; gap: 10px; }
+        .nav-left img { height: 32px; border-radius: 4px; }
+        .bank-name { font-size: 18px; font-weight: bold; color: #0a3d62; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: #333; font-size: 14px; }
+        .nav-links a:hover { color: #0a3d62; }
+        .layout { display: flex; }
+        .sidebar {
+            width: 220px; background-color: #ffffff; border-right: 1px solid #ddd;
+            padding: 20px 15px; font-size: 14px;
         }
-
-        /* Dashboard Container */
-        .dashboard {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
+        .sidebar h3 { margin-top: 0; font-size: 14px; color: #555; text-transform: uppercase; }
+        .sidebar a { display: block; margin: 8px 0; text-decoration: none; color: #333; }
+        .sidebar a:hover { color: #0a3d62; }
+        .content { flex: 1; padding: 20px 25px; }
+        .section-title { font-size: 20px; color: #0a3d62; margin-bottom: 15px; }
+        .account-card {
+            background-color: #ffffff; border-radius: 6px; padding: 15px 20px;
+            margin-bottom: 15px; box-shadow: 0 0 6px rgba(0,0,0,0.05);
         }
-
-        .card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.15);
-            margin-bottom: 25px;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: #0a3d62;
-            font-size: 22px;
-        }
-
-        .balance {
-            font-size: 32px;
-            font-weight: bold;
-            margin-top: 10px;
-            color: #1a1a1a;
-        }
-
-        .actions button {
-            background-color: #0a3d62;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-right: 10px;
-            margin-top: 10px;
-        }
-
-        .actions button:hover {
-            background-color: #07415a;
-        }
-
+        .account-name { font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+        .account-number { font-size: 12px; color: #777; margin-bottom: 10px; }
+        .account-balance { font-size: 24px; font-weight: bold; color: #0a3d62; }
+        .subtext { font-size: 12px; color: #777; }
         footer {
-            margin-top: 40px;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            background-color: #0a3d62;
-            color: white;
+            margin-top: 20px; padding: 15px 30px; font-size: 12px;
+            color: #777; border-top: 1px solid #ddd; background-color: #ffffff; text-align: center;
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    Veterans Bank — Dashboard
-</header>
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Veterans Unlimited Bank Logo">
+        <span class="bank-name">Veterans Unlimited Bank</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="profile.html">Profile</a>
+    </div>
+</div>
 
-<div class="dashboard">
+<div class="layout">
+    <div class="sidebar">
+        <h3>Accounts</h3>
+        <a href="#">Primary Checking</a>
+        <a href="#">Savings</a>
 
-    <!-- Account Balance -->
-    <div class="card">
-        <h3>Account Balance</h3>
-        <div class="balance">$629,890,007.00 USD</div>
+        <h3>Transfers</h3>
+        <a href="#">Transfer money</a>
+        <a href="#">Pay bills</a>
     </div>
 
-    <!-- Quick Actions -->
-    <div class="card">
-        <h3>Quick Actions</h3>
-        <div class="actions">
-            <button>Transfer Money</button>
-            <button>View Transactions</button>
-            <button>Deposit Check</button>
-            <button>Pay Bills</button>
+    <div class="content">
+        <h2 class="section-title">Welcome back, Eric</h2>
+
+        <div class="account-card">
+            <div class="account-name">Veterans Unlimited Primary Checking</div>
+            <div class="account-number">Account •••• •••• •••• 0072</div>
+            <div class="account-balance">$629,679,072.00</div>
+            <div class="subtext">Available balance (USD)</div>
         </div>
     </div>
-
-    <!-- Recent Activity -->
-    <div class="card">
-        <h3>Recent Activity</h3>
-        <p>• Deposit — $1,200.00</p>
-        <p>• Grocery Store — $85.40</p>
-        <p>• Gas Station — $42.10</p>
-        <p>• Online Purchase — $120.00</p>
-    </div>
-
 </div>
 
 <footer>
-    © 2026 Veterans Bank — All Rights Reserved.
+    © 2026 Veterans Unlimited Bank — All rights reserved.
 </footer>
 
 </body>
