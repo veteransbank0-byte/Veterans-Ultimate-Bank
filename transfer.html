@@ -1,0 +1,230 @@
+transfer.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Money – Veterans Ultimate Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: white;
+        }
+
+        .navbar {
+            background-color: #0d2347;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #1c355c;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left img {
+            height: 45px;
+            margin-right: 15px;
+        }
+
+        .navbar-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #9bbcff;
+            font-weight: bold;
+        }
+
+        .navbar-right img {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #0d2347;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #1c355c;
+        }
+
+        h2 {
+            text-align: center;
+            color: #9bbcff;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #9bbcff;
+            border-bottom: 1px solid #1c355c;
+            padding-bottom: 5px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #d6e4ff;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #1c355c;
+            background-color: #0a1f3d;
+            color: white;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .summary-box {
+            background-color: #0a1f3d;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #1c355c;
+            margin-top: 20px;
+        }
+
+        .summary-box p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .security-note {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #9bbcff;
+            border-top: 1px solid #1c355c;
+            padding-top: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background-color: #1a4fa3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2966c7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="transactions.html">Transactions</a>
+                <a href="transfer.html">Transfer</a>
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <img src="eric_todd.jpeg" alt="Profile Photo">
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h2>Transfer Money</h2>
+
+        <!-- FROM ACCOUNT -->
+        <div class="section-title">From Account</div>
+        <label>Select Account</label>
+        <select>
+            <option>Primary Checking — $629,890,072.00 USD</option>
+            <option>Savings Account — $98,589,100.03 USD</option>
+        </select>
+
+        <!-- RECIPIENT INFO -->
+        <div class="section-title">Recipient Information</div>
+
+        <label>Recipient Full Name</label>
+        <input type="text" placeholder="Enter recipient name">
+
+        <label>Recipient Bank Name</label>
+        <input type="text" placeholder="Enter bank name">
+
+        <label>Recipient Account Number</label>
+        <input type="text" placeholder="Enter account number">
+
+        <label>Routing Number / SWIFT Code</label>
+        <input type="text" placeholder="Enter routing or SWIFT code">
+
+        <label>Recipient Country</label>
+        <select>
+            <option>United States</option>
+            <option>Canada</option>
+            <option>United Kingdom</option>
+            <option>Australia</option>
+            <option>International Transfer</option>
+        </select>
+
+        <!-- TRANSFER DETAILS -->
+        <div class="section-title">Transfer Details</div>
+
+        <label>Amount</label>
+        <input type="number" placeholder="Enter amount">
+
+        <label>Transfer Type</label>
+        <select>
+            <option>Domestic Transfer</option>
+            <option>International Transfer</option>
+            <option>Wire Transfer</option>
+            <option>ACH Transfer</option>
+        </select>
+
+        <label>Purpose / Notes</label>
+        <textarea placeholder="Add a note for this transfer (optional)"></textarea>
+
+        <!-- SUMMARY BOX -->
+        <div class="summary-box">
+            <p><strong>Transfer Summary</strong></p>
+            <p>From: Primary Checking</p>
+            <p>To: Recipient</p>
+            <p>Transfer Type: Selected Option</p>
+            <p>Amount: Entered Amount</p>
+        </div>
+
+        <!-- SECURITY NOTICE -->
+        <div class="security-note">
+            For your security, all transfers are monitored and encrypted.  
+            Transfers may take 1–3 business days depending on the receiving bank.
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit">Submit Transfer</button>
+
+    </div>
+
+</body>
+  </html>
