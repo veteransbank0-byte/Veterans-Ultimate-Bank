@@ -1,5 +1,4 @@
-dashboard.html
-<!DOCTYPE html>
+dashboard.html<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,192 +13,309 @@ dashboard.html
             color: white;
         }
 
-        /* NAVIGATION BAR */
-        .navbar {
-            background-color: #0d2347;
-            padding: 15px 40px;
+        header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #0d2347;
             border-bottom: 1px solid #1c355c;
         }
 
-        .navbar-left {
+        header .left {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        .navbar-left img {
-            height: 45px;
-            margin-right: 15px;
+        header img {
+            height: 40px;
         }
 
-        .navbar-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #9bbcff;
-            font-weight: bold;
-        }
-
-        .navbar-links a:hover {
-            color: #d6e4ff;
-        }
-
-        .navbar-right img {
-            height: 45px;
-            width: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* DASHBOARD CONTAINER */
-        .dashboard-container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 40px auto;
-        }
-
-        .welcome {
-            font-size: 30px;
-            color: #9bbcff;
-            margin-bottom: 25px;
-        }
-
-        /* ACCOUNT SUMMARY BOX */
-        .account-summary {
-            background: #0d2347;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #1c355c;
-        }
-
-        .account-summary h2 {
-            color: #9bbcff;
-            margin-bottom: 25px;
-        }
-
-        .account-card {
-            margin-bottom: 30px;
-        }
-
-        .account-card h3 {
+        header h1 {
+            font-size: 20px;
             margin: 0;
             color: #9bbcff;
-            font-size: 22px;
         }
 
-        .balance {
-            font-size: 34px;
+        header .right {
+            text-align: right;
+            font-size: 14px;
+        }
+
+        header .right span {
+            display: block;
+        }
+
+        #logoutBtn {
+            color: #ff4d4d;
             font-weight: bold;
-            margin: 10px 0;
-            color: #d6e4ff;
-        }
-
-        .label {
-            color: #9bbcff;
-            font-size: 16px;
-        }
-
-        /* QUICK LINKS */
-        .quick-links {
-            margin-top: 40px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .quick-link-box {
-            flex: 1;
-            background-color: #0d2347;
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #1c355c;
-            text-align: center;
+            text-decoration: none;
             cursor: pointer;
+            font-size: 14px;
         }
 
-        .quick-link-box:hover {
-            background-color: #112a4d;
+        .container {
+            padding: 20px;
         }
 
-        .quick-link-box h3 {
+        .greeting {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background-color: #0d2347;
+            border-radius: 10px;
+            padding: 18px;
+            border: 1px solid #1c355c;
+        }
+
+        .card-title {
+            font-size: 14px;
             color: #9bbcff;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .quick-link-box p {
+        .card-amount {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
             color: #d6e4ff;
-            font-size: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #0d2347;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #1c355c;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #102a52;
+            text-align: left;
+            color: #9bbcff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #0b1f3d;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #0d2347;
+        }
+
+        .amount-credit {
+            color: #4cd964;
+            font-weight: bold;
+        }
+
+        .amount-debit {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        .view-all {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .view-all a {
+            color: #9bbcff;
+            text-decoration: none;
+        }
+
+        .view-all a:hover {
+            color: #d6e4ff;
+        }
+
+        .loader {
+            border: 6px solid #1c355c;
+            border-top: 6px solid #9bbcff;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION BAR -->
-    <div class="navbar">
-        <div class="navbar-left">
-            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
-            <div class="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="profile.html">Profile</a>
-                <a href="transactions.html">Transactions</a>
-                <a href="transfer.html">Transfer</a>
-                <a href="savings.html">Savings</a>
-            </div>
-        </div>
+    <script>
+        if (!localStorage.getItem("loggedIn")) {
+            window.location.href = "index.html";
+        }
+    </script>
 
-        <div class="navbar-right">
-            <img src="eric_todd.jpeg" alt="Profile Photo">
+    <!-- Loading screen -->
+    <div id="loadingScreen" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: #0a1a33;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 99999;
+        color: white;
+        font-family: Arial, sans-serif;
+    ">
+        <div class="loader"></div>
+        <p style="margin-top: 20px; font-size: 18px; color: #9bbcff;">
+            Loading your account…
+        </p>
+    </div>
+
+    <!-- Welcome popup -->
+    <div id="welcomePopup" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: fadeIn 0.6s ease forwards;
+    ">
+        <div style="
+            background: #0d2347;
+            padding: 30px;
+            width: 90%;
+            max-width: 350px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #1c355c;
+            transform: translateY(-40px);
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        ">
+            <h2 style="color:#9bbcff; margin-bottom:15px;">Welcome Back!</h2>
+            <p style="color:#d6e4ff; font-size:16px; margin-bottom:20px;">
+                You have successfully logged in, Eric Todd.
+            </p>
+            <button onclick="closeWelcome()" style="
+                padding: 12px 20px;
+                background-color: #1a4fa3;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
+            ">Continue</button>
         </div>
     </div>
 
-    <!-- DASHBOARD CONTENT -->
-    <div class="dashboard-container">
+    <header>
+        <div class="left">
+            <img src="VUB.png" alt="Bank Logo">
+            <h1>Veterans Ultimate Bank</h1>
+        </div>
+        <div class="right">
+            <span>Welcome, <strong>Eric Todd</strong></span>
+            <span><a id="logoutBtn">Logout</a></span>
+        </div>
+    </header>
 
-        <div class="welcome">Welcome back, Eric Todd</div>
+    <div class="container">
+        <div class="greeting">
+            Good afternoon, <strong>Eric Todd</strong>. Here is an overview of your accounts.
+        </div>
 
-        <!-- ACCOUNT SUMMARY -->
-        <div class="account-summary">
-            <h2>Account Summary</h2>
-
-            <!-- CHECKING -->
-            <div class="account-card">
-                <h3>Primary Checking</h3>
-                <p class="balance">$629,890,072.00 USD</p>
-                <p class="label">Available Balance</p>
+        <div class="cards">
+            <div class="card">
+                <div class="card-title">Checking Balance</div>
+                <div class="card-amount">$629,789,892.08</div>
             </div>
-
-            <!-- SAVINGS -->
-            <div class="account-card">
-                <h3>Savings Account</h3>
-                <p class="balance">$98,589,100.03 USD</p>
-                <p class="label">Available Balance</p>
+            <div class="card">
+                <div class="card-title">Savings Balance</div>
+                <div class="card-amount">$95,537,926.00</div>
             </div>
         </div>
 
-        <!-- QUICK LINKS -->
-        <div class="quick-links">
-            <div class="quick-link-box" onclick="window.location.href='transactions.html'">
-                <h3>View Transactions</h3>
-                <p>Review your full transaction history</p>
-            </div>
+        <div class="section-title">Recent Transactions</div>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Amount</th>
+            </tr>
+            <tr><td>2026-05-16</td><td>Incoming Wire – Investment Partner</td><td>Credit</td><td class="amount-credit">$500,000.00</td></tr>
+            <tr><td>2026-05-15</td><td>International Wire Transfer – Incoming</td><td>Credit</td><td class="amount-credit">$250,000.00</td></tr>
+            <tr><td>2026-05-14</td><td>Business Vendor Payment</td><td>Debit</td><td class="amount-debit">-$18,500.00</td></tr>
+            <tr><td>2026-05-13</td><td>Online Purchase – Electronics</td><td>Debit</td><td class="amount-debit">-$2,999.00</td></tr>
+            <tr><td>2026-05-12</td><td>ATM Withdrawal – Tampa</td><td>Debit</td><td class="amount-debit">-$800.00</td></tr>
+            <tr><td>2026-05-10</td><td>Payroll Deposit</td><td>Credit</td><td class="amount-credit">$8,500.00</td></tr>
+            <tr><td>2026-05-09</td><td>Restaurant – Family Dinner</td><td>Debit</td><td class="amount-debit">-$420.00</td></tr>
+        </table>
 
-            <div class="quick-link-box" onclick="window.location.href='transfer.html'">
-                <h3>Transfer Money</h3>
-                <p>Send money securely to any bank</p>
-            </div>
-
-            <div class="quick-link-box" onclick="window.location.href='savings.html'">
-                <h3>Savings Account</h3>
-                <p>View savings balance and growth</p>
-            </div>
-
-            <div class="quick-link-box" onclick="window.location.href='profile.html'">
-                <h3>Profile Settings</h3>
-                <p>Manage your personal information</p>
-            </div>
+        <div class="view-all">
+            View full history: <a href="transactions.html">See all transactions</a>
         </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("loadingScreen").style.display = "none";
+
+                if (localStorage.getItem("loggedIn") && !sessionStorage.getItem("welcomeShown")) {
+                    document.getElementById("welcomePopup").style.display = "flex";
+                    sessionStorage.setItem("welcomeShown", "true");
+                }
+            }, 1500);
+        };
+
+        function closeWelcome() {
+            document.getElementById("welcomePopup").style.display = "none";
+        }
+
+        document.getElementById("logoutBtn").onclick = function () {
+            localStorage.removeItem("loggedIn");
+            sessionStorage.removeItem("welcomeShown");
+            window.location.href = "index.html";
+        };
+    </script>
+
+</body>
+</html>
 
     </div>
 
