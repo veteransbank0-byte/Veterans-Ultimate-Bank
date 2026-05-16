@@ -7,23 +7,58 @@ index.html
     <title>Veterans Unlimited Bank</title>
     <style>
         body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
+
+        /* NAVBAR */
         .top-nav {
-            background-color: #ffffff; border-bottom: 1px solid #ddd;
-            padding: 10px 30px; display: flex; align-items: center; justify-content: space-between;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .nav-left { display: flex; align-items: center; gap: 10px; }
-        .nav-left img { height: 40px; border-radius: 4px; }
-        .bank-name { font-size: 22px; font-weight: bold; color: #0a3d62; }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: #333; font-size: 14px; }
-        .nav-links a:hover { color: #0a3d62; }
-        .main-wrapper { display: flex; justify-content: center; padding: 40px 20px; }
+
+        .nav-left img {
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-center a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .nav-center a:hover { color: #0a3d62; }
+
+        .profile-pic {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* MAIN */
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
         .hero-content { max-width: 600px; margin-right: 40px; }
         .hero-title { font-size: 32px; color: #0a3d62; margin-bottom: 10px; }
         .hero-text { font-size: 16px; line-height: 1.6; color: #444; }
+
         .login-panel {
-            width: 320px; background-color: #ffffff; border-radius: 6px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.08); padding: 20px;
+            width: 320px;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.08);
+            padding: 20px;
         }
+
         .login-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #0a3d62; }
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; font-size: 13px; margin-bottom: 4px; color: #555; }
@@ -31,12 +66,15 @@ index.html
             width: 100%; padding: 8px; font-size: 14px;
             border: 1px solid #ccc; border-radius: 4px;
         }
+
         .login-button {
             width: 100%; margin-top: 10px; padding: 10px;
             background-color: #0a3d62; color: #ffffff; border: none;
             border-radius: 4px; font-size: 15px; cursor: pointer; font-weight: bold;
         }
+
         .login-button:hover { background-color: #064066; }
+
         footer {
             margin-top: 40px; padding: 20px 30px; font-size: 12px;
             color: #777; border-top: 1px solid #ddd; background-color: #ffffff; text-align: center;
@@ -48,12 +86,16 @@ index.html
 <div class="top-nav">
     <div class="nav-left">
         <img src="YOUR-LOGO.png" alt="Veterans Unlimited Bank Logo">
-        <span class="bank-name">Veterans Unlimited Bank</span>
     </div>
-    <div class="nav-links">
+
+    <div class="nav-center">
         <a href="index.html">Home</a>
         <a href="dashboard.html">Accounts</a>
         <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic">
     </div>
 </div>
 
