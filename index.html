@@ -6,149 +6,40 @@ index.html
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterans Unlimited Bank</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #1a1a1a;
-        }
-
-        /* Top nav */
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
         .top-nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            background-color: #ffffff; border-bottom: 1px solid #ddd;
+            padding: 10px 30px; display: flex; align-items: center; justify-content: space-between;
         }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-left img {
-            height: 40px;
-            border-radius: 4px;
-        }
-
-        .bank-name {
-            font-size: 22px;
-            font-weight: bold;
-            color: #0a3d62;
-        }
-
-        .nav-links a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #333;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: #0a3d62;
-        }
-
-        /* Main layout */
-        .main-wrapper {
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            margin-right: 40px;
-        }
-
-        .hero-title {
-            font-size: 32px;
-            color: #0a3d62;
-            margin-bottom: 10px;
-        }
-
-        .hero-text {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        /* Login panel */
+        .nav-left { display: flex; align-items: center; gap: 10px; }
+        .nav-left img { height: 40px; border-radius: 4px; }
+        .bank-name { font-size: 22px; font-weight: bold; color: #0a3d62; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: #333; font-size: 14px; }
+        .nav-links a:hover { color: #0a3d62; }
+        .main-wrapper { display: flex; justify-content: center; padding: 40px 20px; }
+        .hero-content { max-width: 600px; margin-right: 40px; }
+        .hero-title { font-size: 32px; color: #0a3d62; margin-bottom: 10px; }
+        .hero-text { font-size: 16px; line-height: 1.6; color: #444; }
         .login-panel {
-            width: 320px;
-            background-color: #ffffff;
-            border-radius: 6px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.08);
-            padding: 20px;
+            width: 320px; background-color: #ffffff; border-radius: 6px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.08); padding: 20px;
         }
-
-        .login-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #0a3d62;
-        }
-
-        .form-group {
-            margin-bottom: 12px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 4px;
-            color: #555;
-        }
-
+        .login-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #0a3d62; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 13px; margin-bottom: 4px; color: #555; }
         .form-group input {
-            width: 100%;
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            width: 100%; padding: 8px; font-size: 14px;
+            border: 1px solid #ccc; border-radius: 4px;
         }
-
         .login-button {
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #0a3d62;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            font-size: 15px;
-            cursor: pointer;
-            font-weight: bold;
+            width: 100%; margin-top: 10px; padding: 10px;
+            background-color: #0a3d62; color: #ffffff; border: none;
+            border-radius: 4px; font-size: 15px; cursor: pointer; font-weight: bold;
         }
-
-        .login-button:hover {
-            background-color: #064066;
-        }
-
-        .login-links {
-            margin-top: 10px;
-            font-size: 12px;
-        }
-
-        .login-links a {
-            color: #0a3d62;
-            text-decoration: none;
-        }
-
-        .login-links a:hover {
-            text-decoration: underline;
-        }
-
+        .login-button:hover { background-color: #064066; }
         footer {
-            margin-top: 40px;
-            padding: 20px 30px;
-            font-size: 12px;
-            color: #777;
-            border-top: 1px solid #ddd;
-            background-color: #ffffff;
-            text-align: center;
+            margin-top: 40px; padding: 20px 30px; font-size: 12px;
+            color: #777; border-top: 1px solid #ddd; background-color: #ffffff; text-align: center;
         }
     </style>
 </head>
@@ -163,7 +54,6 @@ index.html
         <a href="index.html">Home</a>
         <a href="dashboard.html">Accounts</a>
         <a href="profile.html">Profile</a>
-        <a href="#">Support</a>
     </div>
 </div>
 
@@ -171,8 +61,8 @@ index.html
     <div class="hero-content">
         <h1 class="hero-title">Banking built for those who served.</h1>
         <p class="hero-text">
-            Veterans Unlimited Bank delivers secure, modern digital banking designed specifically for veterans and their families.
-            Manage your accounts, track your spending, and access financial tools with confidence—anytime, anywhere.
+            Welcome back, <strong>Eric Todd</strong>.  
+            Manage your finances with secure, modern digital banking designed for veterans.
         </p>
     </div>
 
@@ -180,24 +70,20 @@ index.html
         <div class="login-title">Sign in to your account</div>
         <form action="dashboard.html" method="get">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input id="username" type="text" name="username" placeholder="Enter username">
+                <label>Username</label>
+                <input type="text" placeholder="Enter username">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" type="password" name="password" placeholder="Enter password">
+                <label>Password</label>
+                <input type="password" placeholder="Enter password">
             </div>
             <button class="login-button" type="submit">Sign in</button>
         </form>
-        <div class="login-links">
-            <a href="#">Forgot username or password?</a><br>
-            <a href="#">Not enrolled? Sign up now</a>
-        </div>
     </div>
 </div>
 
 <footer>
-    © 2026 Veterans Unlimited Bank — Built by Veterans, for Veterans. All rights reserved.
+    © 2026 Veterans Unlimited Bank — Built by Veterans, for Veterans.
 </footer>
 
 </body>
