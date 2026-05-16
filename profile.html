@@ -4,153 +4,119 @@ profile.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Veterans Unlimited Bank</title>
-    <style>
-        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
+    <title>Profile – Veterans Ultimate Bank</title>
 
-        /* NAVBAR */
-        .top-nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 30px;
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: white;
+        }
+
+        .navbar {
+            background-color: #0d2347;
+            padding: 15px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid #1c355c;
         }
 
-        .nav-left img { height: 40px; border-radius: 4px; }
-
-        .nav-center a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile | Veterans Unlimited Bank</title>
-    <style>
-        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
-
-        /* NAVBAR */
-        .top-nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 30px;
+        .navbar-left {
             display: flex;
             align-items: center;
-            justify-content: space-between;
         }
 
-        .nav-left img { height: 40px; border-radius: 4px; }
+        .navbar-left img {
+            height: 45px;
+            margin-right: 15px;
+        }
 
-        .nav-center a {
+        .navbar-links a {
             margin: 0 15px;
             text-decoration: none;
-            color: #333;
-            font-size: 15px;
+            color: #9bbcff;
             font-weight: bold;
         }
 
-        .nav-center a:hover { color: #0a3d62; }
-
-        .profile-pic {
-            height: 38px;
-            width: 38px;
+        .navbar-right img {
+            height: 45px;
+            width: 45px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        /* PROFILE PAGE */
-        .content {
-            max-width: 800px;
-            margin: 30px auto;
-            background-color: #ffffff;
-            padding: 20px 25px;
-            border-radius: 6px;
-            box-shadow: 0 0 6px rgba(0,0,0,0.05);
+        .profile-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #0d2347;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #1c355c;
         }
 
-        .section-title { font-size: 20px; color: #0a3d62; margin-bottom: 15px; }
+        .profile-header {
+            text-align: center;
+        }
 
-        .profile-large {
+        .profile-header img {
             height: 120px;
             width: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #0a3d62;
+            margin-bottom: 15px;
         }
 
-        .field-group { margin-bottom: 12px; }
-        .field-label { font-size: 13px; color: #555; margin-bottom: 3px; }
-        .field-value { font-size: 15px; color: #222; }
+        .profile-header h2 {
+            margin: 0;
+            color: #9bbcff;
+        }
 
-        footer {
-            margin-top: 20px;
-            padding: 15px 30px;
-            font-size: 12px;
-            color: #777;
-            border-top: 1px solid #ddd;
-            background-color: #ffffff;
-            text-align: center;
+        .profile-details {
+            margin-top: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .profile-details strong {
+            color: #9bbcff;
         }
     </style>
 </head>
+
 <body>
 
-<div class="top-nav">
-    <div class="nav-left">
-        <img src="YOUR-LOGO.png" alt="Veterans Unlimited Bank Logo">
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <img src="eric_todd.jpeg" alt="Profile Photo">
+        </div>
     </div>
 
-    <div class="nav-center">
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Accounts</a>
-        <a href="profile.html">Profile</a>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="eric_todd.jpeg" alt="Profile Photo">
+            <h2>Eric Todd</h2>
+        </div>
+
+        <div class="profile-details">
+            <p><strong>Full Name:</strong> Eric Todd</p>
+            <p><strong>Email:</strong> herictodd66@gmail.com</p>
+            <p><strong>Date of Birth:</strong> 03/06/1957</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Location:</strong> Tampa, Florida, USA</p>
+        </div>
     </div>
-
-    <div class="nav-right">
-        <img src="eric_todd.jpeg" class="profile-pic">
-    </div>
-</div>
-
-<div class="content">
-    <h2 class="section-title">Profile & Settings</h2>
-
-    <div style="text-align:center; margin-bottom:20px;">
-        <img src="eric_todd.jpeg" class="profile-large">
-    </div>
-
-    <div class="field-group">
-        <div class="field-label">Full name</div>
-        <div class="field-value">Eric Todd</div>
-    </div>
-
-    <div class="field-group">
-        <div class="field-label">Email</div>
-        <div class="field-value">herictodd66@gmail.com</div>
-    </div>
-
-    <div class="field-group">
-        <div class="field-label">Date of birth</div>
-        <div class="field-value">March 06, 1957</div>
-    </div>
-
-    <div class="field-group">
-        <div class="field-label">Gender</div>
-        <div class="field-value">Male</div>
-    </div>
-
-    <div class="field-group">
-        <div class="field-label">Primary account balance</div>
-        <div class="field-value">$629,679,072.00 USD</div>
-    </div>
-</div>
-
-<footer>
-    © 2026 Veterans Unlimited Bank — All rights reserved.
-</footer>
 
 </body>
 </html>
