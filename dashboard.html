@@ -1,0 +1,123 @@
+dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Veterans Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #1a1a1a;
+        }
+
+        /* Top Navigation */
+        header {
+            background-color: #0a3d62;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Dashboard Container */
+        .dashboard {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #0a3d62;
+            font-size: 22px;
+        }
+
+        .balance {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #1a1a1a;
+        }
+
+        .actions button {
+            background-color: #0a3d62;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .actions button:hover {
+            background-color: #07415a;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background-color: #0a3d62;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    Veterans Bank — Dashboard
+</header>
+
+<div class="dashboard">
+
+    <!-- Account Balance -->
+    <div class="card">
+        <h3>Account Balance</h3>
+        <div class="balance">$629,890,007.00 USD</div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card">
+        <h3>Quick Actions</h3>
+        <div class="actions">
+            <button>Transfer Money</button>
+            <button>View Transactions</button>
+            <button>Deposit Check</button>
+            <button>Pay Bills</button>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="card">
+        <h3>Recent Activity</h3>
+        <p>• Deposit — $1,200.00</p>
+        <p>• Grocery Store — $85.40</p>
+        <p>• Gas Station — $42.10</p>
+        <p>• Online Purchase — $120.00</p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Veterans Bank — All Rights Reserved.
+</footer>
+
+</body>
+</html>
