@@ -14,168 +14,231 @@ transactions.html
             color: white;
         }
 
-        /* NAVIGATION BAR */
-        .navbar {
-            background-color: #0d2347;
-            padding: 15px 40px;
+        header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #0d2347;
             border-bottom: 1px solid #1c355c;
         }
 
-        .navbar-left {
+        header .left {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        .navbar-left img {
-            height: 45px;
-            margin-right: 15px;
+        header img {
+            height: 40px;
         }
 
-        .navbar-links a {
-            margin: 0 15px;
-            text-decoration: none;
+        header h1 {
+            font-size: 20px;
+            margin: 0;
             color: #9bbcff;
-            font-weight: bold;
         }
 
-        .navbar-links a:hover {
+        header .right {
+            text-align: right;
+            font-size: 14px;
+        }
+
+        #logoutBtn {
+            color: #ff4d4d;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section-title {
+            margin-bottom: 10px;
+            font-size: 18px;
             color: #d6e4ff;
         }
 
-        .navbar-right img {
-            height: 45px;
-            width: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* CONTAINER */
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 40px auto;
-            background-color: #0d2347;
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid #1c355c;
-        }
-
-        h2 {
-            color: #9bbcff;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 30px;
-        }
-
-        /* TABLE */
         table {
             width: 100%;
             border-collapse: collapse;
-            color: #d6e4ff;
+            background-color: #0d2347;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #1c355c;
         }
 
         th, td {
-            padding: 14px;
-            border-bottom: 1px solid #1c355c;
-            text-align: left;
-            font-size: 16px;
+            padding: 10px 12px;
+            font-size: 14px;
         }
 
         th {
-            background-color: #0a1f3d;
+            background-color: #102a52;
+            text-align: left;
             color: #9bbcff;
         }
 
-        tr:hover {
-            background-color: #112a4d;
+        tr:nth-child(even) {
+            background-color: #0b1f3d;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #0d2347;
+        }
+
+        .amount-credit {
+            color: #4cd964;
+            font-weight: bold;
+        }
+
+        .amount-debit {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        a.nav-link {
+            color: #9bbcff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a.nav-link:hover {
+            color: #d6e4ff;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- NAVIGATION BAR -->
-    <div class="navbar">
-        <div class="navbar-left">
-            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
-            <div class="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="profile.html">Profile</a>
-                <a href="transactions.html">Transactions</a>
-                <a href="transfer.html">Transfer</a>
-            </div>
-        </div>
+    <script>
+        if (!localStorage.getItem("loggedIn")) {
+            window.location.href = "index.html";
+        }
+    </script>
 
-        <div class="navbar-right">
-            <img src="eric_todd.jpeg" alt="Profile Photo">
+    <header>
+        <div class="left">
+            <img src="VUB.png" alt="Bank Logo">
+            <h1>Veterans Ultimate Bank</h1>
         </div>
-    </div>
+        <div class="right">
+            <span>Transactions</span>
+            <span><a id="logoutBtn">Logout</a></span>
+        </div>
+    </header>
 
-    <!-- TRANSACTIONS CONTENT -->
     <div class="container">
-        <h2>Transaction History</h2>
+        <div class="section-title">Full Transaction History</div>
 
         <table>
             <tr>
                 <th>Date</th>
                 <th>Description</th>
-                <th>Amount</th>
                 <th>Type</th>
+                <th>Amount</th>
+                <th>Balance After</th>
             </tr>
 
             <!-- MAY 2026 -->
-            <tr><td>05/06/2026</td><td>Greg Carter Sent Money</td><td style="color:#4cd964;">+ $45,000.00</td><td>Credit</td></tr>
-            <tr><td>05/06/2026</td><td>Orphanage Home Withdrawal</td><td style="color:#ff4d4d;">- $30,000.00</td><td>Debit</td></tr>
+            <tr><td>2026-05-16</td><td>Incoming Wire – Investment Partner</td><td>Credit</td><td class="amount-credit">$500,000.00</td><td>$630,289,892.08</td></tr>
 
-            <tr><td>05/05/2026</td><td>Daughter School Fee Deposit</td><td style="color:#4cd964;">+ $20,000.00</td><td>Credit</td></tr>
-            <tr><td>05/04/2026</td><td>Cashier Payment</td><td style="color:#ff4d4d;">- $1,500.00</td><td>Debit</td></tr>
-            <tr><td>05/03/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
-            <tr><td>05/02/2026</td><td>ATM Withdrawal</td><td style="color:#ff4d4d;">- $300.00</td><td>Debit</td></tr>
-            <tr><td>05/01/2026</td><td>Electric Bill</td><td style="color:#ff4d4d;">- $210.00</td><td>Debit</td></tr>
+            <tr><td>2026-05-15</td><td>International Wire Transfer – Incoming</td><td>Credit</td><td class="amount-credit">$250,000.00</td><td>$629,789,892.08</td></tr>
+
+            <tr><td>2026-05-14</td><td>Business Vendor Payment</td><td>Debit</td><td class="amount-debit">-$18,500.00</td><td>$629,539,892.08</td></tr>
+
+            <tr><td>2026-05-13</td><td>Online Purchase – Electronics</td><td>Debit</td><td class="amount-debit">-$2,999.00</td><td>$629,558,392.08</td></tr>
+
+            <tr><td>2026-05-12</td><td>ATM Withdrawal – Tampa</td><td>Debit</td><td class="amount-debit">-$800.00</td><td>$629,561,391.08</td></tr>
+
+            <tr><td>2026-05-10</td><td>Payroll Deposit</td><td>Credit</td><td class="amount-credit">$8,500.00</td><td>$629,562,191.08</td></tr>
+
+            <!-- NEW: Daughter School Fees $30,500 -->
+            <tr><td>2026-05-08</td><td>Daughter School Fees</td><td>Debit</td><td class="amount-debit">-$30,500.00</td><td>$629,531,691.08</td></tr>
+
+            <tr><td>2026-05-09</td><td>Restaurant – Family Dinner</td><td>Debit</td><td class="amount-debit">-$420.00</td><td>$629,553,691.08</td></tr>
+
+            <!-- NEW: Greg Carter sent $45,000 -->
+            <tr><td>2026-05-06</td><td>Greg Carter – Incoming Transfer</td><td>Credit</td><td class="amount-credit">$45,000.00</td><td>$629,556,411.08</td></tr>
+
+            <tr><td>2026-05-06</td><td>Orphanage Home Donation</td><td>Debit</td><td class="amount-debit">-$30,000.00</td><td>$629,511,411.08</td></tr>
+
+            <tr><td>2026-05-05</td><td>ATM Cash Withdrawal</td><td>Debit</td><td class="amount-debit">-$400.00</td><td>$629,541,411.08</td></tr>
+
+            <tr><td>2026-05-03</td><td>Online Transfer to Savings</td><td>Debit</td><td class="amount-debit">-$5,000.00</td><td>$629,541,811.08</td></tr>
+
+            <tr><td>2026-05-01</td><td>Cashier Payment</td><td>Debit</td><td class="amount-debit">-$750.00</td><td>$629,546,811.08</td></tr>
 
             <!-- APRIL 2026 -->
-            <tr><td>04/30/2026</td><td>Water Bill</td><td style="color:#ff4d4d;">- $95.00</td><td>Debit</td></tr>
-            <tr><td>04/29/2026</td><td>Online Purchase</td><td style="color:#ff4d4d;">- $140.00</td><td>Debit</td></tr>
-            <tr><td>04/28/2026</td><td>Transfer Received</td><td style="color:#4cd964;">+ $3,500.00</td><td>Credit</td></tr>
-            <tr><td>04/27/2026</td><td>Restaurant</td><td style="color:#ff4d4d;">- $62.80</td><td>Debit</td></tr>
-            <tr><td>04/26/2026</td><td>Gas Station</td><td style="color:#ff4d4d;">- $48.20</td><td>Debit</td></tr>
-            <tr><td>04/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,200.00</td><td>Credit</td></tr>
-            <tr><td>04/24/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $132.40</td><td>Debit</td></tr>
-            <tr><td>04/23/2026</td><td>Pharmacy</td><td style="color:#ff4d4d;">- $28.60</td><td>Debit</td></tr>
-            <tr><td>04/22/2026</td><td>Transfer Sent</td><td style="color:#ff4d4d;">- $500.00</td><td>Debit</td></tr>
-            <tr><td>04/21/2026</td><td>Mobile Deposit</td><td style="color:#4cd964;">+ $2,000.00</td><td>Credit</td></tr>
-            <tr><td>04/20/2026</td><td>Insurance Payment</td><td style="color:#ff4d4d;">- $350.00</td><td>Debit</td></tr>
+            <tr><td>2026-04-28</td><td>Incoming Wire – Business Partner</td><td>Credit</td><td class="amount-credit">$120,000.00</td><td>$629,547,561.08</td></tr>
+
+            <tr><td>2026-04-25</td><td>Online Purchase – Equipment</td><td>Debit</td><td class="amount-debit">-$12,900.00</td><td>$629,427,561.08</td></tr>
+
+            <tr><td>2026-04-22</td><td>Fuel Station</td><td>Debit</td><td class="amount-debit">-$120.00</td><td>$629,440,461.08</td></tr>
+
+            <tr><td>2026-04-20</td><td>ATM Withdrawal</td><td>Debit</td><td class="amount-debit">-$500.00</td><td>$629,440,581.08</td></tr>
+
+            <tr><td>2026-04-18</td><td>Incoming Transfer – Business Refund</td><td>Credit</td><td class="amount-credit">$9,800.00</td><td>$629,441,081.08</td></tr>
+
+            <tr><td>2026-04-15</td><td>Payroll Deposit</td><td>Credit</td><td class="amount-credit">$8,500.00</td><td>$629,431,281.08</td></tr>
+
+            <tr><td>2026-04-10</td><td>Restaurant – Family Dinner</td><td>Debit</td><td class="amount-debit">-$320.00</td><td>$629,422,781.08</td></tr>
+
+            <tr><td>2026-04-05</td><td>Online Transfer to Savings</td><td>Debit</td><td class="amount-debit">-$10,000.00</td><td>$629,423,101.08</td></tr>
 
             <!-- MARCH 2026 -->
-            <tr><td>03/29/2026</td><td>Subscription Service</td><td style="color:#ff4d4d;">- $19.99</td><td>Debit</td></tr>
-            <tr><td>03/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $900.00</td><td>Credit</td></tr>
-            <tr><td>03/22/2026</td><td>Car Payment</td><td style="color:#ff4d4d;">- $450.00</td><td>Debit</td></tr>
-            <tr><td>03/18/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
-            <tr><td>03/15/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $118.20</td><td>Debit</td></tr>
+            <tr><td>2026-03-30</td><td>Incoming Wire – Investment Return</td><td>Credit</td><td class="amount-credit">$300,000.00</td><td>$629,433,101.08</td></tr>
+
+            <tr><td>2026-03-25</td><td>Car Maintenance</td><td>Debit</td><td class="amount-debit">-$1,200.00</td><td>$629,133,101.08</td></tr>
+
+            <tr><td>2026-03-20</td><td>ATM Withdrawal</td><td>Debit</td><td class="amount-debit">-$600.00</td><td>$629,134,301.08</td></tr>
+
+            <tr><td>2026-03-18</td><td>Incoming Transfer – Client Payment</td><td>Credit</td><td class="amount-credit">$15,000.00</td><td>$629,134,901.08</td></tr>
+
+            <tr><td>2026-03-15</td><td>Payroll Deposit</td><td>Credit</td><td class="amount-credit">$8,500.00</td><td>$629,119,901.08</td></tr>
+
+            <tr><td>2026-03-10</td><td>Online Transfer to Savings</td><td>Debit</td><td class="amount-debit">-$7,500.00</td><td>$629,111,401.08</td></tr>
 
             <!-- FEBRUARY 2026 -->
-            <tr><td>02/28/2026</td><td>Gas Station</td><td style="color:#ff4d4d;">- $52.10</td><td>Debit</td></tr>
-            <tr><td>02/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,000.00</td><td>Credit</td></tr>
-            <tr><td>02/20/2026</td><td>Restaurant</td><td style="color:#ff4d4d;">- $74.50</td><td>Debit</td></tr>
-            <tr><td>02/15/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
+            <tr><td>2026-02-28</td><td>Incoming Wire – Contract Payment</td><td>Credit</td><td class="amount-credit">$500,000.00</td><td>$629,118,901.08</td></tr>
+
+            <tr><td>2026-02-20</td><td>ATM Withdrawal</td><td>Debit</td><td class="amount-debit">-$900.00</td><td>$628,618,901.08</td></tr>
+
+            <tr><td>2026-02-18</td><td>Online Purchase – Travel Booking</td><td>Debit</td><td class="amount-debit">-$2,450.00</td><td>$628,619,801.08</td></tr>
+
+            <tr><td>2026-02-15</td><td>Payroll Deposit</td><td>Credit</td><td class="amount-credit">$8,500.00</td><td>$628,621,251.08</td></tr>
+
+            <tr><td>2026-02-10</td><td>Online Transfer to Savings</td><td>Debit</td><td class="amount-debit">-$6,000.00</td><td>$628,612,751.08</td></tr>
 
             <!-- JANUARY 2026 -->
-            <tr><td>01/30/2026</td><td>Electric Bill</td><td style="color:#ff4d4d;">- $205.00</td><td>Debit</td></tr>
-            <tr><td>01/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,500.00</td><td>Credit</td></tr>
-            <tr><td>01/20/2026</td><td>Water Bill</td><td style="color:#ff4d4d;">- $92.00</td><td>Debit</td></tr>
-            <tr><td>01/15/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
-            <tr><td>01/10/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $145.60</td><td>Debit</td></tr>
-            <tr><td>01/05/2026</td><td>ATM Withdrawal</td><td style="color:#ff4d4d;">- $200.00</td><td>Debit</td></tr>
+            <tr><td>2026-01-30</td><td>Incoming Wire – Investment Partner</td><td>Credit</td><td class="amount-credit">$750,000.00</td><td>$628,618,751.08</td></tr>
+
+            <tr><td>2026-01-25</td><td>Utility Bill – Electricity</td><td>Debit</td><td class="amount-debit">-$380.00</td><td>$627,868,751.08</td></tr>
+
+            <tr><td>2026-01-20</td><td>ATM Withdrawal</td><td>Debit</td><td class="amount-debit">-$1,000.00</td><td>$627,869,131.08</td></tr>
+
+            <tr><td>2026-01-18</td><td>Incoming Transfer – Refund</td><td>Credit</td><td class="amount-credit">$2,200.00</td><td>$627,870,131.08</td></tr>
+
+            <tr><td>2026-01-15</td><td>Payroll Deposit</td><td>Credit</td><td class="amount-credit">$8,500.00</td><td>$627,867,931.08</td></tr>
+
+            <tr><td>2026-01-10</td><td>Online Transfer to Savings</td><td>Debit</td><td class="amount-debit">-$5,000.00</td><td>$627,859,431.08</td></tr>
 
         </table>
+
+        <p style="margin-top:15px;">
+            <a class="nav-link" href="dashboard.html">Back to Dashboard</a>
+        </p>
     </div>
+
+    <script>
+        document.getElementById("logoutBtn").onclick = function () {
+            localStorage.removeItem("loggedIn");
+            sessionStorage.removeItem("welcomeShown");
+            window.location.href = "index.html";
+        };
+    </script>
 
 </body>
 </html>
-<script>
-    if (!localStorage.getItem("loggedIn")) {
-        window.location.href = "index.html
