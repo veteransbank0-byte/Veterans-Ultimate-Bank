@@ -15,132 +15,193 @@ savings-history.html
         }
 
         /* NAVIGATION BAR */
-        .navbar {
-            background-color: #0d2347;
-            padding: 15px 40px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings History – Veterans Ultimate Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: white;
+        }
+
+        header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #0d2347;
             border-bottom: 1px solid #1c355c;
         }
 
-        .navbar-left {
+        header .left {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        .navbar-left img {
-            height: 45px;
-            margin-right: 15px;
+        header img {
+            height: 40px;
         }
 
-        .navbar-links a {
-            margin: 0 15px;
-            text-decoration: none;
+        header h1 {
+            font-size: 20px;
+            margin: 0;
             color: #9bbcff;
-            font-weight: bold;
         }
 
-        .navbar-links a:hover {
+        header .right {
+            text-align: right;
+            font-size: 14px;
+        }
+
+        #logoutBtn {
+            color: #ff4d4d;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section-title {
+            margin-bottom: 10px;
+            font-size: 18px;
             color: #d6e4ff;
         }
 
-        .navbar-right img {
-            height: 45px;
-            width: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* MAIN CONTAINER */
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 40px auto;
-            background-color: #0d2347;
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid #1c355c;
-        }
-
-        h2 {
-            color: #9bbcff;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 30px;
-        }
-
-        /* TABLE */
         table {
             width: 100%;
             border-collapse: collapse;
-            color: #d6e4ff;
+            background-color: #0d2347;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #1c355c;
         }
 
         th, td {
-            padding: 14px;
-            border-bottom: 1px solid #1c355c;
-            text-align: left;
-            font-size: 16px;
+            padding: 10px 12px;
+            font-size: 14px;
         }
 
         th {
-            background-color: #0a1f3d;
+            background-color: #102a52;
+            text-align: left;
             color: #9bbcff;
         }
 
-        tr:hover {
-            background-color: #112a4d;
+        tr:nth-child(even) {
+            background-color: #0b1f3d;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #0d2347;
+        }
+
+        .amount-credit {
+            color: #4cd964;
+            font-weight: bold;
+        }
+
+        .amount-debit {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        a.nav-link {
+            color: #9bbcff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a.nav-link:hover {
+            color: #d6e4ff;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- NAVIGATION BAR -->
-    <div class="navbar">
-        <div class="navbar-left">
-            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
-            <div class="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="profile.html">Profile</a>
-                <a href="transactions.html">Checking Transactions</a>
-                <a href="transfer.html">Transfer</a>
-                <a href="savings.html">Savings</a>
-                <a href="savings-history.html">Savings History</a>
-            </div>
-        </div>
+<script>
+    if (!localStorage.getItem("loggedIn")) {
+        window.location.href = "index.html";
+    }
+</script>
 
-        <div class="navbar-right">
-            <img src="eric_todd.jpeg" alt="Profile Photo">
-        </div>
+<header>
+    <div class="left">
+        <img src="VUB.png" alt="Bank Logo">
+        <h1>Veterans Ultimate Bank</h1>
     </div>
-
-    <!-- SAVINGS TRANSACTION HISTORY -->
-    <div class="container">
-        <h2>Savings Transaction History</h2>
-
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Amount</th>
-                <th>Type</th>
-            </tr>
-
-            <!-- SAVINGS TRANSACTIONS -->
-            <tr><td>05/05/2026</td><td>Daughter School Fee Deposit</td><td style="color:#4cd964;">+ $20,000.00</td><td>Credit</td></tr>
-            <tr><td>04/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,200.00</td><td>Credit</td></tr>
-            <tr><td>03/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $900.00</td><td>Credit</td></tr>
-            <tr><td>02/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,000.00</td><td>Credit</td></tr>
-            <tr><td>01/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,500.00</td><td>Credit</td></tr>
-
-        </table>
+    <div class="right">
+        <span>Savings Account History</span>
+        <span><a id="logoutBtn">Logout</a></span>
     </div>
+</header>
+
+<div class="container">
+    <div class="section-title">Savings Account Transactions</div>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Savings Balance After</th>
+        </tr>
+
+        <!-- MAY 2026 -->
+        <tr><td>2026-05-03</td><td>Transfer from Checking</td><td>Credit</td><td class="amount-credit">$5,000.00</td><td>$95,537,926.00</td></tr>
+        <tr><td>2026-05-01</td><td>Interest Earned</td><td>Credit</td><td class="amount-credit">$1,250.00</td><td>$95,532,926.00</td></tr>
+
+        <!-- APRIL 2026 -->
+        <tr><td>2026-04-20</td><td>Transfer to Checking</td><td>Debit</td><td class="amount-debit">-$2,000.00</td><td>$95,531,676.00</td></tr>
+        <tr><td>2026-04-05</td><td>Transfer from Checking</td><td>Credit</td><td class="amount-credit">$10,000.00</td><td>$95,533,676.00</td></tr>
+        <tr><td>2026-04-01</td><td>Interest Earned</td><td>Credit</td><td class="amount-credit">$1,200.00</td><td>$95,523,676.00</td></tr>
+
+        <!-- MARCH 2026 -->
+        <tr><td>2026-03-18</td><td>Transfer to Checking</td><td>Debit</td><td class="amount-debit">-$1,500.00</td><td>$95,522,476.00</td></tr>
+        <tr><td>2026-03-10</td><td>Transfer from Checking</td><td>Credit</td><td class="amount-credit">$7,500.00</td><td>$95,523,976.00</td></tr>
+        <tr><td>2026-03-01</td><td>Interest Earned</td><td>Credit</td><td class="amount-credit">$1,150.00</td><td>$95,516,476.00</td></tr>
+
+        <!-- FEBRUARY 2026 -->
+        <tr><td>2026-02-22</td><td>Transfer to Checking</td><td>Debit</td><td class="amount-debit">-$3,000.00</td><td>$95,515,326.00</td></tr>
+        <tr><td>2026-02-10</td><td>Transfer from Checking</td><td>Credit</td><td class="amount-credit">$6,000.00</td><td>$95,518,326.00</td></tr>
+        <tr><td>2026-02-01</td><td>Interest Earned</td><td>Credit</td><td class="amount-credit">$1,100.00</td><td>$95,512,326.00</td></tr>
+
+        <!-- JANUARY 2026 -->
+        <tr><td>2026-01-25</td><td>Transfer to Checking</td><td>Debit</td><td class="amount-debit">-$2,500.00</td><td>$95,511,226.00</td></tr>
+        <tr><td>2026-01-10</td><td>Transfer from Checking</td><td>Credit</td><td class="amount-credit">$5,000.00</td><td>$95,513,726.00</td></tr>
+        <tr><td>2026-01-01</td><td>Interest Earned</td><td>Credit</td><td class="amount-credit">$1,050.00</td><td>$95,508,726.00</td></tr>
+
+        <!-- DECEMBER 2025 -->
+        <tr><td>2025-12-28</td><td>Transfer to Checking</td><td>Debit</td><td class="amount-debit">-$4,000.00</td><td>$95,507,676.00</td></tr>
+        <tr><td>2025-12-15</td><td>Transfer from Checking</td><td>Credit</td><td class="amount-credit">$8,000.00</td><td>$95,511,676.00</td></tr>
+        <tr><td>2025-12-10</td><td>Holiday Bonus Deposit</td><td>Credit</td><td class="amount-credit">$12,500.00</td><td>$95,503,676.00</td></tr>
+        <tr><td>2025-12-01</td><td>Interest Earned</td><td>Credit</td><td class="amount-credit">$1,000.00</td><td>$95,491,176.00</td></tr>
+
+    </table>
+
+    <p style="margin-top:15px;">
+        <a class="nav-link" href="dashboard.html">Back to Dashboard</a>
+    </p>
+</div>
+
+<script>
+    document.getElementById("logoutBtn").onclick = function () {
+        localStorage.removeItem("loggedIn");
+        sessionStorage.removeItem("welcomeShown");
+        window.location.href = "index.html";
+    };
+</script>
 
 </body>
 </html>
-<script>
-    if (!localStorage.getItem("loggedIn")) {
-        window.location.href = "index.html
