@@ -1,0 +1,163 @@
+transactions.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions – Veterans Ultimate Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: white;
+        }
+
+        .navbar {
+            background-color: #0d2347;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #1c355c;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left img {
+            height: 45px;
+            margin-right: 15px;
+        }
+
+        .navbar-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #9bbcff;
+            font-weight: bold;
+        }
+
+        .navbar-right img {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+            background-color: #0d2347;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #1c355c;
+        }
+
+        h2 {
+            color: #9bbcff;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #d6e4ff;
+        }
+
+        th, td {
+            padding: 14px;
+            border-bottom: 1px solid #1c355c;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0a1f3d;
+            color: #9bbcff;
+        }
+
+        tr:hover {
+            background-color: #112a4d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
+                <a href="transactions.html">Transactions</a>
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <img src="eric_todd.jpeg" alt="Profile Photo">
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Transaction History</h2>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Type</th>
+            </tr>
+
+            <!-- MAY -->
+            <tr><td>05/05/2026</td><td>Daughter School Fee Deposit</td><td style="color:#4cd964;">+ $20,000.00</td><td>Credit</td></tr>
+            <tr><td>05/04/2026</td><td>Cashier Payment</td><td style="color:#ff4d4d;">- $1,500.00</td><td>Debit</td></tr>
+            <tr><td>05/03/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
+            <tr><td>05/02/2026</td><td>ATM Withdrawal</td><td style="color:#ff4d4d;">- $300.00</td><td>Debit</td></tr>
+            <tr><td>05/01/2026</td><td>Electric Bill</td><td style="color:#ff4d4d;">- $210.00</td><td>Debit</td></tr>
+
+            <!-- APRIL -->
+            <tr><td>04/30/2026</td><td>Water Bill</td><td style="color:#ff4d4d;">- $95.00</td><td>Debit</td></tr>
+            <tr><td>04/29/2026</td><td>Online Purchase</td><td style="color:#ff4d4d;">- $140.00</td><td>Debit</td></tr>
+            <tr><td>04/28/2026</td><td>Transfer Received</td><td style="color:#4cd964;">+ $3,500.00</td><td>Credit</td></tr>
+            <tr><td>04/27/2026</td><td>Restaurant</td><td style="color:#ff4d4d;">- $62.80</td><td>Debit</td></tr>
+            <tr><td>04/26/2026</td><td>Gas Station</td><td style="color:#ff4d4d;">- $48.20</td><td>Debit</td></tr>
+            <tr><td>04/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,200.00</td><td>Credit</td></tr>
+            <tr><td>04/24/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $132.40</td><td>Debit</td></tr>
+            <tr><td>04/23/2026</td><td>Pharmacy</td><td style="color:#ff4d4d;">- $28.60</td><td>Debit</td></tr>
+            <tr><td>04/22/2026</td><td>Transfer Sent</td><td style="color:#ff4d4d;">- $500.00</td><td>Debit</td></tr>
+            <tr><td>04/21/2026</td><td>Mobile Deposit</td><td style="color:#4cd964;">+ $2,000.00</td><td>Credit</td></tr>
+            <tr><td>04/20/2026</td><td>Insurance Payment</td><td style="color:#ff4d4d;">- $350.00</td><td>Debit</td></tr>
+
+            <!-- MARCH -->
+            <tr><td>03/29/2026</td><td>Subscription Service</td><td style="color:#ff4d4d;">- $19.99</td><td>Debit</td></tr>
+            <tr><td>03/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $900.00</td><td>Credit</td></tr>
+            <tr><td>03/22/2026</td><td>Car Payment</td><td style="color:#ff4d4d;">- $450.00</td><td>Debit</td></tr>
+            <tr><td>03/18/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
+            <tr><td>03/15/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $118.20</td><td>Debit</td></tr>
+
+            <!-- FEBRUARY -->
+            <tr><td>02/28/2026</td><td>Gas Station</td><td style="color:#ff4d4d;">- $52.10</td><td>Debit</td></tr>
+            <tr><td>02/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,000.00</td><td>Credit</td></tr>
+            <tr><td>02/20/2026</td><td>Restaurant</td><td style="color:#ff4d4d;">- $74.50</td><td>Debit</td></tr>
+            <tr><td>02/15/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
+
+            <!-- JANUARY -->
+            <tr><td>01/30/2026</td><td>Electric Bill</td><td style="color:#ff4d4d;">- $205.00</td><td>Debit</td></tr>
+            <tr><td>01/25/2026</td><td>Deposit</td><td style="color:#4cd964;">+ $1,500.00</td><td>Credit</td></tr>
+            <tr><td>01/20/2026</td><td>Water Bill</td><td style="color:#ff4d4d;">- $92.00</td><td>Debit</td></tr>
+            <tr><td>01/15/2026</td><td>Payroll Deposit</td><td style="color:#4cd964;">+ $8,750.00</td><td>Credit</td></tr>
+            <tr><td>01/10/2026</td><td>Grocery Store</td><td style="color:#ff4d4d;">- $145.60</td><td>Debit</td></tr>
+            <tr><td>01/05/2026</td><td>ATM Withdrawal</td><td style="color:#ff4d4d;">- $200.00</td><td>Debit</td></tr>
+
+        </table>
+    </div>
+
+</body>
+                                </html>
