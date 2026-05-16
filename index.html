@@ -14,6 +14,7 @@ index.html
             color: white;
         }
 
+        /* NAVIGATION BAR */
         .navbar {
             background-color: #0d2347;
             padding: 15px 40px;
@@ -40,6 +41,10 @@ index.html
             font-weight: bold;
         }
 
+        .navbar-links a:hover {
+            color: #d6e4ff;
+        }
+
         .navbar-right img {
             height: 45px;
             width: 45px;
@@ -47,31 +52,34 @@ index.html
             object-fit: cover;
         }
 
+        /* HERO SECTION */
         .hero {
-            padding: 80px 40px;
+            padding: 90px 40px;
             background-color: #0d2347;
             border-bottom: 1px solid #1c355c;
+            text-align: left;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 46px;
             color: #9bbcff;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
             color: #d6e4ff;
+            margin-bottom: 30px;
         }
 
         .hero button {
             background-color: #1a4fa3;
             color: white;
-            padding: 14px 28px;
+            padding: 16px 32px;
             border: none;
-            border-radius: 5px;
-            font-size: 18px;
+            border-radius: 6px;
+            font-size: 20px;
             cursor: pointer;
-            margin-top: 20px;
         }
 
         .hero button:hover {
@@ -82,6 +90,7 @@ index.html
 
 <body>
 
+    <!-- NAVIGATION BAR -->
     <div class="navbar">
         <div class="navbar-left">
             <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
@@ -89,6 +98,8 @@ index.html
                 <a href="index.html">Home</a>
                 <a href="dashboard.html">Dashboard</a>
                 <a href="profile.html">Profile</a>
+                <a href="transactions.html">Transactions</a>
+                <a href="transfer.html">Transfer</a>
             </div>
         </div>
 
@@ -97,9 +108,10 @@ index.html
         </div>
     </div>
 
+    <!-- HERO SECTION -->
     <div class="hero">
         <h1>Welcome to Veterans Ultimate Bank</h1>
-        <p>Secure. Reliable. Built for your financial freedom, Eric Todd.</p>
+        <p>Your trusted financial partner, built for security, reliability, and your future.</p>
         <button onclick="window.location.href='dashboard.html'">Access Your Account</button>
     </div>
 
