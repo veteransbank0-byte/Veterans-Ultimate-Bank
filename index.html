@@ -1,11 +1,10 @@
 index.html
-<!D<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterans Unlimited Bank</title>
-
     <style>
         body {
             margin: 0;
@@ -14,89 +13,191 @@ index.html
             color: #1a1a1a;
         }
 
-        header {
-            background-color: #0a3d62;
-            padding: 20px;
+        /* Top nav */
+        .top-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 30px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
+            justify-content: space-between;
         }
 
-        header img {
-            height: 55px;
-            width: auto;
-            border-radius: 6px;
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 30px;
+        .nav-left img {
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .bank-name {
+            font-size: 22px;
             font-weight: bold;
-            color: white;
+            color: #0a3d62;
         }
 
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background-color: #0a3d62;
-            color: white;
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
         }
 
-        .hero h2 {
-            font-size: 40px;
+        .nav-links a:hover {
+            color: #0a3d62;
+        }
+
+        /* Main layout */
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin-right: 40px;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            color: #0a3d62;
             margin-bottom: 10px;
         }
 
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
         }
 
-        .hero a {
-            background-color: white;
-            color: #0a3d62;
-            padding: 14px 28px;
-            font-size: 18px;
+        /* Login panel */
+        .login-panel {
+            width: 320px;
+            background-color: #ffffff;
             border-radius: 6px;
-            text-decoration: none;
+            box-shadow: 0 0 8px rgba(0,0,0,0.08);
+            padding: 20px;
+        }
+
+        .login-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #0a3d62;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #0a3d62;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
             font-weight: bold;
         }
 
-        .hero a:hover {
-            background-color: #e6e6e6;
+        .login-button:hover {
+            background-color: #064066;
+        }
+
+        .login-links {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        .login-links a {
+            color: #0a3d62;
+            text-decoration: none;
+        }
+
+        .login-links a:hover {
+            text-decoration: underline;
         }
 
         footer {
             margin-top: 40px;
+            padding: 20px 30px;
+            font-size: 12px;
+            color: #777;
+            border-top: 1px solid #ddd;
+            background-color: #ffffff;
             text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            background-color: #0a3d62;
-            color: white;
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <!-- ⭐ Your Logo -->
-    <img src="YOUR-LOGO-FILENAME.png" alt="Veterans Unlimited Bank Logo">
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Veterans Unlimited Bank Logo">
+        <span class="bank-name">Veterans Unlimited Bank</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Support</a>
+    </div>
+</div>
 
-    <h1>Veterans Unlimited Bank</h1>
-</header>
+<div class="main-wrapper">
+    <div class="hero-content">
+        <h1 class="hero-title">Banking built for those who served.</h1>
+        <p class="hero-text">
+            Veterans Unlimited Bank delivers secure, modern digital banking designed specifically for veterans and their families.
+            Manage your accounts, track your spending, and access financial tools with confidence—anytime, anywhere.
+        </p>
+    </div>
 
-<div class="hero">
-    <h2>Welcome to Veterans Unlimited Bank</h2>
-    <p>Your trusted financial partner with secure, veteran‑focused banking.</p>
-
-    <!-- ⭐ Button linking to profile page -->
-    <a href="profile.html">Access Your Account</a>
+    <div class="login-panel">
+        <div class="login-title">Sign in to your account</div>
+        <form action="dashboard.html" method="get">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" type="text" name="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" type="password" name="password" placeholder="Enter password">
+            </div>
+            <button class="login-button" type="submit">Sign in</button>
+        </form>
+        <div class="login-links">
+            <a href="#">Forgot username or password?</a><br>
+            <a href="#">Not enrolled? Sign up now</a>
+        </div>
+    </div>
 </div>
 
 <footer>
-    © 2026 Veterans Unlimited Bank — All Rights Reserved.
+    © 2026 Veterans Unlimited Bank — Built by Veterans, for Veterans. All rights reserved.
 </footer>
 
 </body>
