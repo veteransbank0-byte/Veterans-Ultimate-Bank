@@ -24,6 +24,31 @@ profile.html
             margin: 0 15px;
             text-decoration: none;
             color: #333;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Veterans Unlimited Bank</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
+
+        /* NAVBAR */
+        .top-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left img { height: 40px; border-radius: 4px; }
+
+        .nav-center a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
             font-size: 15px;
             font-weight: bold;
         }
@@ -37,48 +62,29 @@ profile.html
             object-fit: cover;
         }
 
-        /* LAYOUT */
-        .layout { display: flex; }
-
-        .sidebar {
-            width: 220px;
+        /* PROFILE PAGE */
+        .content {
+            max-width: 800px;
+            margin: 30px auto;
             background-color: #ffffff;
-            border-right: 1px solid #ddd;
-            padding: 20px 15px;
-            font-size: 14px;
-        }
-
-        .sidebar h3 {
-            margin-top: 0;
-            font-size: 14px;
-            color: #555;
-            text-transform: uppercase;
-        }
-
-        .sidebar a {
-            display: block;
-            margin: 8px 0;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .sidebar a:hover { color: #0a3d62; }
-
-        .content { flex: 1; padding: 20px 25px; }
-        .section-title { font-size: 20px; color: #0a3d62; margin-bottom: 15px; }
-
-        .account-card {
-            background-color: #ffffff;
+            padding: 20px 25px;
             border-radius: 6px;
-            padding: 15px 20px;
-            margin-bottom: 15px;
             box-shadow: 0 0 6px rgba(0,0,0,0.05);
         }
 
-        .account-name { font-size: 16px; font-weight: bold; margin-bottom: 5px; }
-        .account-number { font-size: 12px; color: #777; margin-bottom: 10px; }
-        .account-balance { font-size: 24px; font-weight: bold; color: #0a3d62; }
-        .subtext { font-size: 12px; color: #777; }
+        .section-title { font-size: 20px; color: #0a3d62; margin-bottom: 15px; }
+
+        .profile-large {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0a3d62;
+        }
+
+        .field-group { margin-bottom: 12px; }
+        .field-label { font-size: 13px; color: #555; margin-bottom: 3px; }
+        .field-value { font-size: 15px; color: #222; }
 
         footer {
             margin-top: 20px;
@@ -109,26 +115,36 @@ profile.html
     </div>
 </div>
 
-<div class="layout">
-    <div class="sidebar">
-        <h3>Accounts</h3>
-        <a href="#">Primary Checking</a>
-        <a href="#">Savings</a>
+<div class="content">
+    <h2 class="section-title">Profile & Settings</h2>
 
-        <h3>Transfers</h3>
-        <a href="#">Transfer money</a>
-        <a href="#">Pay bills</a>
+    <div style="text-align:center; margin-bottom:20px;">
+        <img src="eric_todd.jpeg" class="profile-large">
     </div>
 
-    <div class="content">
-        <h2 class="section-title">Welcome back, Eric</h2>
+    <div class="field-group">
+        <div class="field-label">Full name</div>
+        <div class="field-value">Eric Todd</div>
+    </div>
 
-        <div class="account-card">
-            <div class="account-name">Veterans Unlimited Primary Checking</div>
-            <div class="account-number">Account •••• •••• •••• 0072</div>
-            <div class="account-balance">$629,679,072.00</div>
-            <div class="subtext">Available balance (USD)</div>
-        </div>
+    <div class="field-group">
+        <div class="field-label">Email</div>
+        <div class="field-value">herictodd66@gmail.com</div>
+    </div>
+
+    <div class="field-group">
+        <div class="field-label">Date of birth</div>
+        <div class="field-value">March 06, 1957</div>
+    </div>
+
+    <div class="field-group">
+        <div class="field-label">Gender</div>
+        <div class="field-value">Male</div>
+    </div>
+
+    <div class="field-group">
+        <div class="field-label">Primary account balance</div>
+        <div class="field-value">$629,679,072.00 USD</div>
     </div>
 </div>
 
