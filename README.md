@@ -1,5 +1,4 @@
 # Veterans-Ultimate-Bank
-# Veterans Ultimate Bank
 
 Veterans Ultimate Bank is a modern digital banking platform created to provide veterans with secure, reliable, and accessible financial services. Our mission is to deliver a clean, professional, and user‑friendly online banking experience built with integrity and purpose.
 
