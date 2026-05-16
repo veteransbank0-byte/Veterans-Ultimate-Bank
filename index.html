@@ -4,129 +4,99 @@ index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterans Unlimited Bank</title>
-    <style>
-        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
+    <title>Veterans Ultimate Bank – Home</title>
 
-        /* NAVBAR */
-        .top-nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 30px;
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 15px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid #d9d9d9;
         }
 
-        .nav-left img {
-            height: 40px;
-            border-radius: 4px;
+        .navbar-left {
+            display: flex;
+            align-items: center;
         }
 
-        .nav-center a {
+        .navbar-left img {
+            height: 45px;
+            margin-right: 15px;
+        }
+
+        .navbar-links a {
             margin: 0 15px;
             text-decoration: none;
-            color: #333;
-            font-size: 15px;
+            color: #0a2a66;
             font-weight: bold;
         }
 
-        .nav-center a:hover { color: #0a3d62; }
-
-        .profile-pic {
-            height: 38px;
-            width: 38px;
+        .navbar-right img {
+            height: 45px;
+            width: 45px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        /* MAIN */
-        .main-wrapper {
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
+        .hero {
+            background-color: white;
+            padding: 80px 40px;
+            border-bottom: 1px solid #d9d9d9;
         }
 
-        .hero-content { max-width: 600px; margin-right: 40px; }
-        .hero-title { font-size: 32px; color: #0a3d62; margin-bottom: 10px; }
-        .hero-text { font-size: 16px; line-height: 1.6; color: #444; }
-
-        .login-panel {
-            width: 320px;
-            background-color: #ffffff;
-            border-radius: 6px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.08);
-            padding: 20px;
+        .hero h1 {
+            font-size: 42px;
+            color: #0a2a66;
         }
 
-        .login-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #0a3d62; }
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 13px; margin-bottom: 4px; color: #555; }
-        .form-group input {
-            width: 100%; padding: 8px; font-size: 14px;
-            border: 1px solid #ccc; border-radius: 4px;
+        .hero p {
+            font-size: 20px;
+            color: #333;
         }
 
-        .login-button {
-            width: 100%; margin-top: 10px; padding: 10px;
-            background-color: #0a3d62; color: #ffffff; border: none;
-            border-radius: 4px; font-size: 15px; cursor: pointer; font-weight: bold;
-        }
-
-        .login-button:hover { background-color: #064066; }
-
-        footer {
-            margin-top: 40px; padding: 20px 30px; font-size: 12px;
-            color: #777; border-top: 1px solid #ddd; background-color: #ffffff; text-align: center;
+        .hero button {
+            background-color: #0a2a66;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
 
-<div class="top-nav">
-    <div class="nav-left">
-        <img src="YOUR-LOGO.png" alt="Veterans Unlimited Bank Logo">
-    </div>
-
-    <div class="nav-center">
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Accounts</a>
-        <a href="profile.html">Profile</a>
-    </div>
-
-    <div class="nav-right">
-        <img src="eric_todd.jpeg" class="profile-pic">
-    </div>
-</div>
-
-<div class="main-wrapper">
-    <div class="hero-content">
-        <h1 class="hero-title">Banking built for those who served.</h1>
-        <p class="hero-text">
-            Welcome back, <strong>Eric Todd</strong>.  
-            Manage your finances with secure, modern digital banking designed for veterans.
-        </p>
-    </div>
-
-    <div class="login-panel">
-        <div class="login-title">Sign in to your account</div>
-        <form action="dashboard.html" method="get">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" placeholder="Enter username">
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
+            <div class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profile</a>
             </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" placeholder="Enter password">
-            </div>
-            <button class="login-button" type="submit">Sign in</button>
-        </form>
-    </div>
-</div>
+        </div>
 
-<footer>
-    © 2026 Veterans Unlimited Bank — Built by Veterans, for Veterans.
-</footer>
+        <div class="navbar-right">
+            <img src="eric_todd.jpeg" alt="Profile Photo">
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Welcome to Veterans Ultimate Bank</h1>
+        <p>Secure. Reliable. Built for your financial freedom, Eric Todd.</p>
+        <button onclick="window.location.href='dashboard.html'">Access Your Account</button>
+    </div>
 
 </body>
 </html>
