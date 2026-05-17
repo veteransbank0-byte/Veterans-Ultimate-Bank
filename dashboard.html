@@ -4,210 +4,197 @@ dashboard.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard – Veterans Ultimate Bank</title>
+    <title>Dashboard | Veterans Unlimited Bank</title>
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #0a1a33;
-            color: white;
+            color: #ffffff;
         }
 
-        /* NAVIGATION BAR */
-        .navbar {
+        /* NAVBAR */
+        .top-nav {
             background-color: #0d2347;
-            padding: 15px 40px;
+            border-bottom: 1px solid #1f2d45;
+            padding: 12px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #1c355c;
         }
 
-        .navbar-left {
-            display: flex;
-            align-items: center;
+        .nav-left img {
+            height: 40px;
+            border-radius: 4px;
         }
 
-        .navbar-left img {
-            height: 45px;
-            margin-right: 15px;
-        }
-
-        .navbar-links a {
+        .nav-center a {
             margin: 0 15px;
             text-decoration: none;
-            color: #9bbcff;
+            color: #bfc9d9;
+            font-size: 15px;
             font-weight: bold;
         }
 
-        .navbar-links a:hover {
-            color: #d6e4ff;
+        .nav-center a:hover {
+            color: #1a4fa3;
         }
 
-        .navbar-right img {
-            height: 45px;
-            width: 45px;
+        .profile-pic {
+            height: 38px;
+            width: 38px;
             border-radius: 50%;
             object-fit: cover;
+            border: 2px solid #1a4fa3;
         }
 
-        /* MAIN CONTENT */
-        .container {
-            padding: 20px;
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
+        /* LAYOUT */
+        .layout {
+            display: flex;
         }
 
-        .greeting {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #d6e4ff;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .card {
+        .sidebar {
+            width: 220px;
             background-color: #0d2347;
-            border-radius: 10px;
-            padding: 18px;
-            border: 1px solid #1c355c;
-        }
-
-        .card-title {
+            border-right: 1px solid #1f2d45;
+            padding: 20px 15px;
             font-size: 14px;
-            color: #9bbcff;
-            margin-bottom: 8px;
         }
 
-        .card-amount {
-            font-size: 22px;
-            font-weight: bold;
+        .sidebar h3 {
+            margin-top: 0;
+            font-size: 14px;
+            color: #bfc9d9;
+            text-transform: uppercase;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 8px 0;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .sidebar a:hover {
+            color: #1a4fa3;
+        }
+
+        .content {
+            flex: 1;
+            padding: 25px;
         }
 
         .section-title {
-            margin-top: 20px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .account-card {
+            background-color: #0d2347;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #1f2d45;
+        }
+
+        .account-name {
             font-size: 18px;
-            color: #d6e4ff;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #0d2347;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #1c355c;
-        }
-
-        th, td {
-            padding: 10px 12px;
-            font-size: 14px;
-        }
-
-        th {
-            background-color: #102a52;
-            color: #9bbcff;
-        }
-
-        tr:nth-child(even) {
-            background-color: #0b1f3d;
-        }
-
-        tr:nth-child(odd) {
-            background-color: #0d2347;
-        }
-
-        .amount-credit {
-            color: #4cd964;
             font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffffff;
         }
 
-        .amount-debit {
-            color: #ff4d4d;
+        .account-number {
+            font-size: 12px;
+            color: #bfc9d9;
+            margin-bottom: 10px;
+        }
+
+        .account-balance {
+            font-size: 28px;
             font-weight: bold;
+            color: #1a8cff;
+        }
+
+        .subtext {
+            font-size: 12px;
+            color: #bfc9d9;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 12px;
+            color: #bfc9d9;
+            border-top: 1px solid #1f2d45;
+            background-color: #0d2347;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
 
-<script>
-    if (!localStorage.getItem("loggedIn")) {
-        window.location.href = "index.html";
-    }
-</script>
-
-<!-- NAVIGATION BAR -->
-<div class="navbar">
-    <div class="navbar-left">
-        <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
-        <div class="navbar-links">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="profile.html">Profile</a>
-            <a href="transactions.html">Checking</a>
-            <a href="transfer.html">Transfer</a>
-            <a href="savings.html">Savings</a>
-            <a href="savings_history.html">Savings History</a>
-            <a href="creditcard.html">Credit Card</a>
-        </div>
+<!-- NAVBAR OPTION C -->
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Bank Logo">
     </div>
 
-    <div class="navbar-right">
-        <img src="eric_todd.jpeg" alt="Profile Photo">
+    <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic">
     </div>
 </div>
 
-<div class="container">
+<!-- MAIN LAYOUT -->
+<div class="layout">
 
-    <div class="greeting">
-        Good evening, <strong>Eric Todd</strong>. Here is your account overview.
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Accounts</h3>
+        <a href="#">Primary Checking</a>
+        <a href="#">Savings</a>
+
+        <h3>Transfers</h3>
+        <a href="#">Transfer Money</a>
+        <a href="#">Pay Bills</a>
     </div>
 
-    <div class="cards">
-        <div class="card">
-            <div class="card-title">Checking Balance</div>
-            <div class="card-amount">$629,789,892.08</div>
+    <!-- CONTENT -->
+    <div class="content">
+        <h2 class="section-title">Welcome back, Eric Todd</h2>
+
+        <div class="account-card">
+            <div class="account-name">Veterans Unlimited Primary Checking</div>
+            <div class="account-number">Account •••• •••• •••• 0072</div>
+            <div class="account-balance">$629,679,072.00</div>
+            <div class="subtext">Available balance (USD)</div>
         </div>
 
-        <div class="card">
-            <div class="card-title">Savings Balance</div>
-            <div class="card-amount">$95,537,926.00</div>
+        <div class="account-card">
+            <div class="account-name">Profile Information</div>
+            <div class="subtext">
+                <strong>Name:</strong> Eric Todd<br>
+                <strong>Email:</strong> herictodd66@gmail.com<br>
+                <strong>Date of Birth:</strong> March 06, 1957<br>
+                <strong>Gender:</strong> Male
+            </div>
         </div>
+
     </div>
-
-    <div class="section-title">Recent Transactions</div>
-
-    <table>
-        <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Amount</th>
-        </tr>
-
-        <tr><td>2026-05-16</td><td>Incoming Wire – Investment Partner</td><td>Credit</td><td class="amount-credit">$500,000.00</td></tr>
-        <tr><td>2026-05-15</td><td>International Wire Transfer – Incoming</td><td>Credit</td><td class="amount-credit">$250,000.00</td></tr>
-        <tr><td>2026-05-14</td><td>Business Vendor Payment</td><td>Debit</td><td class="amount-debit">-$18,500.00</td></tr>
-        <tr><td>2026-05-13</td><td>Online Purchase – Electronics</td><td>Debit</td><td class="amount-debit">-$2,999.00</td></tr>
-        <tr><td>2026-05-12</td><td>ATM Withdrawal – Tampa</td><td>Debit</td><td class="amount-debit">-$800.00</td></tr>
-    </table>
-
 </div>
 
-<script>
-    document.getElementById("logoutBtn")?.addEventListener("click", function () {
-        localStorage.removeItem("loggedIn");
-        window.location.href = "index.html";
-    });
-</script>
+<footer>
+    © 2026 Veterans Unlimited Bank — All rights reserved.
+</footer>
 
 </body>
 </html>
