@@ -4,130 +4,211 @@ index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login – Veterans Ultimate Bank</title>
+    <title>Veterans Unlimited Bank</title>
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #0a1a33;
-            color: white;
+            color: #ffffff;
+        }
+
+        /* NAVBAR */
+        .top-nav {
+            background-color: #0d2347;
+            border-bottom: 1px solid #1f2d45;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left img {
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-center a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #bfc9d9;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .nav-center a:hover {
+            color: #1a4fa3;
+        }
+
+        .profile-pic {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1a4fa3;
+        }
+
+        /* MAIN */
+        .main-wrapper {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 40px 20px;
         }
 
-        .login-box {
-            background-color: #0d2347;
-            padding: 40px;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 12px;
-            border: 1px solid #1c355c;
-            text-align: center;
+        .hero-content {
+            max-width: 600px;
+            margin-right: 40px;
         }
 
-        .login-box img {
-            height: 70px;
-            margin-bottom: 20px;
+        .hero-title {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 10px;
         }
 
-        h2 {
-            color: #9bbcff;
-            margin-bottom: 25px;
-        }
-
-        label {
-            float: left;
-            margin-bottom: 5px;
-            color: #d6e4ff;
-            font-size: 15px;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-            border: 1px solid #1c355c;
-            background-color: #0a1f3d;
-            color: white;
+        .hero-text {
             font-size: 16px;
+            line-height: 1.6;
+            color: #bfc9d9;
         }
 
-        button {
-            width: 100%;
-            padding: 16px;
-            background-color: #1a4fa3;
-            color: white;
-            border: none;
+        .login-panel {
+            width: 320px;
+            background-color: #0d2347;
             border-radius: 6px;
+            padding: 20px;
+            border: 1px solid #1f2d45;
+        }
+
+        .login-title {
             font-size: 18px;
-            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffffff;
         }
 
-        button:hover {
-            background-color: #2966c7;
+        .form-group {
+            margin-bottom: 12px;
         }
 
-        .links {
-            margin-top: 20px;
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #bfc9d9;
         }
 
-        .links a {
-            color: #9bbcff;
-            text-decoration: none;
+        .form-group input {
+            width: 100%;
+            padding: 8px;
             font-size: 14px;
+            border: 1px solid #1f2d45;
+            border-radius: 4px;
+            background-color: #0a1a33;
+            color: #ffffff;
         }
 
-        .links a:hover {
-            color: #d6e4ff;
+        .login-button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #1a4fa3;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .login-button:hover {
+            background-color: #2363c7;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px 30px;
+            font-size: 12px;
+            color: #bfc9d9;
+            border-top: 1px solid #1f2d45;
+            background-color: #0d2347;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-box">
-        <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
-
-        <h2>Account Login</h2>
-
-        <form onsubmit="return loginUser();">
-            <label>Username</label>
-            <input type="text" id="username" placeholder="Enter username" required>
-
-            <label>Password</label>
-            <input type="password" id="password" placeholder="Enter password" required>
-
-            <button type="submit">Login</button>
-        </form>
-
-        <div class="links">
-            <a href="forgotpassword.html">Forgot Password?</a><br>
-            <a href="signup.html">Create Account</a>
-        </div>
+<!-- NAVBAR OPTION C -->
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Bank Logo">
     </div>
 
-    <script>
-        function loginUser() {
-            const correctUsername = "EricTodd1$";
-            const correctPassword = "EricTodd1$";
+    <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="profile.html">Profile</a>
+    </div>
 
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic">
+    </div>
+</div>
 
-            if (user === correctUsername && pass === correctPassword) {
-                localStorage.setItem("loggedIn", "true");
-                window.location.href = "dashboard.html";
-                return false;
-            } else {
-                alert("Incorrect username or password");
-                return false;
-            }
-        }
-    </script>
+<!-- MAIN CONTENT -->
+<div class="main-wrapper">
+    <div class="hero-content">
+        <h1 class="hero-title">Welcome, Eric Todd.</h1>
+
+        <p class="hero-text">
+            Veterans Unlimited Bank is built for those who served.  
+            Your profile is fully wired in:
+            <br><br>
+            <strong>Name:</strong> Eric Todd<br>
+            <strong>Email:</strong> herictodd66@gmail.com<br>
+            <strong>Date of Birth:</strong> March 06, 1957<br>
+            <strong>Gender:</strong> Male<br>
+            <strong>Balance:</strong> $629,679,072.00 USD
+        </p>
+    </div>
+
+    <!-- LOGIN PANEL -->
+    <div class="login-panel">
+        <div class="login-title">Sign in to your account</div>
+
+        <div class="form-group">
+            <label>Username</label>
+            <input id="username" type="text" placeholder="Enter username">
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input id="password" type="password" placeholder="Enter password">
+        </div>
+
+        <button class="login-button" onclick="login()">Sign in</button>
+    </div>
+</div>
+
+<!-- LOGIN SCRIPT -->
+<script>
+function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if (user === "EricTodd$" && pass === "EricTodd1$") {
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Incorrect username or password");
+    }
+}
+</script>
+
+<footer>
+    © 2026 Veterans Unlimited Bank — Built by Veterans, for Veterans.
+</footer>
 
 </body>
 </html>
