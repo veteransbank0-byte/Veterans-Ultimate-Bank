@@ -4,7 +4,7 @@ creditcard_payment.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Card Payment | Veterans Unlimited Bank</title>
+    <title>Credit Card Settings | Veterans Unlimited Bank</title>
 
     <style>
         body {
@@ -51,7 +51,7 @@ creditcard_payment.html
 
         /* PAGE CONTENT */
         .content {
-            max-width: 600px;
+            max-width: 700px;
             margin: 40px auto;
             background-color: #0d2347;
             padding: 25px;
@@ -60,52 +60,60 @@ creditcard_payment.html
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 20px;
             text-align: center;
         }
 
-        .info-box {
+        .setting-box {
             background-color: #0a1a33;
-            padding: 15px;
+            padding: 18px;
             border-radius: 6px;
             border: 1px solid #1f2d45;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .label {
-            font-size: 13px;
-            color: #bfc9d9;
-        }
-
-        .value {
+        .setting-title {
             font-size: 18px;
             font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .setting-desc {
+            font-size: 13px;
+            color: #bfc9d9;
             margin-bottom: 10px;
         }
 
-        .form-group {
-            margin-bottom: 18px;
+        .toggle {
+            width: 50px;
+            height: 24px;
+            background-color: #1f2d45;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
         }
 
-        .form-label {
-            font-size: 13px;
-            color: #bfc9d9;
-            margin-bottom: 5px;
-            display: block;
+        .toggle-circle {
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: 0.2s;
         }
 
-        .form-input, .form-select {
-            width: 100%;
-            padding: 10px;
-            background-color: #0a1a33;
-            border: 1px solid #1f2d45;
-            border-radius: 4px;
-            color: #ffffff;
-            font-size: 15px;
+        .toggle.active {
+            background-color: #1a4fa3;
         }
 
-        .submit-btn {
+        .toggle.active .toggle-circle {
+            left: 28px;
+        }
+
+        .save-btn {
             width: 100%;
             padding: 12px;
             background-color: #1a4fa3;
@@ -115,9 +123,10 @@ creditcard_payment.html
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+            margin-top: 20px;
         }
 
-        .submit-btn:hover {
+        .save-btn:hover {
             background-color: #2363c7;
         }
 
@@ -153,6 +162,89 @@ creditcard_payment.html
     <div class="nav-center">
         <a href="index.html">Home</a>
         <a href="dashboard.html">Accounts</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="billpay.html">Bill Pay</a>
+        <a href="creditcard.html">Credit Card</a>
+        <a href="creditcard_settings.html">Card Settings</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic-small">
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+    <h2 class="section-title">Credit Card Settings</h2>
+
+    <div class="setting-box">
+        <div class="setting-title">Freeze Card</div>
+        <div class="setting-desc">Temporarily disable all card activity.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <div class="setting-box">
+        <div class="setting-title">International Purchases</div>
+        <div class="setting-desc">Allow or block purchases made outside the United States.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <div class="setting-box">
+        <div class="setting-title">Online Purchases</div>
+        <div class="setting-desc">Allow or block online transactions.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <div class="setting-box">
+        <div class="setting-title">ATM Withdrawals</div>
+        <div class="setting-desc">Enable or disable ATM cash withdrawals.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <div class="setting-box">
+        <div class="setting-title">Alerts & Notifications</div>
+        <div class="setting-desc">Receive alerts for payments, purchases, and suspicious activity.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <button class="save-btn" onclick="saveSettings()">Save Settings</button>
+
+    <div id="successBox" class="success-box"></div>
+</div>
+
+<script>
+function toggleSwitch(element) {
+    element.classList.toggle("active");
+}
+
+function saveSettings() {
+    const box = document.getElementById("successBox");
+    box.style.display = "block";
+    box.innerHTML = `
+        <strong>Settings Saved!</strong><br><br>
+        Your credit card preferences have been updated successfully.
+    `;
+}
+</script>
+
+<footer>
+    © 2026 Veterans Unlimited Bank — All rights reserved.
+</footer>
+
+</body>
+</html>        <a href="dashboard.html">Accounts</a>
         <a href="transactions.html">Transactions</a>
         <a href="transfer.html">Transfer</a>
         <a href="billpay.html">Bill Pay</a>
