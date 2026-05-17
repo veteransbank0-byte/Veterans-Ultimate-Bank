@@ -1,0 +1,247 @@
+help_support.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support | Veterans Unlimited Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: #ffffff;
+        }
+
+        /* NAVBAR */
+        .top-nav {
+            background-color: #0d2347;
+            border-bottom: 1px solid #1f2d45;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left img {
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-center a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #bfc9d9;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .nav-center a:hover {
+            color: #1a4fa3;
+        }
+
+        .profile-pic-small {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1a4fa3;
+        }
+
+        /* PAGE CONTENT */
+        .content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .faq-box, .support-box, .ticket-box {
+            background-color: #0d2347;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #1f2d45;
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: #bfc9d9;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            color: #bfc9d9;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a4fa3;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #2363c7;
+        }
+
+        .success-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
+            border-radius: 6px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 12px;
+            color: #bfc9d9;
+            border-top: 1px solid #1f2d45;
+            background-color: #0d2347;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR OPTION C -->
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Bank Logo">
+    </div>
+
+    <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="billpay.html">Bill Pay</a>
+        <a href="creditcard.html">Credit Card</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="messages.html">Messages</a>
+        <a href="security_settings.html">Security</a>
+        <a href="help_support.html">Help & Support</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic-small">
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+    <h2 class="section-title">Help & Support</h2>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-box">
+        <div class="faq-question">How do I reset my password?</div>
+        <div class="faq-answer">Go to Security Settings and use the Change Password section.</div>
+
+        <div class="faq-question">How do I report suspicious activity?</div>
+        <div class="faq-answer">Enable Fraud Protection and contact support immediately.</div>
+
+        <div class="faq-question">How do I increase my credit limit?</div>
+        <div class="faq-answer">Visit the Credit Card Limit Increase page and submit a request.</div>
+
+        <div class="faq-question">How do I view my recent transactions?</div>
+        <div class="faq-answer">Go to the Transactions page for a full history.</div>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="support-box">
+        <h3>Contact Support</h3>
+        <p>Email: support@veteransunlimitedbank.com</p>
+        <p>Phone: 1‑800‑VUB‑HELP</p>
+        <p>Live Chat: Available 24/7 (visual only)</p>
+    </div>
+
+    <!-- SUPPORT TICKET -->
+    <div class="ticket-box">
+        <h3>Submit a Support Ticket</h3>
+
+        <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input id="subject" type="text" class="form-input" placeholder="Enter subject">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea id="message" class="form-textarea" placeholder="Describe your issue"></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitTicket()">Submit Ticket</button>
+
+        <div id="successBox" class="success-box"></div>
+    </div>
+</div>
+
+<script>
+function submitTicket() {
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    if (subject === "" || message === "") {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    const box = document.getElementById("successBox");
+    box.style.display = "block";
+    box.innerHTML = `
+        <strong>Support Ticket Submitted!</strong><br><br>
+        Subject: <strong>${subject}</strong><br>
+        Your message has been received. Our support team will contact you soon.
+    `;
+}
+</script>
+
+<footer>
+    © 2026 Veterans Unlimited Bank — All rights reserved.
+</footer>
+
+</body>
+  </html>
