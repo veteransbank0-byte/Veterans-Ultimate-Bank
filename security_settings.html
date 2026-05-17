@@ -1,0 +1,263 @@
+security_settings.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Settings | Veterans Unlimited Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: #ffffff;
+        }
+
+        /* NAVBAR */
+        .top-nav {
+            background-color: #0d2347;
+            border-bottom: 1px solid #1f2d45;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left img {
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-center a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #bfc9d9;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .nav-center a:hover {
+            color: #1a4fa3;
+        }
+
+        .profile-pic-small {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1a4fa3;
+        }
+
+        /* PAGE CONTENT */
+        .content {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: #0d2347;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #1f2d45;
+        }
+
+        .section-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .setting-box {
+            background-color: #0a1a33;
+            padding: 18px;
+            border-radius: 6px;
+            border: 1px solid #1f2d45;
+            margin-bottom: 15px;
+        }
+
+        .setting-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .setting-desc {
+            font-size: 13px;
+            color: #bfc9d9;
+            margin-bottom: 10px;
+        }
+
+        .toggle {
+            width: 50px;
+            height: 24px;
+            background-color: #1f2d45;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-circle {
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: 0.2s;
+        }
+
+        .toggle.active {
+            background-color: #1a4fa3;
+        }
+
+        .toggle.active .toggle-circle {
+            left: 28px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
+            border-radius: 4px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a4fa3;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .save-btn:hover {
+            background-color: #2363c7;
+        }
+
+        .success-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
+            border-radius: 6px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 12px;
+            color: #bfc9d9;
+            border-top: 1px solid #1f2d45;
+            background-color: #0d2347;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR OPTION C -->
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Bank Logo">
+    </div>
+
+    <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="billpay.html">Bill Pay</a>
+        <a href="creditcard.html">Credit Card</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="security_settings.html">Security</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic-small">
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+    <h2 class="section-title">Security Settings</h2>
+
+    <!-- LOGIN ALERTS -->
+    <div class="setting-box">
+        <div class="setting-title">Login Alerts</div>
+        <div class="setting-desc">Receive alerts when your account is accessed from a new device or location.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <!-- TWO FACTOR AUTH -->
+    <div class="setting-box">
+        <div class="setting-title">Two‑Factor Authentication (2FA)</div>
+        <div class="setting-desc">Add an extra layer of protection to your account.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <!-- DEVICE MANAGEMENT -->
+    <div class="setting-box">
+        <div class="setting-title">Trusted Devices</div>
+        <div class="setting-desc">Manage devices that are allowed to access your account.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <!-- PASSWORD CHANGE (VISUAL ONLY) -->
+    <div class="setting-box">
+        <div class="setting-title">Change Password</div>
+        <div class="setting-desc">Update your account password (visual only — does not store real passwords).</div>
+        <input type="password" class="form-input" placeholder="Current Password">
+        <input type="password" class="form-input" placeholder="New Password">
+        <input type="password" class="form-input" placeholder="Confirm New Password">
+    </div>
+
+    <!-- FRAUD PROTECTION -->
+    <div class="setting-box">
+        <div class="setting-title">Fraud Protection</div>
+        <div class="setting-desc">Enable alerts for suspicious or unusual activity.</div>
+        <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="toggle-circle"></div>
+        </div>
+    </div>
+
+    <button class="save-btn" onclick="saveSettings()">Save Security Settings</button>
+
+    <div id="successBox" class="success-box"></div>
+</div>
+
+<script>
+function toggleSwitch(element) {
+    element.classList.toggle("active");
+}
+
+function saveSettings() {
+    const box = document.getElementById("successBox");
+    box.style.display = "block";
+    box.innerHTML = `
+        <strong>Security Settings Saved!</strong><br><br>
+        Your security preferences have been updated successfully.
+    `;
+}
+</script>
+
+<footer>
+    © 2026 Veterans Unlimited Bank — All rights reserved.
+</footer>
+
+</body>
+  </html>
