@@ -1,0 +1,231 @@
+creditcardlimitincrease.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Limit Increase | Veterans Unlimited Bank</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a1a33;
+            color: #ffffff;
+        }
+
+        /* NAVBAR */
+        .top-nav {
+            background-color: #0d2347;
+            border-bottom: 1px solid #1f2d45;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left img {
+            height: 40px;
+            border-radius: 4px;
+        }
+
+        .nav-center a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #bfc9d9;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .nav-center a:hover {
+            color: #1a4fa3;
+        }
+
+        .profile-pic-small {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1a4fa3;
+        }
+
+        /* PAGE CONTENT */
+        .content {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #0d2347;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #1f2d45;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .info-box {
+            background-color: #0a1a33;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #1f2d45;
+            margin-bottom: 20px;
+        }
+
+        .label {
+            font-size: 13px;
+            color: #bfc9d9;
+        }
+
+        .value {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            color: #bfc9d9;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a4fa3;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #2363c7;
+        }
+
+        .success-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
+            border-radius: 6px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 12px;
+            color: #bfc9d9;
+            border-top: 1px solid #1f2d45;
+            background-color: #0d2347;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR OPTION C -->
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Bank Logo">
+    </div>
+
+    <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="billpay.html">Bill Pay</a>
+        <a href="creditcard.html">Credit Card</a>
+        <a href="creditcard_payment.html">Make Payment</a>
+        <a href="creditcard_settings.html">Card Settings</a>
+        <a href="creditcard_limit_increase.html">Limit Increase</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic-small">
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+    <h2 class="section-title">Request Credit Limit Increase</h2>
+
+    <div class="info-box">
+        <div class="label">Current Credit Limit</div>
+        <div class="value">$150,000.00</div>
+
+        <div class="label">Available Credit</div>
+        <div class="value">$148,750.00</div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">New Requested Limit (USD)</label>
+        <input id="newLimit" type="number" class="form-input" placeholder="Enter new limit">
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Reason for Increase</label>
+        <select id="reason" class="form-select">
+            <option value="income">Increased Income</option>
+            <option value="credit">Improved Credit Score</option>
+            <option value="spending">Higher Monthly Spending</option>
+            <option value="travel">Travel Needs</option>
+            <option value="emergency">Emergency Preparedness</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <button class="submit-btn" onclick="submitLimit()">Submit Request</button>
+
+    <div id="successBox" class="success-box"></div>
+</div>
+
+<script>
+function submitLimit() {
+    const newLimit = document.getElementById("newLimit").value;
+    const reason = document.getElementById("reason").value;
+
+    if (newLimit === "" || newLimit <= 150000) {
+        alert("Please enter a limit higher than your current $150,000 limit.");
+        return;
+    }
+
+    const box = document.getElementById("successBox");
+    box.style.display = "block";
+    box.innerHTML = `
+        <strong>Request Submitted!</strong><br><br>
+        You requested a new credit limit of <strong>$${Number(newLimit).toLocaleString()}</strong>.<br>
+        Reason: <strong>${reason}</strong><br><br>
+        Your request is under review. You will be notified once a decision is made.
+    `;
+}
+</script>
+
+<footer>
+    © 2026 Veterans Unlimited Bank — All rights reserved.
+</footer>
+
+</body>
+</html>
