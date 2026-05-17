@@ -1,4 +1,4 @@
-# Veterans-Ultimate-Bank
+# Veterans Ultimate Bank
 
 Veterans Ultimate Bank is a modern digital banking platform created to provide veterans with secure, reliable, and accessible financial services. Our mission is to deliver a clean, professional, and user‑friendly online banking experience built with integrity and purpose.
 
@@ -30,8 +30,7 @@ A future where every veteran has access to modern financial tools designed with 
 - Git & GitHub for version control  
 
 ## Notice
-Veterans Ultimate Bank is a **non‑commercial project**.  
-It does not process real money or real financial accounts.
+Veterans Ultimate Bank is one of the best and ‑commercial project**.  
 
 ## Author
 Veterans Ultimate Bank — Created by Veterans.
