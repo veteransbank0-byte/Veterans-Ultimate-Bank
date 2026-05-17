@@ -1,5 +1,4 @@
-dashboard.html
-<!DOCTYPE html>
+dashboard.html<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,44 +13,50 @@ dashboard.html
             color: white;
         }
 
-        header {
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: #0d2347;
+            padding: 15px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            background-color: #0d2347;
             border-bottom: 1px solid #1c355c;
         }
 
-        header .left {
+        .navbar-left {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
-        header img {
+        .navbar-left img {
             height: 45px;
+            margin-right: 15px;
         }
 
-        header h1 {
-            font-size: 20px;
-            margin: 0;
+        .navbar-links a {
+            margin: 0 15px;
+            text-decoration: none;
             color: #9bbcff;
-        }
-
-        header .right {
-            text-align: right;
-            font-size: 14px;
-        }
-
-        #logoutBtn {
-            color: #ff4d4d;
             font-weight: bold;
-            cursor: pointer;
         }
 
+        .navbar-links a:hover {
+            color: #d6e4ff;
+        }
+
+        .navbar-right img {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* MAIN CONTENT */
         .container {
             padding: 20px;
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
         }
 
         .greeting {
@@ -133,65 +138,75 @@ dashboard.html
 
 <body>
 
-    <!-- Redirect if not logged in -->
-    <script>
-        if (!localStorage.getItem("loggedIn")) {
-            window.location.href = "index.html";
-        }
-    </script>
+<script>
+    if (!localStorage.getItem("loggedIn")) {
+        window.location.href = "index.html";
+    }
+</script>
 
-    <header>
-        <div class="left">
-            <img src="VUB.png" alt="Bank Logo">
-            <h1>Veterans Ultimate Bank</h1>
+<!-- NAVIGATION BAR -->
+<div class="navbar">
+    <div class="navbar-left">
+        <img src="VUB.png" alt="Veterans Ultimate Bank Logo">
+        <div class="navbar-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="transactions.html">Checking</a>
+            <a href="transfer.html">Transfer</a>
+            <a href="savings.html">Savings</a>
+            <a href="savings_history.html">Savings History</a>
+            <a href="creditcard.html">Credit Card</a>
         </div>
-        <div class="right">
-            <span>Welcome, <strong>Eric Todd</strong></span><br>
-            <span id="logoutBtn">Logout</span>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="greeting">
-            Good evening, <strong>Eric Todd</strong>. Here is your account overview.
-        </div>
-
-        <div class="cards">
-            <div class="card">
-                <div class="card-title">Checking Balance</div>
-                <div class="card-amount">$629,789,892.08</div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Savings Balance</div>
-                <div class="card-amount">$95,537,926.00</div>
-            </div>
-        </div>
-
-        <div class="section-title">Recent Transactions</div>
-
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Type</th>
-                <th>Amount</th>
-            </tr>
-
-            <tr><td>2026-05-16</td><td>Incoming Wire – Investment Partner</td><td>Credit</td><td class="amount-credit">$500,000.00</td></tr>
-            <tr><td>2026-05-15</td><td>International Wire Transfer – Incoming</td><td>Credit</td><td class="amount-credit">$250,000.00</td></tr>
-            <tr><td>2026-05-14</td><td>Business Vendor Payment</td><td>Debit</td><td class="amount-debit">-$18,500.00</td></tr>
-            <tr><td>2026-05-13</td><td>Online Purchase – Electronics</td><td>Debit</td><td class="amount-debit">-$2,999.00</td></tr>
-            <tr><td>2026-05-12</td><td>ATM Withdrawal – Tampa</td><td>Debit</td><td class="amount-debit">-$800.00</td></tr>
-        </table>
     </div>
 
-    <script>
-        document.getElementById("logoutBtn").onclick = function () {
-            localStorage.removeItem("loggedIn");
-            window.location.href = "index.html";
-        };
-    </script>
+    <div class="navbar-right">
+        <img src="eric_todd.jpeg" alt="Profile Photo">
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="greeting">
+        Good evening, <strong>Eric Todd</strong>. Here is your account overview.
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-title">Checking Balance</div>
+            <div class="card-amount">$629,789,892.08</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Savings Balance</div>
+            <div class="card-amount">$95,537,926.00</div>
+        </div>
+    </div>
+
+    <div class="section-title">Recent Transactions</div>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Amount</th>
+        </tr>
+
+        <tr><td>2026-05-16</td><td>Incoming Wire – Investment Partner</td><td>Credit</td><td class="amount-credit">$500,000.00</td></tr>
+        <tr><td>2026-05-15</td><td>International Wire Transfer – Incoming</td><td>Credit</td><td class="amount-credit">$250,000.00</td></tr>
+        <tr><td>2026-05-14</td><td>Business Vendor Payment</td><td>Debit</td><td class="amount-debit">-$18,500.00</td></tr>
+        <tr><td>2026-05-13</td><td>Online Purchase – Electronics</td><td>Debit</td><td class="amount-debit">-$2,999.00</td></tr>
+        <tr><td>2026-05-12</td><td>ATM Withdrawal – Tampa</td><td>Debit</td><td class="amount-debit">-$800.00</td></tr>
+    </table>
+
+</div>
+
+<script>
+    document.getElementById("logoutBtn")?.addEventListener("click", function () {
+        localStorage.removeItem("loggedIn");
+        window.location.href = "index.html";
+    });
+</script>
 
 </body>
 </html>
