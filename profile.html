@@ -4,155 +4,159 @@ profile.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile – Veterans Ultimate Bank</title>
+    <title>Profile | Veterans Unlimited Bank</title>
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #0a1a33;
-            color: white;
+            color: #ffffff;
         }
 
-        header {
+        /* NAVBAR */
+        .top-nav {
+            background-color: #0d2347;
+            border-bottom: 1px solid #1f2d45;
+            padding: 12px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            background-color: #0d2347;
-            border-bottom: 1px solid #1c355c;
         }
 
-        header .left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        header img {
+        .nav-left img {
             height: 40px;
+            border-radius: 4px;
         }
 
-        header h1 {
-            font-size: 20px;
-            margin: 0;
-            color: #9bbcff;
-        }
-
-        header .right {
-            text-align: right;
-            font-size: 14px;
-        }
-
-        #logoutBtn {
-            color: #ff4d4d;
-            font-weight: bold;
+        .nav-center a {
+            margin: 0 15px;
             text-decoration: none;
-            cursor: pointer;
-            font-size: 14px;
+            color: #bfc9d9;
+            font-size: 15px;
+            font-weight: bold;
         }
 
-        .container {
-            padding: 20px;
+        .nav-center a:hover {
+            color: #1a4fa3;
         }
 
-        .profile-card {
+        .profile-pic-small {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1a4fa3;
+        }
+
+        /* PROFILE PAGE */
+        .content {
+            max-width: 800px;
+            margin: 30px auto;
             background-color: #0d2347;
-            border-radius: 12px;
             padding: 25px;
-            border: 1px solid #1c355c;
-            max-width: 500px;
-            margin: 0 auto;
+            border-radius: 6px;
+            border: 1px solid #1f2d45;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .profile-card img {
-            width: 110px;
-            height: 110px;
+        .profile-large {
+            height: 130px;
+            width: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #9bbcff;
-            margin-bottom: 15px;
+            border: 3px solid #1a4fa3;
+            display: block;
+            margin: 0 auto 20px auto;
         }
 
-        .profile-name {
-            font-size: 22px;
-            margin-bottom: 5px;
+        .field-group {
+            margin-bottom: 18px;
         }
 
-        .profile-username {
-            font-size: 14px;
-            color: #9bbcff;
-            margin-bottom: 15px;
+        .field-label {
+            font-size: 13px;
+            color: #bfc9d9;
+            margin-bottom: 3px;
         }
 
-        .profile-info {
-            text-align: left;
-            margin-top: 10px;
-            font-size: 15px;
+        .field-value {
+            font-size: 17px;
+            color: #ffffff;
         }
 
-        .profile-info p {
-            margin: 6px 0;
-        }
-
-        a.nav-link {
-            color: #9bbcff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        a.nav-link:hover {
-            color: #d6e4ff;
+        footer {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 12px;
+            color: #bfc9d9;
+            border-top: 1px solid #1f2d45;
+            background-color: #0d2347;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
 
-    <script>
-        if (!localStorage.getItem("loggedIn")) {
-            window.location.href = "index.html";
-        }
-    </script>
-
-    <header>
-        <div class="left">
-            <img src="VUB.png" alt="Bank Logo">
-            <h1>Veterans Ultimate Bank</h1>
-        </div>
-        <div class="right">
-            <span>Profile</span>
-            <span><a id="logoutBtn">Logout</a></span>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="profile-card">
-            <img src="eric_todd.jpeg" alt="Eric Todd">
-
-            <div class="profile-name">Eric Todd</div>
-            <div class="profile-username">Username: EricTodd1$</div>
-
-            <div class="profile-info">
-                <p><strong>Email:</strong> herictodd66@gmail.com</p>
-                <p><strong>Date of Birth:</strong> 03/06/1957</p>
-                <p><strong>Location:</strong> Tampa, Florida, USA</p>
-                <p><strong>Primary Account:</strong> Checking</p>
-            </div>
-
-            <p style="margin-top:15px;">
-                <a class="nav-link" href="dashboard.html">Back to Dashboard</a>
-            </p>
-        </div>
+<!-- NAVBAR OPTION C -->
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Bank Logo">
     </div>
 
-    <script>
-        document.getElementById("logoutBtn").onclick = function () {
-            localStorage.removeItem("loggedIn");
-            sessionStorage.removeItem("welcomeShown");
-            window.location.href = "index.html";
-        };
-    </script>
+    <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic-small">
+    </div>
+</div>
+
+<!-- PROFILE CONTENT -->
+<div class="content">
+    <h2 class="section-title">Your Profile</h2>
+
+    <img src="eric_todd.jpeg" class="profile-large">
+
+    <div class="field-group">
+        <div class="field-label">Full Name</div>
+        <div class="field-value">Eric Todd</div>
+    </div>
+
+    <div class="field-group">
+        <div class="field-label">Email Address</div>
+        <div class="field-value">herictodd66@gmail.com</div>
+    </div>
+
+    <div class="field-group">
+        <div class="field-label">Date of Birth</div>
+        <div class="field-value">March 06, 1957</div>
+    </div>
+
+    <div class="field-group">
+        <div class="field-label">Gender</div>
+        <div class="field-value">Male</div>
+    </div>
+
+    <div class="field-group">
+        <div class="field-label">Primary Account Balance</div>
+        <div class="field-value">$629,679,072.00 USD</div>
+    </div>
+</div>
+
+<footer>
+    © 2026 Veterans Unlimited Bank — All rights reserved.
+</footer>
 
 </body>
 </html>
