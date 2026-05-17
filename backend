@@ -1,0 +1,10 @@
+/backend
+    index.js
+    /routes
+        auth.js
+    /config
+        db.js
+    package.json
+
+/frontend
+    (all your HTML files)
