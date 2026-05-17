@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterans Ultimate Banking - Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #071426; /* Navy Dark Mode */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #0D2038; /* Chase-style navy box */
+            padding: 40px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 0 18px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            width: 130px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #0A1A2F;
+            color: white;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            background-color: #1E90FF;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0F6CD1;
+        }
+
+        .error {
+            color: #FF6B6B;
+            margin-top: 10px;
+            display: none;
+        }
+
+        a {
+            color: #9bbcff;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #d6e4ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <img src="VUB.png" class="logo" alt="Veterans Ultimate Bank Logo">
+
+        <h2>Veterans Ultimate Banking</h2>
+
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="login()">Login</button>
+
+        <p class="error" id="errorMsg">Invalid login. Try again.</p>
+
+        <br>
+        <a href="signup.html">Create an account</a>
+    </div>
+
+    <script>
+        function login() {
+            const user = document.getElementById("username").value;
+            const pass = document.getElementById("password").value;
+
+            // Default required credentials
+            const defaultUser = "EricTodd1$";
+            const defaultPass = "EricTodd1$";
+
+            // Check if user created a custom account
+            const savedUser = localStorage.getItem("savedUser");
+            const savedPass = localStorage.getItem("savedPass");
+
+            const validUser = savedUser || defaultUser;
+            const validPass = savedPass || defaultPass;
+
+            if (user === validUser && pass === validPass) {
+                localStorage.setItem("loggedIn", "true");
+                window.location.href = "dashboard.html";
+            } else {
+                document.getElementById("errorMsg").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
