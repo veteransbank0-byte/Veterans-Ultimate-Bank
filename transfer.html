@@ -1,196 +1,205 @@
-transfer.html
-<!DOCTYPE html>
+transfer.html<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfer Money – Veterans Ultimate Bank</title>
+    <title>Transfer Money | Veterans Unlimited Bank</title>
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #0a1a33;
-            color: white;
+            color: #ffffff;
         }
 
-        header {
+        /* NAVBAR */
+        .top-nav {
+            background-color: #0d2347;
+            border-bottom: 1px solid #1f2d45;
+            padding: 12px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            background-color: #0d2347;
-            border-bottom: 1px solid #1c355c;
         }
 
-        header .left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        header img {
+        .nav-left img {
             height: 40px;
+            border-radius: 4px;
         }
 
-        header h1 {
-            font-size: 20px;
-            margin: 0;
-            color: #9bbcff;
+        .nav-center a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #bfc9d9;
+            font-size: 15px;
+            font-weight: bold;
         }
 
-        header .right {
-            text-align: right;
-            font-size: 14px;
+        .nav-center a:hover {
+            color: #1a4fa3;
         }
 
-        #logoutBtn {
-            color: #ff4d4d;
+        .profile-pic-small {
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1a4fa3;
+        }
+
+        /* PAGE CONTENT */
+        .content {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #0d2347;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #1f2d45;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            color: #bfc9d9;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a4fa3;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        .container {
-            padding: 20px;
+        .submit-btn:hover {
+            background-color: #2363c7;
         }
 
-        .section-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #d6e4ff;
-        }
-
-        .card {
-            background-color: #0d2347;
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid #1c355c;
-            max-width: 450px;
-        }
-
-        label {
-            display: block;
-            margin-top: 12px;
-            font-size: 14px;
-            color: #9bbcff;
-        }
-
-        select, input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 6px;
+        .success-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #0a1a33;
+            border: 1px solid #1f2d45;
             border-radius: 6px;
-            border: 1px solid #1c355c;
-            background-color: #0b1f3d;
-            color: white;
-            font-size: 14px;
-        }
-
-        button {
-            margin-top: 15px;
-            width: 100%;
-            padding: 12px;
-            background-color: #1e4fa8;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #2a63c7;
-        }
-
-        .message {
-            margin-top: 15px;
-            padding: 12px;
-            background-color: #102a52;
-            border-radius: 6px;
-            border: 1px solid #1c355c;
             display: none;
         }
 
-        a.nav-link {
-            color: #9bbcff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        a.nav-link:hover {
-            color: #d6e4ff;
+        footer {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 12px;
+            color: #bfc9d9;
+            border-top: 1px solid #1f2d45;
+            background-color: #0d2347;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
 
-<script>
-    if (!localStorage.getItem("loggedIn")) {
-        window.location.href = "index.html";
-    }
-</script>
-
-<header>
-    <div class="left">
-        <img src="VUB.png" alt="Bank Logo">
-        <h1>Veterans Ultimate Bank</h1>
+<!-- NAVBAR OPTION C -->
+<div class="top-nav">
+    <div class="nav-left">
+        <img src="YOUR-LOGO.png" alt="Bank Logo">
     </div>
-    <div class="right">
-        <span>Transfer Money</span>
-        <span><a id="logoutBtn">Logout</a></span>
+
+    <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Accounts</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="profile.html">Profile</a>
     </div>
-</header>
 
-<div class="container">
-    <div class="section-title">Move Money Between Accounts</div>
+    <div class="nav-right">
+        <img src="eric_todd.jpeg" class="profile-pic-small">
+    </div>
+</div>
 
-    <div class="card">
-        <label>Transfer Type</label>
-        <select id="transferType">
-            <option value="checkingToSavings">Checking → Savings</option>
-            <option value="savingsToChecking">Savings → Checking</option>
+<!-- MAIN CONTENT -->
+<div class="content">
+    <h2 class="section-title">Transfer Money</h2>
+
+    <div class="form-group">
+        <label class="form-label">From Account</label>
+        <select id="fromAccount" class="form-select">
+            <option value="Checking">Checking — $629,679,072.00</option>
+            <option value="Savings">Savings — $95,537,926.00</option>
         </select>
-
-        <label>Amount</label>
-        <input type="number" id="amount" placeholder="Enter amount">
-
-        <button onclick="submitTransfer()">Submit Transfer</button>
-
-        <div class="message" id="messageBox"></div>
     </div>
 
-    <p style="margin-top:15px;">
-        <a class="nav-link" href="dashboard.html">Back to Dashboard</a>
-    </p>
+    <div class="form-group">
+        <label class="form-label">To Account</label>
+        <select id="toAccount" class="form-select">
+            <option value="Savings">Savings</option>
+            <option value="Checking">Checking</option>
+            <option value="External">External Bank</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Amount (USD)</label>
+        <input id="amount" type="number" class="form-input" placeholder="Enter amount">
+    </div>
+
+    <button class="submit-btn" onclick="makeTransfer()">Submit Transfer</button>
+
+    <div id="successBox" class="success-box"></div>
 </div>
 
 <script>
-    function submitTransfer() {
-        let type = document.getElementById("transferType").value;
-        let amount = document.getElementById("amount").value;
-        let msg = document.getElementById("messageBox");
+function makeTransfer() {
+    const from = document.getElementById("fromAccount").value;
+    const to = document.getElementById("toAccount").value;
+    const amount = document.getElementById("amount").value;
 
-        if (amount === "" || amount <= 0) {
-            msg.style.display = "block";
-            msg.innerHTML = "Please enter a valid amount.";
-            return;
-        }
-
-        if (type === "checkingToSavings") {
-            msg.style.display = "block";
-            msg.innerHTML = "Transfer Successful: $" + amount + " moved from Checking → Savings.";
-        } else {
-            msg.style.display = "block";
-            msg.innerHTML = "Transfer Successful: $" + amount + " moved from Savings → Checking.";
-        }
+    if (amount === "" || amount <= 0) {
+        alert("Please enter a valid amount");
+        return;
     }
 
-    document.getElementById("logoutBtn").onclick = function () {
-        localStorage.removeItem("loggedIn");
-        sessionStorage.removeItem("welcomeShown");
-        window.location.href = "index.html";
-    };
+    const box = document.getElementById("successBox");
+    box.style.display = "block";
+    box.innerHTML = `
+        <strong>Transfer Successful!</strong><br><br>
+        You transferred <strong>$${Number(amount).toLocaleString()}</strong><br>
+        From: <strong>${from}</strong><br>
+        To: <strong>${to}</strong><br><br>
+        This transaction will appear in your history shortly.
+    `;
+}
 </script>
+
+<footer>
+    © 2026 Veterans Unlimited Bank — All rights reserved.
+</footer>
 
 </body>
 </html>
