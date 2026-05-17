@@ -30,7 +30,7 @@ dashboard.html
         }
 
         header img {
-            height: 40px;
+            height: 45px;
         }
 
         header h1 {
@@ -44,16 +44,10 @@ dashboard.html
             font-size: 14px;
         }
 
-        header .right span {
-            display: block;
-        }
-
         #logoutBtn {
             color: #ff4d4d;
             font-weight: bold;
-            text-decoration: none;
             cursor: pointer;
-            font-size: 14px;
         }
 
         .container {
@@ -61,8 +55,9 @@ dashboard.html
         }
 
         .greeting {
-            margin-bottom: 15px;
             font-size: 18px;
+            margin-bottom: 20px;
+            color: #d6e4ff;
         }
 
         .cards {
@@ -91,7 +86,7 @@ dashboard.html
         }
 
         .section-title {
-            margin-top: 10px;
+            margin-top: 20px;
             margin-bottom: 10px;
             font-size: 18px;
             color: #d6e4ff;
@@ -113,7 +108,6 @@ dashboard.html
 
         th {
             background-color: #102a52;
-            text-align: left;
             color: #9bbcff;
         }
 
@@ -134,114 +128,17 @@ dashboard.html
             color: #ff4d4d;
             font-weight: bold;
         }
-
-        .view-all {
-            margin-top: 8px;
-            font-size: 14px;
-        }
-
-        .view-all a {
-            color: #9bbcff;
-            text-decoration: none;
-        }
-
-        .view-all a:hover {
-            color: #d6e4ff;
-        }
-
-        .loader {
-            border: 6px solid #1c355c;
-            border-top: 6px solid #9bbcff;
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
     </style>
 </head>
 
 <body>
 
+    <!-- Redirect if not logged in -->
     <script>
         if (!localStorage.getItem("loggedIn")) {
             window.location.href = "index.html";
         }
     </script>
-
-    <!-- Loading screen -->
-    <div id="loadingScreen" style="
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-color: #0a1a33;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 99999;
-        color: white;
-        font-family: Arial, sans-serif;
-    ">
-        <div class="loader"></div>
-        <p style="margin-top: 20px; font-size: 18px; color: #9bbcff;">
-            Loading your account…
-        </p>
-    </div>
-
-    <!-- Welcome popup -->
-    <div id="welcomePopup" style="
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.6);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        animation: fadeIn 0.6s ease forwards;
-    ">
-        <div style="
-            background: #0d2347;
-            padding: 30px;
-            width: 90%;
-            max-width: 350px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #1c355c;
-            transform: translateY(-40px);
-            opacity: 0;
-            animation: slideUp 0.6s ease forwards;
-        ">
-            <h2 style="color:#9bbcff; margin-bottom:15px;">Welcome Back!</h2>
-            <p style="color:#d6e4ff; font-size:16px; margin-bottom:20px;">
-                You have successfully logged in, Eric Todd.
-            </p>
-            <button onclick="closeWelcome()" style="
-                padding: 12px 20px;
-                background-color: #1a4fa3;
-                color: white;
-                border: none;
-                border-radius: 6px;
-                font-size: 16px;
-                cursor: pointer;
-            ">Continue</button>
-        </div>
-    </div>
 
     <header>
         <div class="left">
@@ -249,14 +146,14 @@ dashboard.html
             <h1>Veterans Ultimate Bank</h1>
         </div>
         <div class="right">
-            <span>Welcome, <strong>Eric Todd</strong></span>
-            <span><a id="logoutBtn">Logout</a></span>
+            <span>Welcome, <strong>Eric Todd</strong></span><br>
+            <span id="logoutBtn">Logout</span>
         </div>
     </header>
 
     <div class="container">
         <div class="greeting">
-            Good afternoon, <strong>Eric Todd</strong>. Here is an overview of your accounts.
+            Good evening, <strong>Eric Todd</strong>. Here is your account overview.
         </div>
 
         <div class="cards">
@@ -264,6 +161,7 @@ dashboard.html
                 <div class="card-title">Checking Balance</div>
                 <div class="card-amount">$629,789,892.08</div>
             </div>
+
             <div class="card">
                 <div class="card-title">Savings Balance</div>
                 <div class="card-amount">$95,537,926.00</div>
@@ -271,6 +169,7 @@ dashboard.html
         </div>
 
         <div class="section-title">Recent Transactions</div>
+
         <table>
             <tr>
                 <th>Date</th>
@@ -278,39 +177,18 @@ dashboard.html
                 <th>Type</th>
                 <th>Amount</th>
             </tr>
+
             <tr><td>2026-05-16</td><td>Incoming Wire – Investment Partner</td><td>Credit</td><td class="amount-credit">$500,000.00</td></tr>
             <tr><td>2026-05-15</td><td>International Wire Transfer – Incoming</td><td>Credit</td><td class="amount-credit">$250,000.00</td></tr>
             <tr><td>2026-05-14</td><td>Business Vendor Payment</td><td>Debit</td><td class="amount-debit">-$18,500.00</td></tr>
             <tr><td>2026-05-13</td><td>Online Purchase – Electronics</td><td>Debit</td><td class="amount-debit">-$2,999.00</td></tr>
             <tr><td>2026-05-12</td><td>ATM Withdrawal – Tampa</td><td>Debit</td><td class="amount-debit">-$800.00</td></tr>
-            <tr><td>2026-05-10</td><td>Payroll Deposit</td><td>Credit</td><td class="amount-credit">$8,500.00</td></tr>
-            <tr><td>2026-05-09</td><td>Restaurant – Family Dinner</td><td>Debit</td><td class="amount-debit">-$420.00</td></tr>
         </table>
-
-        <div class="view-all">
-            View full history: <a href="transactions.html">See all transactions</a>
-        </div>
     </div>
 
     <script>
-        window.onload = function() {
-            setTimeout(function() {
-                document.getElementById("loadingScreen").style.display = "none";
-
-                if (localStorage.getItem("loggedIn") && !sessionStorage.getItem("welcomeShown")) {
-                    document.getElementById("welcomePopup").style.display = "flex";
-                    sessionStorage.setItem("welcomeShown", "true");
-                }
-            }, 1500);
-        };
-
-        function closeWelcome() {
-            document.getElementById("welcomePopup").style.display = "none";
-        }
-
         document.getElementById("logoutBtn").onclick = function () {
             localStorage.removeItem("loggedIn");
-            sessionStorage.removeItem("welcomeShown");
             window.location.href = "index.html";
         };
     </script>
