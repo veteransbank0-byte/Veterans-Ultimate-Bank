@@ -576,4 +576,37 @@
           <button class="small-btn">Upload Document</button>
         </div>
 
-      </div>
+      </div> <!-- END RIGHT COLUMN -->
+
+    </section> <!-- END CONTENT -->
+
+  </main> <!-- END MAIN -->
+
+  <script>
+    // TAB SWITCHING LOGIC
+    const tabs = document.querySelectorAll(".tab");
+    const monthTab = document.getElementById("tab-month");
+    const accountTab = document.getElementById("tab-account");
+    const timelineTab = document.getElementById("tab-timeline");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const selected = tab.getAttribute("data-tab");
+
+        monthTab.style.display = selected === "month" ? "block" : "none";
+        accountTab.style.display = selected === "account" ? "block" : "none";
+        timelineTab.style.display = selected === "timeline" ? "block" : "none";
+      });
+    });
+
+    // PROTECT DASHBOARD (REDIRECT IF NOT LOGGED IN)
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
