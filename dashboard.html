@@ -1,3 +1,4 @@
+dashboard.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +17,30 @@
             color: #1E90FF;
         }
 
+        /* HEADER WITH LEFT-ALIGNED LOGO */
         .header {
             background-color: #0A1224;
-            padding: 20px;
-            text-align: center;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid rgba(30,144,255,0.4);
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        .logo {
+            height: 55px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .header-title {
             font-size: 26px;
             font-weight: bold;
             color: #1E90FF;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.6);
-            animation: fadeUp 0.8s ease-out;
         }
 
         .container {
@@ -129,8 +145,10 @@
 
 <body>
 
+    <!-- HEADER WITH LEFT LOGO -->
     <div class="header">
-        Veterans Ultimate Banking — Welcome, Eric Todd
+        <img src="VUB.png" class="logo">
+        <span class="header-title">Veterans Ultimate Banking — Welcome, Eric Todd</span>
     </div>
 
     <div class="container">
@@ -254,87 +272,6 @@
                 labels: ["Checking", "Savings"],
                 datasets: [{
                     label: "Balance",
-                    data: [628826728 $12.50</div>
-                <div class="transaction-item" style="--i:3">Jan 9 — Wire Transfer $10,000</div>
-                <div class="transaction-item" style="--i:4">Jan 10 — Transfer to Savings $25,000</div>
-                <div class="transaction-item" style="--i:5">Jan 12 — Grocery Store $182.19</div>
-                <div class="transaction-item" style="--i:6">Jan 14 — Gas Station $65.00</div>
-                <div class="transaction-item" style="--i:7">Jan 15 — Savings Deposit $5,000</div>
-                <div class="transaction-item" style="--i:8">Jan 18 — ATM Withdrawal $500</div>
-                <div class="transaction-item" style="--i:9">Jan 20 — Savings Interest $12.50</div>
-                <div class="transaction-item" style="--i:10">Jan 21 — Online Purchase $320.55</div>
-                <div class="transaction-item" style="--i:11">Jan 25 — Deposit $1,000,000</div>
-                <div class="transaction-item" style="--i:12">Jan 26 — Savings Transfer $10,000</div>
-                <div class="transaction-item" style="--i:13">Jan 28 — Transfer to Savings $50,000</div>
-                <div class="transaction-item" style="--i:14">Feb 1 — Restaurant $240.89</div>
-                <div class="transaction-item" style="--i:15">Feb 1 — Savings Interest $12.50</div>
-                <div class="transaction-item" style="--i:16">Feb 4 — Pay Bills $1,200</div>
-                <div class="transaction-item" style="--i:17">Feb 5 — Savings Deposit $3,000</div>
-                <div class="transaction-item" style="--i:18">Feb 8 — ATM Withdrawal $300</div>
-                <div class="transaction-item" style="--i:19">Feb 10 — Savings Transfer $5,000</div>
-                <div class="transaction-item" style="--i:20">Feb 12 — Online Purchase $89.99</div>
-                <div class="transaction-item" style="--i:21">Feb 15 — Gas Station $55.00</div>
-                <div class="transaction-item" style="--i:22">Feb 20 — Greg Carter Received $50,000</div>
-                <div class="transaction-item" style="--i:23">Feb 22 — Grocery Store $120.45</div>
-                <div class="transaction-item" style="--i:24">Feb 25 — Savings Deposit $2,500</div>
-                <div class="transaction-item" style="--i:25">Feb 28 — Savings Transfer $7,500</div>
-                <div class="transaction-item" style="--i:26">Mar 1 — Savings Interest $12.50</div>
-                <div class="transaction-item" style="--i:27">Mar 3 — Savings Deposit $4,000</div>
-                <div class="transaction-item" style="--i:28">Mar 6 — Savings Transfer $8,000</div>
-            </div>
-        </div>
-
-        <button class="logout-btn" onclick="logout()">Logout</button>
-
-    </div>
-
-    <script>
-        /* Login Protection */
-        if (localStorage.getItem("loggedIn") !== "true") {
-            window.location.href = "index.html";
-        }
-
-        function logout() {
-            localStorage.removeItem("loggedIn");
-            window.location.href = "index.html";
-        }
-
-        /* LINE CHART */
-        new Chart(document.getElementById("lineChart"), {
-            type: "line",
-            data: {
-                labels: ["Jan", "Feb", "Mar"],
-                datasets: [{
-                    label: "Checking Balance",
-                    data: [600000000, 620000000, 628826728],
-                    borderColor: "#1E90FF",
-                    borderWidth: 3,
-                    tension: 0.4
-                },
-                {
-                    label: "Savings Balance",
-                    data: [400000, 420000, 438629],
-                    borderColor: "#0F6CD1",
-                    borderWidth: 3,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                plugins: { legend: { labels: { color: "#1E90FF" } } },
-                scales: {
-                    x: { ticks: { color: "#1E90FF" } },
-                    y: { ticks: { color: "#1E90FF" } }
-                }
-            }
-        });
-
-        /* BAR CHART */
-        new Chart(document.getElementById("barChart"), {
-            type: "bar",
-            data: {
-                labels: ["Checking", "Savings"],
-                datasets: [{
-                    label: "Balance",
                     data: [628826728, 438629],
                     backgroundColor: ["#1E90FF", "#0F6CD1"]
                 }]
@@ -367,4 +304,4 @@
     </script>
 
 </body>
-              </html>
+                    </html>
