@@ -2,306 +2,893 @@ dashboard.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterans Ultimate Banking - Dashboard</title>
+  <meta charset="UTF-8" />
+  <title>Veterans Ultimate Bank — Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy-light: #1b263b;
+      --accent: #3a6ff8;
+      --bg-soft: #f5f6f7;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-soft: #e5e7eb;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius-card: 14px;
+      --radius-pill: 999px;
+    }
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #030712;
-            color: #1E90FF;
-        }
+    body {
+      background: var(--bg-soft);
+      color: var(--text-main);
+      display: flex;
+      min-height: 100vh;
+    }
 
-        /* HEADER WITH LEFT-ALIGNED LOGO */
-        .header {
-            background-color: #0A1224;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-bottom: 1px solid rgba(30,144,255,0.4);
-            animation: fadeUp 0.8s ease-out;
-        }
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 18px;
+    }
 
-        .logo {
-            height: 55px;
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
 
-        .header-title {
-            font-size: 26px;
-            font-weight: bold;
-            color: #1E90FF;
-        }
+    .sidebar-logo-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
 
-        .container {
-            padding: 20px;
-        }
+    .sidebar-logo-text {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.2;
+    }
 
-        .account-card {
-            background-color: #0A1224;
-            padding: 25px;
-            border-radius: 14px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(30,144,255,0.3);
-            animation: fadeUp 1s ease-out, glowPulse 4s infinite ease-in-out;
-        }
+    .sidebar-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.55);
+      margin: 18px 0 6px;
+    }
 
-        .section-title {
-            font-size: 22px;
-            margin-bottom: 12px;
-            font-weight: bold;
-        }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      padding: 9px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
 
-        .balance {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
+    .nav-link span {
+      margin-left: 8px;
+    }
 
-        .divider {
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #1E90FF, transparent);
-            margin: 15px 0;
-            animation: glowPulse 3s infinite ease-in-out;
-        }
+    .nav-link:hover {
+      background: rgba(148, 163, 184, 0.18);
+      transform: translateX(1px);
+    }
 
-        /* Gradient Buttons */
-        .action-buttons button,
-        .logout-btn {
-            padding: 10px 18px;
-            margin: 5px;
-            border: none;
-            border-radius: 6px;
-            background: linear-gradient(135deg, #1E90FF, #0F6CD1);
-            color: white;
-            cursor: pointer;
-            font-size: 15px;
-            transition: 0.3s ease;
-        }
+    .nav-link.active {
+      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
+      color: #fff;
+    }
 
-        .action-buttons button:hover,
-        .logout-btn:hover {
-            background: linear-gradient(135deg, #3AA0FF, #1878E6);
-            transform: scale(1.03);
-        }
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      padding-top: 16px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+    }
 
-        .chart-box {
-            background-color: #050B18;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border: 1px solid rgba(30,144,255,0.3);
-            animation: fadeUp 1s ease-out;
-        }
+    /* Main layout */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
 
-        canvas {
-            width: 100% !important;
-            height: 260px !important;
-        }
+    /* Header */
+    .header {
+      background: #f3f4f6;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .transaction-item {
-            background-color: #050B18;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-size: 15px;
-            opacity: 0;
-            animation: slideFade 0.6s ease-out forwards;
-        }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        /* Animations */
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(25px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+    .header-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+    }
 
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 10px rgba(30,144,255,0.2); }
-            50% { box-shadow: 0 0 22px rgba(30,144,255,0.45); }
-            100% { box-shadow: 0 0 10px rgba(30,144,255,0.2); }
-        }
+    .header-subtitle {
+      font-size: 12px;
+      color: #6b7280;
+    }
 
-        @keyframes slideFade {
-            0% { opacity: 0; transform: translateX(-10px); }
-            100% { opacity: 1; transform: translateX(0); }
-        }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .transaction-item:nth-child(n) {
-            animation-delay: calc(0.1s * var(--i));
-        }
-    </style>
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      font-size: 11px;
+      color: #374151;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Content */
+    .content {
+      padding: 20px 24px 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 18px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .balance-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .balance-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 6px;
+    }
+
+    .balance-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .balance-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .balance-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy-light);
+    }
+
+    /* Action buttons */
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .action-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Transactions */
+    .transactions-card {
+      margin-top: 14px;
+    }
+
+    .tabs {
+      display: inline-flex;
+      background: #f3f4f6;
+      border-radius: 999px;
+      padding: 3px;
+      margin-bottom: 10px;
+    }
+
+    .tab {
+      border: none;
+      background: transparent;
+      padding: 5px 12px;
+      font-size: 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #6b7280;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .tab.active {
+      background: #ffffff;
+      color: #111827;
+      box-shadow: 0 2px 6px rgba(148, 163, 184, 0.4);
+    }
+
+    .transactions-list {
+      margin-top: 6px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .month-group {
+      margin-bottom: 10px;
+    }
+
+    .month-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4b5563;
+      margin-bottom: 4px;
+    }
+
+    .account-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #6b7280;
+      margin: 4px 0 2px;
+    }
+
+    .txn-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 12px;
+    }
+
+    .txn-row:last-child {
+      border-bottom: none;
+    }
+
+    .txn-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .txn-title {
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .txn-meta {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .txn-amount {
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .txn-credit {
+      color: #16a34a;
+    }
+
+    .txn-debit {
+      color: #b91c1c;
+    }
+
+    /* Charts */
+    .charts-card {
+      margin-top: 10px;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .chart-placeholder {
+      background: #f3f4f6;
+      border-radius: 10px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #9ca3af;
+      border: 1px dashed #d1d5db;
+    }
+
+    .chart-full {
+      margin-top: 10px;
+    }
+
+    /* Right column cards (rewards, subscriptions, quick payments, docs) */
+    .right-column .card {
+      margin-bottom: 12px;
+    }
+
+    .list-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 12px;
+    }
+
+    .list-row:last-child {
+      border-bottom: none;
+    }
+
+    .list-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .list-title {
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .list-meta {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .small-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 11px;
+      background: #e5e7eb;
+      color: #374151;
+      cursor: pointer;
+    }
+
+    @media (max-width: 960px) {
+      .sidebar {
+        display: none;
+      }
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-    <!-- HEADER WITH LEFT LOGO -->
-    <div class="header">
-        <img src="VUB.png" class="logo">
-        <span class="header-title">Veterans Ultimate Banking — Welcome, Eric Todd</span>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-circle">V</div>
+      <div class="sidebar-logo-text">
+        Veterans<br />Ultimate Bank
+      </div>
     </div>
 
-    <div class="container">
+    <div>
+      <div class="sidebar-section-title">Overview</div>
+      <div class="nav-link active"><span>Dashboard</span></div>
+      <div class="nav-link"><span>Accounts</span></div>
+      <div class="nav-link"><span>Cards</span></div>
+      <div class="nav-link"><span>Payments</span></div>
+    </div>
 
-        <div class="account-card">
+    <div>
+      <div class="sidebar-section-title">Insights</div>
+      <div class="nav-link"><span>Spending</span></div>
+      <div class="nav-link"><span>Subscriptions</span></div>
+    </div>
 
-            <div class="section-title">Account Balances</div>
+    <div>
+      <div class="sidebar-section-title">Rewards</div>
+      <div class="nav-link"><span>Rewards & Cashback</span></div>
+    </div>
 
-            <!-- STACKED BALANCES -->
-            <div class="balance">Checking: $628,826,728.00</div>
-            <div class="balance">Savings: $438,629.57</div>
+    <div class="sidebar-footer">
+      Veterans Ultimate Bank<br />
+      Secure Online Banking
+    </div>
+  </aside>
 
-            <div class="divider"></div>
+  <!-- Main -->
+  <div class="main">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div>
+          <div class="header-title">Veterans Ultimate Banking — Dashboard</div>
+          <div class="header-subtitle">Welcome, Eric Todd</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="pill">Gold Member</div>
+        <div class="avatar">E</div>
+      </div>
+    </header>
 
-            <div class="action-buttons">
-                <button>Deposit</button>
-                <button>Withdraw</button>
-                <button>Transfer</button>
-                <button>Pay Bills</button>
+    <!-- Content -->
+    <main class="content">
+      <!-- Left column -->
+      <section>
+        <!-- Balances + Actions + Transactions + Charts -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Account Overview</div>
+              <div class="card-subtitle">Current, available, and savings balances</div>
+            </div>
+          </div>
+
+          <!-- Balances vertical stack -->
+          <div class="balance-stack">
+            <div class="balance-row">
+              <div class="balance-label">Current Balance</div>
+              <div class="balance-value">$639,792,466.08</div>
+            </div>
+            <div class="balance-row">
+              <div class="balance-label">Available Balance</div>
+              <div class="balance-value">$635,792,466.00</div>
+            </div>
+            <div class="balance-row">
+              <div class="balance-label">Savings Balance</div>
+              <div class="balance-value">$469,857.00</div>
+            </div>
+          </div>
+
+          <!-- Action buttons BEFORE transactions -->
+          <div class="actions">
+            <button class="action-btn">Deposit</button>
+            <button class="action-btn">Withdraw</button>
+            <button class="action-btn">Transfer</button>
+            <button class="action-btn">Pay Bills</button>
+          </div>
+
+          <!-- Transactions BEFORE charts -->
+          <div class="card transactions-card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Transactions</div>
+                <div class="card-subtitle">Grouped by month, account, and timeline</div>
+              </div>
             </div>
 
-            <!-- ALL CHARTS -->
-            <div class="chart-box">
-                <div class="section-title">Balance Line Chart</div>
-                <canvas id="lineChart"></canvas>
+            <!-- Tabs -->
+            <div class="tabs">
+              <button class="tab active" data-tab="month">By Month</button>
+              <button class="tab" data-tab="account">By Account</button>
+              <button class="tab" data-tab="timeline">Timeline</button>
             </div>
 
-            <div class="chart-box">
-                <div class="section-title">Checking vs Savings Bar Chart</div>
-                <canvas id="barChart"></canvas>
+            <!-- By Month -->
+            <div class="transactions-list" id="tab-month">
+              <!-- January -->
+              <div class="month-group">
+                <div class="month-title">January 2024</div>
+
+                <div class="account-label">Checking Account</div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Deposit</span>
+                    <span class="txn-meta">Jan 6 • Everyday deposit</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $250,000.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Wire Transfer</span>
+                    <span class="txn-meta">Jan 9 • Outgoing wire</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $10,000.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Grocery Store</span>
+                    <span class="txn-meta">Jan 12 • Debit card purchase</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $182.19</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Gas Station</span>
+                    <span class="txn-meta">Jan 14 • Fuel purchase</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $65.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">ATM Withdrawal</span>
+                    <span class="txn-meta">Jan 18 • Cash withdrawal</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $500.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Online Purchase</span>
+                    <span class="txn-meta">Jan 21 • E‑commerce</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $320.55</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Deposit</span>
+                    <span class="txn-meta">Jan 25 • Large incoming deposit</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $1,000,000.00</span>
+                </div>
+
+                <div class="account-label">Savings Account</div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Interest</span>
+                    <span class="txn-meta">Jan 6 • Monthly interest</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $12.50</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Transfer to Savings</span>
+                    <span class="txn-meta">Jan 10 • From checking</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $25,000.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Savings Deposit</span>
+                    <span class="txn-meta">Jan 15 • Direct deposit</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $5,000.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Interest</span>
+                    <span class="txn-meta">Jan 20 • Monthly interest</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $12.50</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Savings Transfer</span>
+                    <span class="txn-meta">Jan 26 • To checking</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $10,000.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Transfer to Savings</span>
+                    <span class="txn-meta">Jan 28 • From checking</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $50,000.00</span>
+                </div>
+              </div>
+
+              <!-- February -->
+              <div class="month-group">
+                <div class="month-title">February 2024</div>
+
+                <div class="account-label">Checking Account</div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Restaurant</span>
+                    <span class="txn-meta">Feb 1 • Dining</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $240.89</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Pay Bills</span>
+                    <span class="txn-meta">Feb 4 • Utilities</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $1,200.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Online Purchase</span>
+                    <span class="txn-meta">Feb 12 • E‑commerce</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $89.99</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Gas Station</span>
+                    <span class="txn-meta">Feb 15 • Fuel purchase</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $55.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Greg Carter Received</span>
+                    <span class="txn-meta">Feb 20 • Outgoing payment</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $50,000.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Grocery Store</span>
+                    <span class="txn-meta">Feb 22 • Groceries</span>
+                  </div>
+                  <span class="txn-amount txn-debit">- $120.45</span>
+                </div>
+
+                <div class="account-label">Savings Account</div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Interest</span>
+                    <span class="txn-meta">Feb 1 • Monthly interest</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $12.50</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">Savings Deposit</span>
+                    <span class="txn-meta">Feb 5 • Direct deposit</span>
+                  </div>
+                  <span class="txn-amount txn-credit">+ $3,000.00</span>
+                </div>
+                <div class="txn-row">
+                  <div class="txn-main">
+                    <span class="txn-title">ATM Withdrawal</span>
+                      </div>
+          </div>
+
+          <!-- Charts AFTER transactions -->
+          <div class="card charts-card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Insights</div>
+                <div class="card-subtitle">Balance trends and account comparison</div>
+              </div>
             </div>
 
-            <div class="chart-box">
-                <div class="section-title">Circular Balance Gauge</div>
-                <canvas id="gaugeChart"></canvas>
+            <div class="charts-grid">
+              <div class="chart-placeholder">Line Chart — Balance Over Time</div>
+              <div class="chart-placeholder">Bar Chart — Checking vs Savings</div>
             </div>
 
-            <div class="section-title" style="margin-top:25px;">Recent Transactions</div>
-
-            <div class="transactions">
-                <!-- 29 Transactions -->
-                <div class="transaction-item" style="--i:1">Jan 6 — Deposit $250,000</div>
-                <div class="transaction-item" style="--i:2">Jan 6 — Savings Interest $12.50</div>
-                <div class="transaction-item" style="--i:3">Jan 9 — Wire Transfer $10,000</div>
-                <div class="transaction-item" style="--i:4">Jan 10 — Transfer to Savings $25,000</div>
-                <div class="transaction-item" style="--i:5">Jan 12 — Grocery Store $182.19</div>
-                <div class="transaction-item" style="--i:6">Jan 14 — Gas Station $65.00</div>
-                <div class="transaction-item" style="--i:7">Jan 15 — Savings Deposit $5,000</div>
-                <div class="transaction-item" style="--i:8">Jan 18 — ATM Withdrawal $500</div>
-                <div class="transaction-item" style="--i:9">Jan 20 — Savings Interest $12.50</div>
-                <div class="transaction-item" style="--i:10">Jan 21 — Online Purchase $320.55</div>
-                <div class="transaction-item" style="--i:11">Jan 25 — Deposit $1,000,000</div>
-                <div class="transaction-item" style="--i:12">Jan 26 — Savings Transfer $10,000</div>
-                <div class="transaction-item" style="--i:13">Jan 28 — Transfer to Savings $50,000</div>
-                <div class="transaction-item" style="--i:14">Feb 1 — Restaurant $240.89</div>
-                <div class="transaction-item" style="--i:15">Feb 1 — Savings Interest $12.50</div>
-                <div class="transaction-item" style="--i:16">Feb 4 — Pay Bills $1,200</div>
-                <div class="transaction-item" style="--i:17">Feb 5 — Savings Deposit $3,000</div>
-                <div class="transaction-item" style="--i:18">Feb 8 — ATM Withdrawal $300</div>
-                <div class="transaction-item" style="--i:19">Feb 10 — Savings Transfer $5,000</div>
-                <div class="transaction-item" style="--i:20">Feb 12 — Online Purchase $89.99</div>
-                <div class="transaction-item" style="--i:21">Feb 15 — Gas Station $55.00</div>
-                <div class="transaction-item" style="--i:22">Feb 20 — Greg Carter Received $50,000</div>
-                <div class="transaction-item" style="--i:23">Feb 22 — Grocery Store $120.45</div>
-                <div class="transaction-item" style="--i:24">Feb 25 — Savings Deposit $2,500</div>
-                <div class="transaction-item" style="--i:25">Feb 28 — Savings Transfer $7,500</div>
-                <div class="transaction-item" style="--i:26">Mar 1 — Savings Interest $12.50</div>
-                <div class="transaction-item" style="--i:27">Mar 3 — Savings Deposit $4,000</div>
-                <div class="transaction-item" style="--i:28">Mar 6 — Savings Transfer $8,000</div>
+            <div class="chart-full">
+              <div class="chart-placeholder">Circular Gauge — Balance Usage</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column -->
+      <section class="right-column">
+
+        <!-- Rewards -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Rewards & Cashback</div>
+              <div class="card-subtitle">Your current rewards summary</div>
+            </div>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">Points Balance</span>
+              <span class="list-meta">12,500 points</span>
+            </div>
+            <span class="txn-amount txn-credit">+ 2,000 projected</span>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">Cashback</span>
+              <span class="list-meta">$320.00 available</span>
+            </div>
+          </div>
         </div>
 
-        <button class="logout-btn" onclick="logout()">Logout</button>
+        <!-- Subscriptions -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Subscriptions</div>
+              <div class="card-subtitle">Recurring payments at a glance</div>
+            </div>
+          </div>
 
-    </div>
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">Netflix</span>
+              <span class="list-meta">$19.99 • Next: Jun 21</span>
+            </div>
+          </div>
 
-    <script>
-        /* Login Protection */
-        if (localStorage.getItem("loggedIn") !== "true") {
-            window.location.href = "index.html";
-        }
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">Spotify</span>
+              <span class="list-meta">$10.99 • Next: Jun 25</span>
+            </div>
+          </div>
 
-        function logout() {
-            localStorage.removeItem("loggedIn");
-            window.location.href = "index.html";
-        }
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">iCloud Storage</span>
+              <span class="list-meta">$2.99 • Next: Jul 1</span>
+            </div>
+          </div>
 
-        /* LINE CHART */
-        new Chart(document.getElementById("lineChart"), {
-            type: "line",
-            data: {
-                labels: ["Jan", "Feb", "Mar"],
-                datasets: [{
-                    label: "Checking Balance",
-                    data: [600000000, 620000000, 628826728],
-                    borderColor: "#1E90FF",
-                    borderWidth: 3,
-                    tension: 0.4
-                },
-                {
-                    label: "Savings Balance",
-                    data: [400000, 420000, 438629],
-                    borderColor: "#0F6CD1",
-                    borderWidth: 3,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                plugins: { legend: { labels: { color: "#1E90FF" } } },
-                scales: {
-                    x: { ticks: { color: "#1E90FF" } },
-                    y: { ticks: { color: "#1E90FF" } }
-                }
-            }
+          <button class="small-btn" style="margin-top:8px;">Add Subscription</button>
+        </div>
+
+        <!-- Quick Payments -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Quick Payments</div>
+              <div class="card-subtitle">Pay frequent billers fast</div>
+            </div>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">Georgia Power</span>
+              <span class="list-meta">Last paid Jun 3 • $142.12</span>
+            </div>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">AT&T Fiber</span>
+              <span class="list-meta">Last paid May 29 • $89.00</span>
+            </div>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">Amex Platinum</span>
+              <span class="list-meta">Last paid May 26 • $1,250.00</span>
+            </div>
+          </div>
+
+          <button class="small-btn" style="margin-top:8px;">Pay Now</button>
+        </div>
+
+        <!-- Document Vault -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Secure Document Vault</div>
+              <div class="card-subtitle">Important banking documents</div>
+            </div>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">2024 Tax Summary</span>
+              <span class="list-meta">PDF • Uploaded May 2 • 1.2 MB</span>
+            </div>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">Mortgage Agreement</span>
+              <span class="list-meta">PDF • Signed Jan 14 • 2.8 MB</span>
+            </div>
+          </div>
+
+          <div class="list-row">
+            <div class="list-main">
+              <span class="list-title">VUB Terms</span>
+              <span class="list-meta">PDF • Updated Mar 9 • 0.6 MB</span>
+            </div>
+          </div>
+
+          <button class="small-btn" style="margin-top:8px;">Upload Document</button>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Simple tab switching for transactions
+    const tabs = document.querySelectorAll(".tab");
+    const tabContents = {
+      month: document.getElementById("tab-month"),
+      account: document.getElementById("tab-account"),
+      timeline: document.getElementById("tab-timeline"),
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const target = tab.dataset.tab;
+        Object.keys(tabContents).forEach((key) => {
+          tabContents[key].style.display = key === target ? "block" : "none";
         });
-
-        /* BAR CHART */
-        new Chart(document.getElementById("barChart"), {
-            type: "bar",
-            data: {
-                labels: ["Checking", "Savings"],
-                datasets: [{
-                    label: "Balance",
-                    data: [628826728, 438629],
-                    backgroundColor: ["#1E90FF", "#0F6CD1"]
-                }]
-            },
-            options: {
-                plugins: { legend: { labels: { color: "#1E90FF" } } },
-                scales: {
-                    x: { ticks: { color: "#1E90FF" } },
-                    y: { ticks: { color: "#1E90FF" } }
-                }
-            }
-        });
-
-        /* CIRCULAR GAUGE */
-        new Chart(document.getElementById("gaugeChart"), {
-            type: "doughnut",
-            data: {
-                labels: ["Used", "Remaining"],
-                datasets: [{
-                    data: [628826728, 1000000000 - 628826728],
-                    backgroundColor: ["#1E90FF", "#0A1224"],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                cutout: "80%",
-                plugins: { legend: { display: false } }
-            }
-        });
-    </script>
+      });
+    });
+  </script>
 
 </body>
-                    </html>
+    </html>
+             
