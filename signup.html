@@ -5,16 +5,16 @@ signup.html
   <meta charset="UTF-8" />
   <title>Veterans Ultimate Bank — Sign Up</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     :root {
-      --navy: #0d1b2a;
-      --navy-light: #1b263b;
+      --bg-dark: #0a0f1a;
+      --card-dark: #111827;
+      --text-light: #f3f4f6;
+      --text-muted: #9ca3af;
       --accent: #3a6ff8;
-      --bg-soft: #f5f6f7;
-      --card-bg: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --accent-light: #60a5fa;
+      --shadow-dark: 0 10px 25px rgba(0, 0, 0, 0.45);
       --radius-card: 14px;
     }
 
@@ -26,21 +26,22 @@ signup.html
     }
 
     body {
-      background: var(--navy);
+      background: var(--bg-dark);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       padding: 20px;
+      color: var(--text-light);
     }
 
     .signup-card {
       width: 100%;
       max-width: 380px;
-      background: var(--card-bg);
+      background: var(--card-dark);
       padding: 28px;
       border-radius: var(--radius-card);
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-dark);
     }
 
     .logo {
@@ -48,24 +49,18 @@ signup.html
       margin-bottom: 18px;
     }
 
-    .logo-circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      margin: 0 auto 10px;
+    .signup-logo {
+      width: 120px;
+      height: auto;
+      display: block;
+      margin: 0 auto 12px;
+      border-radius: 12px;
     }
 
     .logo-text {
       font-size: 16px;
       font-weight: 600;
-      color: var(--navy-light);
+      color: var(--text-light);
       line-height: 1.2;
     }
 
@@ -84,8 +79,9 @@ signup.html
       width: 100%;
       padding: 10px;
       border-radius: 8px;
-      border: 1px solid #d1d5db;
-      font-size: 14px;
+      border: 1px solid #374151;
+      background: #1f2937;
+      color: var(--text-light);
     }
 
     .signup-btn {
@@ -93,22 +89,17 @@ signup.html
       padding: 10px;
       border: none;
       border-radius: 8px;
-      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
       color: #fff;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
       margin-top: 10px;
       box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
-      transition: transform 0.1s ease;
-    }
-
-    .signup-btn:hover {
-      transform: translateY(-1px);
     }
 
     .error {
-      color: #b91c1c;
+      color: #ef4444;
       font-size: 13px;
       margin-top: 10px;
       text-align: center;
@@ -130,17 +121,18 @@ signup.html
     }
 
     .login-link a {
-      color: var(--accent);
+      color: var(--accent-light);
       text-decoration: none;
       font-weight: 600;
     }
   </style>
 </head>
+
 <body>
 
   <div class="signup-card">
     <div class="logo">
-      <div class="logo-circle">V</div>
+      <img src="your-logo.jpeg" alt="VUB Logo" class="signup-logo">
       <div class="logo-text">Veterans<br>Ultimate Bank</div>
     </div>
 
@@ -170,7 +162,7 @@ signup.html
   </div>
 
   <script>
-    function signup() {
+    async function signup() {
       const user = document.getElementById("newUsername").value.trim();
       const pass = document.getElementById("newPassword").value.trim();
       const confirm = document.getElementById("confirmPassword").value.trim();
@@ -192,9 +184,19 @@ signup.html
         return;
       }
 
-      // Save new account
-      localStorage.setItem("newUsername", user);
-      localStorage.setItem("newPassword", pass);
+      const response = await fetch("http://localhost:4000/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: user, password: pass })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        error.textContent = data.message;
+        error.style.display = "block";
+        return;
+      }
 
       success.style.display = "block";
 
