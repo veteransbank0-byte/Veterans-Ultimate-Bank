@@ -1,129 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterans Ultimate Banking - Login</title>
+  <meta charset="UTF-8" />
+  <title>Veterans Ultimate Bank — Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy-light: #1b263b;
+      --accent: #3a6ff8;
+      --bg-soft: #f5f6f7;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius-card: 14px;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #071426; /* Navy Dark Mode */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-        .login-container {
-            background-color: #0D2038; /* Chase-style navy box */
-            padding: 40px;
-            border-radius: 12px;
-            width: 350px;
-            text-align: center;
-            box-shadow: 0 0 18px rgba(0,0,0,0.5);
-        }
+    body {
+      background: var(--navy);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
 
-        .logo {
-            width: 130px;
-            margin-bottom: 20px;
-        }
+    .login-card {
+      width: 100%;
+      max-width: 380px;
+      background: var(--card-bg);
+      padding: 28px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+    }
 
-        h2 {
-            margin-bottom: 20px;
-            font-size: 22px;
-            font-weight: bold;
-        }
+    .logo {
+      text-align: center;
+      margin-bottom: 18px;
+    }
 
-        input {
-            width: 90%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            background-color: #0A1A2F;
-            color: white;
-        }
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 10px;
+    }
 
-        button {
-            width: 95%;
-            padding: 12px;
-            background-color: #1E90FF;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+    .logo-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy-light);
+      line-height: 1.2;
+    }
 
-        button:hover {
-            background-color: #0F6CD1;
-        }
+    .input-group {
+      margin-bottom: 14px;
+    }
 
-        .error {
-            color: #FF6B6B;
-            margin-top: 10px;
-            display: none;
-        }
+    .input-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: block;
+    }
 
-        a {
-            color: #9bbcff;
-            font-size: 14px;
-            text-decoration: none;
-        }
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+    }
 
-        a:hover {
-            color: #d6e4ff;
-        }
-    </style>
+    .login-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #3a6ff8, #60a5fa);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+      transition: transform 0.1s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .error {
+      color: #b91c1c;
+      font-size: 13px;
+      margin-top: 10px;
+      text-align: center;
+      display: none;
+    }
+  </style>
 </head>
-
 <body>
 
-    <div class="login-container">
-        <img src="VUB.png" class="logo" alt="Veterans Ultimate Bank Logo">
-
-        <h2>Veterans Ultimate Banking</h2>
-
-        <input type="text" id="username" placeholder="Enter Username">
-        <input type="password" id="password" placeholder="Enter Password">
-
-        <button onclick="login()">Login</button>
-
-        <p class="error" id="errorMsg">Invalid login. Try again.</p>
-
-        <br>
-        <a href="signup.html">Create an account</a>
+  <div class="login-card">
+    <div class="logo">
+      <div class="logo-circle">V</div>
+      <div class="logo-text">Veterans<br>Ultimate Bank</div>
     </div>
 
-    <script>
-        function login() {
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
+    <div class="input-group">
+      <label class="input-label">Username</label>
+      <input id="username" class="input-field" type="text" placeholder="Enter username" />
+    </div>
 
-            // Default required credentials
-            const defaultUser = "EricTodd1$";
-            const defaultPass = "EricTodd1$";
+    <div class="input-group">
+      <label class="input-label">Password</label>
+      <input id="password" class="input-field" type="password" placeholder="Enter password" />
+    </div>
 
-            // Check if user created a custom account
-            const savedUser = localStorage.getItem("savedUser");
-            const savedPass = localStorage.getItem("savedPass");
+    <button class="login-btn" onclick="login()">Login</button>
 
-            const validUser = savedUser || defaultUser;
-            const validPass = savedPass || defaultPass;
+    <div id="error" class="error">Invalid username or password</div>
+  </div>
 
-            if (user === validUser && pass === validPass) {
-                localStorage.setItem("loggedIn", "true");
-                window.location.href = "dashboard.html";
-            } else {
-                document.getElementById("errorMsg").style.display = "block";
-            }
-        }
-    </script>
+  <script>
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const error = document.getElementById("error");
+
+      if (user === "EricTodd1$" && pass === "EricTodd1$") {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("profileName", user);
+        window.location.href = "dashboard.html";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
 
 </body>
 </html>
