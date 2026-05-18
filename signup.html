@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterans Ultimate Banking - Sign Up</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #030712;
+            color: #1E90FF;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            background-color: #0A1224;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(30,144,255,0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1E90FF;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 6px;
+            background-color: #050B18;
+            color: #1E90FF;
+            font-size: 15px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #1E90FF, #0F6CD1);
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #3AA0FF, #1878E6);
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .success {
+            color: #1E90FF;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        a {
+            color: #1E90FF;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Create Your Account</h2>
+
+        <input type="text" id="username" placeholder="Create Username">
+        <input type="password" id="password" placeholder="Create Password">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+        <button class="btn" onclick="createAccount()">Sign Up</button>
+
+        <div id="message"></div>
+
+        <a href="index.html">Already have an account? Log in</a>
+    </div>
+
+    <script>
+        function createAccount() {
+            const user = document.getElementById("username").value.trim();
+            const pass = document.getElementById("password").value.trim();
+            const confirm = document.getElementById("confirmPassword").value.trim();
+            const msg = document.getElementById("message");
+
+            msg.innerHTML = "";
+
+            if (user === "" || pass === "" || confirm === "") {
+                msg.innerHTML = "<div class='error'>All fields are required.</div>";
+                return;
+            }
+
+            if (pass !== confirm) {
+                msg.innerHTML = "<div class='error'>Passwords do not match.</div>";
+                return;
+            }
+
+            // Save account to localStorage
+            localStorage.setItem("vubUser", user);
+            localStorage.setItem("vubPass", pass);
+
+            msg.innerHTML = "<div class='success'>Account created. Redirecting...</div>";
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
+        }
+    </script>
+
+</body>
+  </html>
