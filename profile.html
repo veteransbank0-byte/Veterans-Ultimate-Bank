@@ -16,12 +16,7 @@
       --shadow-dark: 0 10px 25px rgba(0,0,0,0.45);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui; }
 
     body {
       background: var(--bg-dark);
@@ -42,10 +37,7 @@
       border-radius: 10px;
     }
 
-    .title {
-      font-size: 22px;
-      font-weight: 700;
-    }
+    .title { font-size: 22px; font-weight: 700; }
 
     .card {
       background: var(--card-dark);
@@ -55,17 +47,8 @@
       box-shadow: var(--shadow-dark);
     }
 
-    .label {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .value {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
+    .label { font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+    .value { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
 
     .profile-pic {
       width: 110px;
@@ -89,31 +72,19 @@
       margin-top: 10px;
     }
 
-    .logout-btn {
-      background: #ef4444;
-    }
+    .logout-btn { background: #ef4444; }
   </style>
 </head>
 
 <body>
 
-  <!-- PROFILE LOCK -->
-  <script>
-    if (!localStorage.getItem("loggedIn")) {
-      window.location.href = "index.html";
-    }
-  </script>
-
-  <!-- TOP BAR -->
   <div class="top-bar">
     <img src="vub-logo.png" alt="Bank Logo">
     <div class="title">Profile</div>
   </div>
 
-  <!-- PROFILE PICTURE -->
   <img src="eric-profile.jpg" class="profile-pic">
 
-  <!-- PROFILE DETAILS -->
   <div class="card">
     <div class="label">Full Name</div>
     <div class="value">Eric Todd</div>
@@ -128,7 +99,6 @@
     <div class="value">Premium Member</div>
   </div>
 
-  <!-- BUTTONS -->
   <button class="btn" onclick="goDashboard()">Back to Dashboard</button>
   <button class="btn logout-btn" onclick="logout()">Sign Out</button>
 
@@ -139,6 +109,7 @@
 
     function logout() {
       localStorage.removeItem("loggedIn");
+      localStorage.removeItem("profileName");
       window.location.href = "index.html";
     }
   </script>
