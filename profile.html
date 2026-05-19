@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Veterans Ultimate Bank — Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg-dark: #071426;
+      --card-dark: #0D2038;
+      --text-light: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #1E90FF;
+      --radius-card: 14px;
+      --shadow-dark: 0 10px 25px rgba(0,0,0,0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .top-bar img {
+      width: 55px;
+      height: 55px;
+      border-radius: 10px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .card {
+      background: var(--card-dark);
+      padding: 20px;
+      border-radius: var(--radius-card);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-dark);
+    }
+
+    .label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      display: block;
+      margin: 0 auto 15px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .logout-btn {
+      background: #ef4444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PROFILE LOCK -->
+  <script>
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <img src="vub-logo.png" alt="Bank Logo">
+    <div class="title">Profile</div>
+  </div>
+
+  <!-- PROFILE PICTURE -->
+  <img src="eric-profile.jpg" class="profile-pic">
+
+  <!-- PROFILE DETAILS -->
+  <div class="card">
+    <div class="label">Full Name</div>
+    <div class="value">Eric Todd</div>
+
+    <div class="label">Email</div>
+    <div class="value">herictodd66@gmail.com</div>
+
+    <div class="label">Date of Birth</div>
+    <div class="value">March 16, 1969</div>
+
+    <div class="label">Member Status</div>
+    <div class="value">Premium Member</div>
+  </div>
+
+  <!-- BUTTONS -->
+  <button class="btn" onclick="goDashboard()">Back to Dashboard</button>
+  <button class="btn logout-btn" onclick="logout()">Sign Out</button>
+
+  <script>
+    function goDashboard() {
+      window.location.href = "dashboard.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
