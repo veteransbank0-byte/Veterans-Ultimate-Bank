@@ -1,0 +1,131 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    background: #0a0f24;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* TOP GLASS BAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #4da3ff;
+}
+
+.page-title {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-pic {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 230px;
+    height: calc(100vh - 65px);
+    background: #0d132d;
+    padding-top: 20px;
+}
+
+.sidebar-section {
+    display: block;
+    padding: 15px 20px;
+    font-size: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-section:hover,
+.sidebar-section.active {
+    background: rgba(77, 163, 255, 0.15);
+    border-left: 4px solid #4da3ff;
+    opacity: 1;
+}
+
+/* MAIN CONTENT */
+.content {
+    margin-left: 260px;
+    padding: 100px 40px;
+}
+
+/* ACCOUNT LIST */
+.account-list {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.account-box {
+    background: linear-gradient(145deg, #0d132d, #0a0f24);
+    border: 1px solid rgba(77, 163, 255, 0.3);
+    box-shadow: 0 0 18px rgba(77, 163, 255, 0.25);
+    padding: 25px;
+    border-radius: 14px;
+    width: 280px;
+}
+
+.account-box h3 {
+    margin: 0;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.acc-number {
+    margin-top: 8px;
+    opacity: 0.6;
+}
+
+.acc-balance {
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #4da3ff;
+}
+
+.view-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #4da3ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #0a0f24;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.view-btn:hover {
+    background: #77baff;
+  }
