@@ -12,17 +12,11 @@
       --text-light: #f3f4f6;
       --text-muted: #9ca3af;
       --accent: #1E90FF;
-      --accent-light: #3aa0ff;
       --radius-card: 14px;
-      --shadow-dark: 0 10px 25px rgba(0, 0, 0, 0.45);
+      --shadow-dark: 0 10px 25px rgba(0,0,0,0.45);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui; }
 
     body {
       background: var(--bg-dark);
@@ -37,22 +31,9 @@
       margin-bottom: 25px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo img {
-      width: 55px;
-      height: 55px;
-      border-radius: 10px;
-    }
-
-    .welcome {
-      font-size: 18px;
-      font-weight: 600;
-    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo img { width: 55px; height: 55px; border-radius: 10px; }
+    .welcome { font-size: 18px; font-weight: 600; }
 
     .profile-pic {
       width: 55px;
@@ -70,27 +51,11 @@
       box-shadow: var(--shadow-dark);
     }
 
-    .card-title {
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+    .card-title { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+    .balance { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    .muted { color: var(--text-muted); font-size: 14px; }
 
-    .balance {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .muted {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .transactions {
-      margin-top: 10px;
-    }
-
+    .transactions { margin-top: 10px; max-height: 400px; overflow-y: auto; }
     .tx-item {
       display: flex;
       justify-content: space-between;
@@ -115,107 +80,70 @@
 
 <body>
 
-  <!-- DASHBOARD LOCK -->
-  <script>
-    if (!localStorage.getItem("loggedIn")) {
-      window.location.href = "index.html";
-    }
-  </script>
-
-  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="logo">
       <img src="vub-logo.png" alt="Bank Logo">
       <div class="welcome">Welcome, <span id="profileName">User</span></div>
     </div>
-
     <img src="eric-profile.jpg" class="profile-pic" onclick="openProfile()">
   </div>
 
-  <!-- ⭐ BALANCE CARDS BELOW WELCOME ⭐ -->
-
-  <!-- CURRENT BALANCE -->
+  <!-- BALANCE CARDS -->
   <div class="card">
     <div class="card-title">Current Balance</div>
     <div class="balance">$639,792,466.08</div>
     <div class="muted">Total Current Balance</div>
   </div>
 
-  <!-- AVAILABLE BALANCE -->
   <div class="card">
     <div class="card-title">Available Balance</div>
     <div class="balance">$635,792,466</div>
     <div class="muted">Funds Available</div>
   </div>
 
-  <!-- SAVINGS BALANCE -->
   <div class="card">
     <div class="card-title">Savings Balance</div>
     <div class="balance">$469,857</div>
     <div class="muted">Savings Account</div>
   </div>
 
-  <!-- LOAN OVERVIEW -->
-  <div class="card">
-    <div class="card-title">Loan Overview</div>
-    <div class="muted">Personal Loan</div>
-    <div class="balance" style="font-size:22px;">$4,200 Remaining</div>
-  </div>
-
-  <!-- REWARDS -->
-  <div class="card">
-    <div class="card-title">Rewards & Cashback</div>
-    <div class="balance" style="font-size:22px;">$185.90</div>
-    <div class="muted">Total Rewards Earned</div>
-  </div>
-
-  <!-- SUBSCRIPTIONS -->
-  <div class="card">
-    <div class="card-title">Active Subscriptions</div>
-    <div class="muted">Netflix — $15.99</div>
-    <div class="muted">Apple Music — $9.99</div>
-    <div class="muted">Amazon Prime — $14.99</div>
-  </div>
-
-  <!-- QUICK PAYMENTS -->
-  <div class="card">
-    <div class="card-title">Quick Payments</div>
-    <div class="muted">Send money instantly to saved contacts</div>
-  </div>
-
-  <!-- TRANSACTIONS -->
+  <!-- TRANSACTIONS HISTORY -->
   <div class="card">
     <div class="card-title">Recent Transactions</div>
-
     <div class="transactions">
-      <div class="tx-item">
-        <span>Walmart</span>
-        <span>-$82.14</span>
-      </div>
-      <div class="tx-item">
-        <span>Deposit</span>
-        <span>+$1,200.00</span>
-      </div>
-      <div class="tx-item">
-        <span>Starbucks</span>
-        <span>-$6.45</span>
-      </div>
-      <div class="tx-item">
-        <span>Shell Gas</span>
-        <span>-$42.10</span>
-      </div>
+      <div class="tx-item"><span>Walmart</span><span>-$82.14</span></div>
+      <div class="tx-item"><span>Deposit</span><span>+$1,200.00</span></div>
+      <div class="tx-item"><span>Starbucks</span><span>-$6.45</span></div>
+      <div class="tx-item"><span>Shell Gas</span><span>-$42.10</span></div>
+      <div class="tx-item"><span>Amazon</span><span>-$250.00</span></div>
+      <div class="tx-item"><span>Salary Credit</span><span>+$5,000.00</span></div>
+      <div class="tx-item"><span>Netflix</span><span>-$15.99</span></div>
+      <div class="tx-item"><span>Apple Music</span><span>-$9.99</span></div>
+      <div class="tx-item"><span>Uber Ride</span><span>-$18.50</span></div>
+      <div class="tx-item"><span>Electric Bill</span><span>-$120.00</span></div>
+      <div class="tx-item"><span>Water Bill</span><span>-$45.00</span></div>
+      <div class="tx-item"><span>Gym Membership</span><span>-$60.00</span></div>
+      <div class="tx-item"><span>Insurance</span><span>-$200.00</span></div>
+      <div class="tx-item"><span>Restaurant</span><span>-$75.00</span></div>
+      <div class="tx-item"><span>Pharmacy</span><span>-$32.00</span></div>
+      <div class="tx-item"><span>ATM Withdrawal</span><span>-$500.00</span></div>
+      <div class="tx-item"><span>Deposit</span><span>+$2,000.00</span></div>
+      <div class="tx-item"><span>School Fees</span><span>-$1,200.00</span></div>
+      <div class="tx-item"><span>Car Payment</span><span>-$350.00</span></div>
+      <div class="tx-item"><span>Loan Credit</span><span>+$1,000.00</span></div>
+      <div class="tx-item"><span>Charity Donation</span><span>-$100.00</span></div>
     </div>
   </div>
 
   <button class="logout-btn" onclick="logout()">Sign Out</button>
 
   <script>
-    // Load profile name from localStorage
     document.getElementById("profileName").textContent =
       localStorage.getItem("profileName") || "User";
 
     function logout() {
       localStorage.removeItem("loggedIn");
+      localStorage.removeItem("profileName");
       window.location.href = "index.html";
     }
 
