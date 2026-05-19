@@ -1,4 +1,5 @@
-<index.html>
+index.html
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -124,9 +125,7 @@
 
   <div class="login-card">
     <div class="logo">
-      <!-- ⭐ Your bank profile logo -->
       <img src="vub-logo.png" alt="VUB Logo" class="login-logo">
-
       <div class="logo-text">
         Veterans Ultimate Bank<br>
         <span style="font-size:14px;">Welcome, Eric Todd</span>
@@ -174,11 +173,11 @@
         return;
       }
 
-      // ⭐ Save login session
+      // Save login session
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("profileName", data.username || "Eric Todd");
 
-      // ⭐ Redirect to dashboard
+      // Redirect to dashboard
       window.location.href = "dashboard.html";
     }
   </script>
