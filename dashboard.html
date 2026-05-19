@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veterans Ultimate Bank — Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg-dark: #071426;
+      --card-dark: #0D2038;
+      --text-light: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #1E90FF;
+      --accent-light: #3aa0ff;
+      --radius-card: 14px;
+      --shadow-dark: 0 10px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 10px;
+    }
+
+    .welcome {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .profile-pic {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+    }
+
+    .card {
+      background: var(--card-dark);
+      padding: 18px;
+      border-radius: var(--radius-card);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-dark);
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .balance {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .transactions {
+      margin-top: 10px;
+    }
+
+    .tx-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #1f2a3a;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #ef4444;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- DASHBOARD LOCK -->
+  <script>
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="logo">
+      <img src="vub-logo.png" alt="Bank Logo">
+      <div class="welcome">Welcome, <span id="profileName">User</span></div>
+    </div>
+
+    <img src="eric-profile.jpg" class="profile-pic" onclick="openProfile()">
+  </div>
+
+  <!-- ⭐ BALANCE CARDS BELOW WELCOME ⭐ -->
+
+  <!-- CURRENT BALANCE -->
+  <div class="card">
+    <div class="card-title">Current Balance</div>
+    <div class="balance">$639,792,466.08</div>
+    <div class="muted">Total Current Balance</div>
+  </div>
+
+  <!-- AVAILABLE BALANCE -->
+  <div class="card">
+    <div class="card-title">Available Balance</div>
+    <div class="balance">$635,792,466</div>
+    <div class="muted">Funds Available</div>
+  </div>
+
+  <!-- SAVINGS BALANCE -->
+  <div class="card">
+    <div class="card-title">Savings Balance</div>
+    <div class="balance">$469,857</div>
+    <div class="muted">Savings Account</div>
+  </div>
+
+  <!-- LOAN OVERVIEW -->
+  <div class="card">
+    <div class="card-title">Loan Overview</div>
+    <div class="muted">Personal Loan</div>
+    <div class="balance" style="font-size:22px;">$4,200 Remaining</div>
+  </div>
+
+  <!-- REWARDS -->
+  <div class="card">
+    <div class="card-title">Rewards & Cashback</div>
+    <div class="balance" style="font-size:22px;">$185.90</div>
+    <div class="muted">Total Rewards Earned</div>
+  </div>
+
+  <!-- SUBSCRIPTIONS -->
+  <div class="card">
+    <div class="card-title">Active Subscriptions</div>
+    <div class="muted">Netflix — $15.99</div>
+    <div class="muted">Apple Music — $9.99</div>
+    <div class="muted">Amazon Prime — $14.99</div>
+  </div>
+
+  <!-- QUICK PAYMENTS -->
+  <div class="card">
+    <div class="card-title">Quick Payments</div>
+    <div class="muted">Send money instantly to saved contacts</div>
+  </div>
+
+  <!-- TRANSACTIONS -->
+  <div class="card">
+    <div class="card-title">Recent Transactions</div>
+
+    <div class="transactions">
+      <div class="tx-item">
+        <span>Walmart</span>
+        <span>-$82.14</span>
+      </div>
+      <div class="tx-item">
+        <span>Deposit</span>
+        <span>+$1,200.00</span>
+      </div>
+      <div class="tx-item">
+        <span>Starbucks</span>
+        <span>-$6.45</span>
+      </div>
+      <div class="tx-item">
+        <span>Shell Gas</span>
+        <span>-$42.10</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="logout-btn" onclick="logout()">Sign Out</button>
+
+  <script>
+    // Load profile name from localStorage
+    document.getElementById("profileName").textContent =
+      localStorage.getItem("profileName") || "User";
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+
+    function openProfile() {
+      window.location.href = "profile.html";
+    }
+  </script>
+
+</body>
+</html>
