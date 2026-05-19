@@ -13,7 +13,7 @@
       --text-muted: #9ca3af;
       --accent: #1E90FF;
       --accent-light: #3aa0ff;
-      --shadow-dark: 0 10px 25px rgba(0, 0, 0, 0.45);
+      --shadow-dark: 0 10px 25px rgba(0,0,0,0.45);
       --radius-card: 14px;
     }
 
@@ -117,7 +117,7 @@
       if (user === "EricTodd@$" && pass === "EricTodd@1$") {
         localStorage.setItem("loggedIn", "true");
         localStorage.setItem("profileName", "Eric Todd");
-        window.location.href = "dashboard.html"; 
+        window.location.href = "dashboard.html";
       } else {
         document.getElementById("error").style.display = "block";
       }
