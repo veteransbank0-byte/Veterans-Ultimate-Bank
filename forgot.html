@@ -3,26 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUB - Reset Password</title>
-    <link rel="stylesheet" href="css/forgot.css">
+    <title>Forgot Password - VUB</title>
+
+    <!-- Glass Style CSS -->
+    <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
 
     <div class="auth-container">
         <div class="glass-card auth-card">
-            <h2>Reset Password</h2>
-            <p class="subtitle">Enter your email to receive reset instructions</p>
+
+            <!-- VUB LOGO -->
+            <div class="logo">
+                <img src="vub-logo.png" alt="VUB Logo" class="login-logo">
+            </div>
+
+            <h2>Forgot Password</h2>
+            <p class="subtitle">Enter your email to reset your password</p>
 
             <label>Email</label>
-            <input type="email" placeholder="you@example.com">
+            <input id="resetEmail" type="email" placeholder="you@example.com">
 
-            <button class="auth-btn">Send Reset Link</button>
+            <button class="auth-btn" onclick="sendReset()">Send Reset Link</button>
 
             <div class="links">
-                <a href="login.html">Back to Login</a>
+                <a href="index.html">Back to Login</a>
+                <a href="register.html">Create Account</a>
             </div>
+
         </div>
     </div>
+
+    <script>
+        function sendReset() {
+            const email = document.getElementById("resetEmail").value.trim();
+
+            if (email === "") {
+                alert("Please enter your email.");
+                return;
+            }
+
+            alert("A password reset link has been sent to: " + email);
+        }
+    </script>
 
 </body>
 </html>
