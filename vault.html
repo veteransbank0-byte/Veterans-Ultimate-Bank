@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUB - Document Vault</title>
+    <link rel="stylesheet" href="css/vault.css">
+</head>
+<body>
+
+    <!-- TOP GLASS NAVBAR -->
+    <header class="topbar">
+        <div class="logo">VUB</div>
+        <div class="page-title">Document Vault</div>
+        <div class="profile-area">
+            <span class="notif">🔔</span>
+            <img src="images/profile.jpg" class="profile-pic" alt="Profile">
+        </div>
+    </header>
+
+    <!-- EXPANDED CHASE-STYLE SIDEBAR -->
+    <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-section">Dashboard</a>
+        <a href="accounts.html" class="sidebar-section">Accounts</a>
+        <a href="cards.html" class="sidebar-section">Cards</a>
+        <a href="payments.html" class="sidebar-section">Payments</a>
+        <a href="transfers.html" class="sidebar-section">Transfers</a>
+        <a href="spending.html" class="sidebar-section">Spending Insights</a>
+        <a href="subscriptions.html" class="sidebar-section">Subscriptions</a>
+        <a href="rewards.html" class="sidebar-section">Rewards</a>
+        <a href="vault.html" class="sidebar-section active">Document Vault</a>
+        <a href="settings.html" class="sidebar-section">Settings</a>
+        <a href="profile.html" class="sidebar-section">Profile</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <h2>Document Vault</h2>
+
+        <section class="vault-grid">
+
+            <!-- TAX DOCUMENTS -->
+            <div class="glass-card vault-card">
+                <h3>Tax Documents</h3>
+                <p class="desc">W‑2, 1099, yearly summaries</p>
+                <button class="view-btn">View Documents</button>
+            </div>
+
+            <!-- MORTGAGE AGREEMENT -->
+            <div class="glass-card vault-card">
+                <h3>Mortgage Agreement</h3>
+                <p class="desc">Loan terms, payment schedule</p>
+                <button class="view-btn">Open File</button>
+            </div>
+
+            <!-- TERMS & CONDITIONS -->
+            <div class="glass-card vault-card">
+                <h3>Terms & Conditions</h3>
+                <p class="desc">Account policies and disclosures</p>
+                <button class="view-btn">Read Document</button>
+            </div>
+
+            <!-- UPLOAD DOCUMENT -->
+            <div class="glass-card vault-card upload-card">
+                <h3>Upload New Document</h3>
+                <p class="desc">PDF, JPG, PNG, DOCX</p>
+                <button class="upload-btn">Upload File</button>
+            </div>
+
+        </section>
+
+        <h2 style="margin-top: 32px;">Recent Files</h2>
+
+        <section class="recent-grid">
+
+            <div class="glass-card recent-item">
+                <p class="recent-title">2025 Tax Summary.pdf</p>
+                <p class="recent-date">Uploaded May 14</p>
+            </div>
+
+            <div class="glass-card recent-item">
+                <p class="recent-title">Mortgage‑Agreement‑Final.pdf</p>
+                <p class="recent-date">Uploaded May 10</p>
+            </div>
+
+            <div class="glass-card recent-item">
+                <p class="recent-title">VUB‑Terms‑2026.pdf</p>
+                <p class="recent-date">Uploaded May 2</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+  </html>
