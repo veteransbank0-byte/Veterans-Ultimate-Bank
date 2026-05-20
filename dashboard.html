@@ -12,13 +12,16 @@
     <header class="topbar">
         <div class="logo">VUB</div>
         <div class="page-title">Dashboard</div>
+
         <div class="profile-area">
             <span class="notif">🔔</span>
-            <img src="images/profile.jpg" class="profile-pic" alt="Profile">
+
+            <!-- YOUR REAL PROFILE PICTURE -->
+            <img src="images/eric-profile.png" class="profile-pic" alt="Profile">
         </div>
     </header>
 
-    <!-- EXPANDED CHASE-STYLE SIDEBAR -->
+    <!-- SIDEBAR -->
     <aside class="sidebar">
         <a href="dashboard.html" class="sidebar-section active">Dashboard</a>
         <a href="accounts.html" class="sidebar-section">Accounts</a>
@@ -30,48 +33,74 @@
         <a href="rewards.html" class="sidebar-section">Rewards</a>
         <a href="vault.html" class="sidebar-section">Document Vault</a>
         <a href="settings.html" class="sidebar-section">Settings</a>
+        <a href="profile.html" class="sidebar-section">Profile</a>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="content">
-        <h2>Welcome Back</h2>
 
-        <!-- GRID OF GLASS CARDS -->
-        <section class="dashboard-grid">
+        <!-- WELCOME BANNER -->
+        <div class="welcome-banner glass-card">
+            <h2 id="welcomeText">Welcome, Eric Todd</h2>
+            <p>Your financial overview at a glance</p>
+        </div>
 
-            <!-- TOTAL BALANCE -->
-            <div class="glass-card dash-card">
-                <h3>Total Balance</h3>
-                <p class="big-number">$4,124,625,833.28</p>
-                <p class="subtext">Across all accounts</p>
+        <!-- ACCOUNT SUMMARY GRID -->
+        <section class="summary-grid">
+
+            <div class="glass-card summary-card">
+                <h3>Checking Account</h3>
+                <p class="balance">$4,920.55</p>
+                <p class="label">Available Balance</p>
             </div>
 
-            <!-- CHECKING -->
-            <div class="glass-card dash-card">
-                <h3>Checking</h3>
-                <p class="big-number">$629,733,289.52</p>
-                <p class="subtext">Account •••• 7281</p>
+            <div class="glass-card summary-card">
+                <h3>Savings Account</h3>
+                <p class="balance">$12,480.00</p>
+                <p class="label">Total Savings</p>
             </div>
 
-            <!-- SAVINGS -->
-            <div class="glass-card dash-card">
-                <h3>Savings</h3>
-                <p class="big-number">$3,497,362,919.07</p>
-                <p class="subtext">Account •••• 9924</p>
-            </div>
-
-            <!-- RECENT ACTIVITY -->
-            <div class="glass-card dash-card wide">
-                <h3>Recent Activity</h3>
-                <ul class="activity-list">
-                    <li>Deposit — $250,000.00</li>
-                    <li>Wire Transfer — $1,200,000.00</li>
-                    <li>ATM Withdrawal — $500.00</li>
-                </ul>
+            <div class="glass-card summary-card">
+                <h3>Credit Card</h3>
+                <p class="balance">$1,240.22</p>
+                <p class="label">Current Balance</p>
             </div>
 
         </section>
+
+        <!-- RECENT TRANSACTIONS -->
+        <section class="glass-card transactions-card">
+            <h3>Recent Transactions</h3>
+
+            <div class="transaction">
+                <span>Amazon Purchase</span>
+                <span class="amount negative">‑$82.99</span>
+            </div>
+
+            <div class="transaction">
+                <span>Direct Deposit</span>
+                <span class="amount positive">+$1,200.00</span>
+            </div>
+
+            <div class="transaction">
+                <span>Starbucks</span>
+                <span class="amount negative">‑$6.75</span>
+            </div>
+
+            <div class="transaction">
+                <span>Electric Bill</span>
+                <span class="amount negative">‑$120.50</span>
+            </div>
+
+        </section>
+
     </main>
+
+    <!-- DYNAMIC NAME SCRIPT -->
+    <script>
+        const name = localStorage.getItem("profileName") || "User";
+        document.getElementById("welcomeText").textContent = "Welcome, " + name;
+    </script>
 
 </body>
 </html>
