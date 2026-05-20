@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUB - Settings</title>
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+
+    <!-- TOP GLASS NAVBAR -->
+    <header class="topbar">
+        <div class="logo">VUB</div>
+        <div class="page-title">Settings</div>
+        <div class="profile-area">
+            <span class="notif">🔔</span>
+            <img src="images/profile.jpg" class="profile-pic" alt="Profile">
+        </div>
+    </header>
+
+    <!-- EXPANDED CHASE-STYLE SIDEBAR -->
+    <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-section">Dashboard</a>
+        <a href="accounts.html" class="sidebar-section">Accounts</a>
+        <a href="cards.html" class="sidebar-section">Cards</a>
+        <a href="payments.html" class="sidebar-section">Payments</a>
+        <a href="transfers.html" class="sidebar-section">Transfers</a>
+        <a href="spending.html" class="sidebar-section">Spending Insights</a>
+        <a href="subscriptions.html" class="sidebar-section">Subscriptions</a>
+        <a href="rewards.html" class="sidebar-section">Rewards</a>
+        <a href="vault.html" class="sidebar-section">Document Vault</a>
+        <a href="settings.html" class="sidebar-section active">Settings</a>
+        <a href="profile.html" class="sidebar-section">Profile</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <h2>Settings</h2>
+
+        <section class="settings-grid">
+
+            <!-- APP PREFERENCES -->
+            <div class="glass-card settings-card">
+                <h3>App Preferences</h3>
+
+                <label>Theme</label>
+                <select>
+                    <option>Dark Mode (Active)</option>
+                    <option>Light Mode</option>
+                </select>
+
+                <label>Language</label>
+                <select>
+                    <option>English (Default)</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                </select>
+
+                <button class="save-btn">Save Preferences</button>
+            </div>
+
+            <!-- NOTIFICATION SETTINGS -->
+            <div class="glass-card settings-card">
+                <h3>Notifications</h3>
+
+                <label>Email Alerts</label>
+                <select>
+                    <option>Enabled</option>
+                    <option>Disabled</option>
+                </select>
+
+                <label>SMS Alerts</label>
+                <select>
+                    <option>Enabled</option>
+                    <option>Disabled</option>
+                </select>
+
+                <label>Push Notifications</label>
+                <select>
+                    <option>Enabled</option>
+                    <option>Disabled</option>
+                </select>
+
+                <button class="save-btn">Update Notifications</button>
+            </div>
+
+            <!-- ACCOUNT CONTROLS -->
+            <div class="glass-card settings-card danger-card">
+                <h3>Account Controls</h3>
+
+                <p class="warning-text">These actions cannot be undone.</p>
+
+                <button class="danger-btn">Deactivate Account</button>
+                <button class="danger-btn">Delete Account</button>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+  </html>
