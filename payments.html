@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUB – Payments</title>
+    <title>VUB - Payments</title>
     <link rel="stylesheet" href="css/payments.css">
 </head>
-
 <body>
 
     <!-- TOP GLASS NAVBAR -->
@@ -15,63 +14,79 @@
         <div class="page-title">Payments</div>
         <div class="profile-area">
             <span class="notif">🔔</span>
-            <img src="profile.jpg" class="profile-pic" alt="Profile">
+            <img src="images/profile.jpg" class="profile-pic" alt="Profile">
         </div>
     </header>
 
-    <!-- FIXED SIDEBAR -->
+    <!-- EXPANDED CHASE-STYLE SIDEBAR -->
     <aside class="sidebar">
-        <a href="dashboard.html" class="sidebar-section">🏠 Dashboard</a>
-        <a href="accounts.html" class="sidebar-section">💳 Accounts</a>
-        <a href="cards.html" class="sidebar-section">💼 Cards</a>
-        <a href="payments.html" class="sidebar-section active">💸 Payments</a>
-        <a href="transfers.html" class="sidebar-section">🔁 Transfers</a>
-        <a href="#" class="sidebar-section">📊 Spending Insights</a>
-        <a href="#" class="sidebar-section">📅 Subscriptions</a>
-        <a href="#" class="sidebar-section">🎁 Rewards</a>
-        <a href="#" class="sidebar-section">📂 Document Vault</a>
-        <a href="#" class="sidebar-section">⚙️ Settings</a>
+        <a href="dashboard.html" class="sidebar-section">Dashboard</a>
+        <a href="accounts.html" class="sidebar-section">Accounts</a>
+        <a href="cards.html" class="sidebar-section">Cards</a>
+        <a href="payments.html" class="sidebar-section active">Payments</a>
+        <a href="transfers.html" class="sidebar-section">Transfers</a>
+        <a href="spending.html" class="sidebar-section">Spending Insights</a>
+        <a href="subscriptions.html" class="sidebar-section">Subscriptions</a>
+        <a href="rewards.html" class="sidebar-section">Rewards</a>
+        <a href="vault.html" class="sidebar-section">Document Vault</a>
+        <a href="settings.html" class="sidebar-section">Settings</a>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="content">
+        <h2>Upcoming Payments</h2>
 
-        <h2>Make a Payment</h2>
+        <section class="payment-grid">
 
-        <section class="payment-container">
-
-            <!-- BILL PAY FORM -->
-            <div class="payment-box">
-                <h3>Pay a Bill</h3>
-
-                <label>Payee</label>
-                <select>
-                    <option>Georgia Power</option>
-                    <option>AT&T Fiber</option>
-                    <option>American Express</option>
-                    <option>Water Utility</option>
-                </select>
-
-                <label>Amount</label>
-                <input type="number" placeholder="$0.00">
-
-                <label>From Account</label>
-                <select>
-                    <option>Checking •••• 7281</option>
-                    <option>Savings •••• 9924</option>
-                </select>
-
+            <!-- GEORGIA POWER -->
+            <div class="glass-card payment-card">
+                <h3>Georgia Power</h3>
+                <p class="company">Electric Utility</p>
+                <p class="amount-due">$420.17</p>
+                <p class="due-date">Due: May 28</p>
                 <button class="pay-btn">Pay Now</button>
             </div>
 
-            <!-- QUICK PAY SHORTCUTS -->
-            <div class="quick-pay">
-                <h3>Quick Payments</h3>
+            <!-- AT&T FIBER -->
+            <div class="glass-card payment-card">
+                <h3>AT&T Fiber</h3>
+                <p class="company">Internet Service</p>
+                <p class="amount-due">$89.99</p>
+                <p class="due-date">Due: June 1</p>
+                <button class="pay-btn">Pay Now</button>
+            </div>
 
-                <button class="quick-btn">Georgia Power – $240</button>
-                <button class="quick-btn">AT&T Fiber – $120</button>
-                <button class="quick-btn">Amex Platinum – $650</button>
-                <button class="quick-btn">Water Utility – $89</button>
+            <!-- AMEX PLATINUM -->
+            <div class="glass-card payment-card">
+                <h3>Amex Platinum</h3>
+                <p class="company">Credit Card</p>
+                <p class="amount-due">$2,317.44</p>
+                <p class="due-date">Due: June 5</p>
+                <button class="pay-btn">Pay Now</button>
+            </div>
+
+        </section>
+
+        <h2 style="margin-top: 32px;">Recent Payments</h2>
+
+        <section class="recent-grid">
+
+            <div class="glass-card recent-item">
+                <p class="recent-title">Apple Services</p>
+                <p class="recent-amount">-$14.99</p>
+                <p class="recent-date">Paid May 17</p>
+            </div>
+
+            <div class="glass-card recent-item">
+                <p class="recent-title">Car Insurance</p>
+                <p class="recent-amount">-$289.00</p>
+                <p class="recent-date">Paid May 15</p>
+            </div>
+
+            <div class="glass-card recent-item">
+                <p class="recent-title">Netflix</p>
+                <p class="recent-amount">-$22.99</p>
+                <p class="recent-date">Paid May 12</p>
             </div>
 
         </section>
