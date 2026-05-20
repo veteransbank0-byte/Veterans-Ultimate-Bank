@@ -3,32 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUB - Register</title>
-    <link rel="stylesheet" href="css/register.css">
+    <title>Create Account - VUB</title>
+
+    <!-- Glass Style CSS -->
+    <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
 
     <div class="auth-container">
         <div class="glass-card auth-card">
+
+            <!-- VUB LOGO -->
+            <div class="logo">
+                <img src="vub-logo.png" alt="VUB Logo" class="login-logo">
+            </div>
+
             <h2>Create Account</h2>
-            <p class="subtitle">Join Veterans Unlimited Bank</p>
+            <p class="subtitle">Join Veterans Ultimate Bank</p>
 
             <label>Full Name</label>
-            <input type="text" placeholder="ERIC TODD">
+            <input id="fullName" type="text" placeholder="John Doe">
 
             <label>Email</label>
-            <input type="email" placeholder="you@example.com">
+            <input id="email" type="email" placeholder="you@example.com">
 
             <label>Password</label>
-            <input type="password" placeholder="Create a password">
+            <input id="password" type="password" placeholder="Create a password">
 
-            <button class="auth-btn">Register</button>
+            <label>Confirm Password</label>
+            <input id="confirmPassword" type="password" placeholder="Re-enter password">
+
+            <button class="auth-btn" onclick="register()">Create Account</button>
 
             <div class="links">
-                <a href="login.html">Already have an account?</a>
+                <a href="index.html">Back to Login</a>
+                <a href="forgot.html">Forgot Password</a>
             </div>
+
         </div>
     </div>
+
+    <script>
+        function register() {
+            const name = document.getElementById("fullName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const pass = document.getElementById("password").value.trim();
+            const confirm = document.getElementById("confirmPassword").value.trim();
+
+            if (!name || !email || !pass || !confirm) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            if (pass !== confirm) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            alert("Account created successfully! Redirecting to login...");
+            window.location.href = "index.html";
+        }
+    </script>
 
 </body>
 </html>
