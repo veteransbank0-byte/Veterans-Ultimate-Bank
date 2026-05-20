@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUB – Profile</title>
+    <title>VUB - Profile</title>
     <link rel="stylesheet" href="css/profile.css">
 </head>
-
 <body>
 
     <!-- TOP GLASS NAVBAR -->
@@ -15,61 +14,84 @@
         <div class="page-title">Profile</div>
         <div class="profile-area">
             <span class="notif">🔔</span>
-            <img src="eric-profile.jpg" class="profile-pic" alt="Profile">
+            <img src="images/profile.jpg" class="profile-pic" alt="Profile">
         </div>
     </header>
 
-    <!-- FIXED SIDEBAR -->
+    <!-- EXPANDED CHASE-STYLE SIDEBAR -->
     <aside class="sidebar">
-        <a href="dashboard.html" class="sidebar-section">🏠 Dashboard</a>
-        <a href="accounts.html" class="sidebar-section">💳 Accounts</a>
-        <a href="cards.html" class="sidebar-section">💼 Cards</a>
-        <a href="payments.html" class="sidebar-section">💸 Payments</a>
-        <a href="transfers.html" class="sidebar-section">🔁 Transfers</a>
-        <a href="profile.html" class="sidebar-section active">👤 Profile</a>
-        <a href="#" class="sidebar-section">⚙️ Settings</a>
+        <a href="dashboard.html" class="sidebar-section">Dashboard</a>
+        <a href="accounts.html" class="sidebar-section">Accounts</a>
+        <a href="cards.html" class="sidebar-section">Cards</a>
+        <a href="payments.html" class="sidebar-section">Payments</a>
+        <a href="transfers.html" class="sidebar-section">Transfers</a>
+        <a href="spending.html" class="sidebar-section">Spending Insights</a>
+        <a href="subscriptions.html" class="sidebar-section">Subscriptions</a>
+        <a href="rewards.html" class="sidebar-section">Rewards</a>
+        <a href="vault.html" class="sidebar-section">Document Vault</a>
+        <a href="settings.html" class="sidebar-section">Settings</a>
+        <a href="profile.html" class="sidebar-section active">Profile</a>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="content">
-
         <h2>Your Profile</h2>
 
-        <section class="profile-container">
+        <section class="profile-grid">
 
-            <!-- PROFILE CARD -->
-            <div class="profile-box">
-                <img src="eric-profile.jpg" class="profile-large" alt="Profile">
+            <!-- PERSONAL INFO -->
+            <div class="glass-card profile-card">
+                <h3>Personal Information</h3>
 
-                <h3>ERIC TODD</h3>
-                <p class="email">herictodd66@gmail.com</p>
-                <p class="status">Veterans Ultimate Bank Member</p>
+                <div class="info-row">
+                    <label>Full Name</label>
+                    <input type="text" value="ERIC TODD">
+                </div>
 
-                <button class="edit-btn">Edit Profile</button>
-            </div>
+                <div class="info-row">
+                    <label>Email</label>
+                    <input type="email" value="eric.todd@example.com">
+                </div>
 
-            <!-- EDIT FORM -->
-            <div class="edit-box">
-                <h3>Edit Information</h3>
-
-                <label>Full Name</label>
-                <input type="text" value="ERIC TODD">
-
-                <label>Email</label>
-                <input type="email" value="herictodd66@gmail.com">
-
-                <label>Phone Number</label>
-                <input type="text" placeholder="(optional)">
-
-                <label>Date of Birth</label>
-                <input type="date">
+                <div class="info-row">
+                    <label>Phone</label>
+                    <input type="text" value="(555) 123‑9876">
+                </div>
 
                 <button class="save-btn">Save Changes</button>
             </div>
 
-        </section>
+            <!-- SECURITY SETTINGS -->
+            <div class="glass-card profile-card">
+                <h3>Security Settings</h3>
 
+                <div class="info-row">
+                    <label>Password</label>
+                    <input type="password" value="********">
+                </div>
+
+                <div class="info-row">
+                    <label>Two‑Factor Authentication</label>
+                    <select>
+                        <option>Enabled</option>
+                        <option>Disabled</option>
+                    </select>
+                </div>
+
+                <button class="save-btn">Update Security</button>
+            </div>
+
+            <!-- PROFILE PHOTO -->
+            <div class="glass-card profile-card photo-card">
+                <h3>Profile Photo</h3>
+
+                <img src="images/profile.jpg" class="profile-preview" alt="Profile">
+
+                <button class="upload-btn">Upload New Photo</button>
+            </div>
+
+        </section>
     </main>
 
 </body>
-</html>
+    </html>
