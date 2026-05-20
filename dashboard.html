@@ -15,8 +15,6 @@
 
         <div class="profile-area">
             <span class="notif">🔔</span>
-
-            <!-- YOUR REAL PROFILE PICTURE -->
             <img src="images/eric-profile.png" class="profile-pic" alt="Profile">
         </div>
     </header>
@@ -45,27 +43,24 @@
             <p>Your financial overview at a glance</p>
         </div>
 
-        <!-- ACCOUNT SUMMARY GRID -->
-        <section class="summary-grid">
+        <!-- ONE COMBINED BALANCE CARD -->
+        <section class="glass-card combined-balance-card">
+            <h3>Account Balances</h3>
 
-            <div class="glass-card summary-card">
-                <h3>Checking Account</h3>
-                <p class="balance">$4,920.55</p>
-                <p class="label">Available Balance</p>
+            <div class="balance-row">
+                <span class="label">Current Balance</span>
+                <span class="balance">$629,733,289.52</span>
             </div>
 
-            <div class="glass-card summary-card">
-                <h3>Savings Account</h3>
-                <p class="balance">$12,480.00</p>
-                <p class="label">Total Savings</p>
+            <div class="balance-row">
+                <span class="label">Available Balance</span>
+                <span class="balance">$567,529,624.699</span>
             </div>
 
-            <div class="glass-card summary-card">
-                <h3>Credit Card</h3>
-                <p class="balance">$1,240.22</p>
-                <p class="label">Current Balance</p>
+            <div class="balance-row">
+                <span class="label">Savings Balance</span>
+                <span class="balance">$3,497,362,919.07</span>
             </div>
-
         </section>
 
         <!-- RECENT TRANSACTIONS -->
@@ -98,7 +93,7 @@
 
     <!-- DYNAMIC NAME SCRIPT -->
     <script>
-        const name = localStorage.getItem("profileName") || "User";
+        const name = localStorage.getItem("profileName") || "Eric Todd";
         document.getElementById("welcomeText").textContent = "Welcome, " + name;
     </script>
 
