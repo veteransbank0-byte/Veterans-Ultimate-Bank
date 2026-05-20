@@ -1,133 +1,229 @@
-/* GLOBAL */
-body {
+/* GLOBAL LAYOUT */
+
+* {
     margin: 0;
-    background: #0a0f24;
-    font-family: Arial, sans-serif;
-    color: white;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* TOP GLASS BAR */
+body {
+    background: radial-gradient(circle at top, #1b2735 0%, #090a0f 55%, #020308 100%);
+    color: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* TOP GLASS NAVBAR */
+
 .topbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 65px;
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.08);
+    height: 64px;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 25px;
-    z-index: 1000;
+    backdrop-filter: blur(18px);
+    background: rgba(8, 12, 24, 0.78);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    z-index: 100;
 }
 
 .logo {
-    font-size: 26px;
-    font-weight: bold;
-    color: #4da3ff;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 18px;
+    color: #4fd1ff;
 }
 
 .page-title {
-    font-size: 20px;
-    opacity: 0.9;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .profile-area {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+}
+
+.notif {
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .profile-pic {
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 /* SIDEBAR */
+
 .sidebar {
     position: fixed;
-    top: 65px;
+    top: 64px;
     left: 0;
-    width: 230px;
-    height: calc(100vh - 65px);
-    background: #0d132d;
-    padding-top: 20px;
+    width: 220px;
+    bottom: 0;
+    padding: 20px 16px;
+    background: rgba(5, 8, 18, 0.96);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .sidebar-section {
     display: block;
-    padding: 15px 20px;
-    font-size: 16px;
-    opacity: 0.8;
-    cursor: pointer;
-    transition: 0.2s;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #c7d2ff;
     text-decoration: none;
-    color: white;
+    font-size: 14px;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
 }
 
-.sidebar-section:hover,
+.sidebar-section:hover {
+    background: rgba(79, 209, 255, 0.12);
+    color: #ffffff;
+    transform: translateX(2px);
+}
+
 .sidebar-section.active {
-    background: rgba(77, 163, 255, 0.15);
-    border-left: 4px solid #4da3ff;
-    opacity: 1;
+    background: linear-gradient(135deg, #4fd1ff, #7f5dff);
+    color: #050814;
+    font-weight: 600;
 }
 
 /* MAIN CONTENT */
+
 .content {
-    margin-left: 260px;
-    padding: 100px 40px;
+    margin-top: 64px;
+    margin-left: 220px;
+    padding: 24px 28px 40px;
 }
 
-/* ACCOUNT LIST */
-.account-list {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
+.content h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
 }
 
-/* ACCOUNT CARD */
-.account-card {
-    width: 320px;
-    background: linear-gradient(145deg, #0d132d, #0a0f24);
-    border: 1px solid rgba(77, 163, 255, 0.3);
-    box-shadow: 0 0 18px rgba(77, 163, 255, 0.25);
-    border-radius: 14px;
-    padding: 25px;
+/* GLASS CARDS GRID */
+
+.account-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
 }
+
+/* GLASS CARD STYLE */
+
+.glass-card {
+    background: radial-gradient(circle at top left, rgba(79, 209, 255, 0.18), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(127, 93, 255, 0.18), transparent 55%),
+                rgba(10, 16, 35, 0.82);
+    border-radius: 18px;
+    padding: 18px 18px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(18px);
+}
+
+/* ACCOUNT CARD CONTENT */
 
 .account-card h3 {
-    margin: 0;
-    opacity: 0.85;
+    font-size: 16px;
+    margin-bottom: 4px;
 }
 
-.balance {
-    margin-top: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #4da3ff;
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
 }
 
-.details {
-    margin-top: 10px;
-    opacity: 0.7;
+.tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* ACTION BUTTONS */
-.action-btn {
-    margin-top: 20px;
-    padding: 12px;
-    width: 100%;
-    background: #4da3ff;
+.tag.primary {
+    background: rgba(79, 209, 255, 0.16);
+    color: #b9ecff;
+}
+
+.tag.neutral {
+    background: rgba(255, 255, 255, 0.06);
+    color: #e5e9ff;
+}
+
+.tag.savings {
+    background: rgba(127, 255, 163, 0.16);
+    color: #c9ffdf;
+}
+
+.acc-number {
+    font-size: 13px;
+    color: #a5b0d8;
+    margin-bottom: 4px;
+}
+
+.acc-balance {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.acc-label {
+    font-size: 12px;
+    color: #8f9ac5;
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+
+.view-btn {
+    padding: 7px 12px;
+    font-size: 13px;
+    border-radius: 999px;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-    color: #0a0f24;
-    font-weight: bold;
-    transition: 0.2s;
+    background: linear-gradient(135deg, #4fd1ff, #7f5dff);
+    color: #050814;
+    font-weight: 500;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
 }
 
-.action-btn:hover {
-    background: #77baff;
+.view-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.7);
+    opacity: 0.96;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 80px 16px 24px;
+    }
+
+    .topbar {
+        padding: 0 16px;
+    }
 }
