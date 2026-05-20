@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUB – Transfers</title>
+    <title>VUB - Transfers</title>
     <link rel="stylesheet" href="css/transfers.css">
 </head>
-
 <body>
 
     <!-- TOP GLASS NAVBAR -->
@@ -15,34 +14,33 @@
         <div class="page-title">Transfers</div>
         <div class="profile-area">
             <span class="notif">🔔</span>
-            <img src="profile.jpg" class="profile-pic" alt="Profile">
+            <img src="images/profile.jpg" class="profile-pic" alt="Profile">
         </div>
     </header>
 
-    <!-- FIXED SIDEBAR -->
+    <!-- EXPANDED CHASE-STYLE SIDEBAR -->
     <aside class="sidebar">
-        <a href="dashboard.html" class="sidebar-section">🏠 Dashboard</a>
-        <a href="accounts.html" class="sidebar-section">💳 Accounts</a>
-        <a href="cards.html" class="sidebar-section">💼 Cards</a>
-        <a href="payments.html" class="sidebar-section">💸 Payments</a>
-        <a href="transfers.html" class="sidebar-section active">🔁 Transfers</a>
-        <a href="#" class="sidebar-section">📊 Spending Insights</a>
-        <a href="#" class="sidebar-section">📅 Subscriptions</a>
-        <a href="#" class="sidebar-section">🎁 Rewards</a>
-        <a href="#" class="sidebar-section">📂 Document Vault</a>
-        <a href="#" class="sidebar-section">⚙️ Settings</a>
+        <a href="dashboard.html" class="sidebar-section">Dashboard</a>
+        <a href="accounts.html" class="sidebar-section">Accounts</a>
+        <a href="cards.html" class="sidebar-section">Cards</a>
+        <a href="payments.html" class="sidebar-section">Payments</a>
+        <a href="transfers.html" class="sidebar-section active">Transfers</a>
+        <a href="spending.html" class="sidebar-section">Spending Insights</a>
+        <a href="subscriptions.html" class="sidebar-section">Subscriptions</a>
+        <a href="rewards.html" class="sidebar-section">Rewards</a>
+        <a href="vault.html" class="sidebar-section">Document Vault</a>
+        <a href="settings.html" class="sidebar-section">Settings</a>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="content">
+        <h2>Make a Transfer</h2>
 
-        <h2>Transfer Funds</h2>
-
-        <section class="transfer-container">
+        <section class="transfer-grid">
 
             <!-- TRANSFER FORM -->
-            <div class="transfer-box">
-                <h3>Move Money</h3>
+            <div class="glass-card transfer-card">
+                <h3>Transfer Funds</h3>
 
                 <label>From Account</label>
                 <select>
@@ -59,21 +57,36 @@
                 <label>Amount</label>
                 <input type="number" placeholder="$0.00">
 
-                <button class="transfer-btn">Transfer Now</button>
+                <label>Memo (optional)</label>
+                <input type="text" placeholder="Add a note">
+
+                <button class="transfer-btn">Submit Transfer</button>
             </div>
 
-            <!-- QUICK TRANSFERS -->
-            <div class="quick-transfer">
-                <h3>Quick Transfers</h3>
+            <!-- RECENT TRANSFERS -->
+            <div class="glass-card recent-card">
+                <h3>Recent Transfers</h3>
 
-                <button class="quick-btn">Move $500 to Savings</button>
-                <button class="quick-btn">Move $1,000 to Checking</button>
-                <button class="quick-btn">Move $5,000 to Savings</button>
-                <button class="quick-btn">Move $10,000 to Checking</button>
+                <ul class="recent-list">
+                    <li>
+                        <span>To Savings</span>
+                        <span class="amt">-$25,000.00</span>
+                        <span class="date">May 18</span>
+                    </li>
+                    <li>
+                        <span>From Savings</span>
+                        <span class="amt">+$10,000.00</span>
+                        <span class="date">May 14</span>
+                    </li>
+                    <li>
+                        <span>To Checking</span>
+                        <span class="amt">-$4,500.00</span>
+                        <span class="date">May 10</span>
+                    </li>
+                </ul>
             </div>
 
         </section>
-
     </main>
 
 </body>
