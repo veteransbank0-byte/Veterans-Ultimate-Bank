@@ -1,59 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUB - Login</title>
-
-    <link rel="stylesheet" href="css/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterans Ultimate Bank – Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
 
-    <div class="auth-container">
-        <div class="glass-card auth-card">
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <h2 class="bank-name">VETERANS ULTIMATE BANK</h2>
 
-            <!-- VUB LOGO -->
-            <div class="logo">
-                <img src="vub-logo.png" alt="VUB Logo" class="login-logo">
-            </div>
+  <a href="index.html" class="sidebar-section active">🏠 Dashboard</a>
+  <a href="#" class="sidebar-section">💳 Accounts</a>
+  <a href="#" class="sidebar-section">💳 Cards</a>
+  <a href="#" class="sidebar-section">💸 Payments</a>
+  <a href="#" class="sidebar-section">📊 Insights</a>
+  <a href="#" class="sidebar-section">📉 Spending</a>
+  <a href="#" class="sidebar-section">📅 Subscriptions</a>
+  <a href="#" class="sidebar-section">🎁 Rewards</a>
+</aside>
 
-            <h2>Welcome Back</h2>
-            <p class="subtitle">Sign in to Veterans Ultimate Bank</p>
+<!-- MAIN CONTENT -->
+<main class="content">
 
-            <label>Email</label>
-            <input id="email" type="email" placeholder="you@example.com">
+  <!-- WELCOME -->
+  <section class="card welcome">
+    <h2>Welcome back, Eric Todd</h2>
+    <p>Your Veterans Ultimate Bank dashboard is fully active and production‑ready.</p>
+  </section>
 
-            <label>Password</label>
-            <input id="password" type="password" placeholder="Enter your password">
+  <!-- CHECKING ACCOUNT -->
+  <section class="card balances">
+    <h3>Primary Checking (....7281)</h3>
+    <p>Everyday spending and deposits</p>
 
-            <button class="auth-btn" onclick="login()">Login</button>
-
-            <div class="links">
-                <a href="forgot.html">Forgot Password</a>
-                <a href="register.html">Create Account</a>
-            </div>
-
-        </div>
+    <div class="row">
+      <span>Available Balance</span>
+      <span class="amount">$629,733,289.52</span>
     </div>
 
-    <script>
-        function login() {
-            const email = document.getElementById("email").value.trim();
-            const pass = document.getElementById("password").value.trim();
+    <div class="row">
+      <span>Current Balance</span>
+      <span class="amount">$567,529,624.699</span>
+    </div>
 
-            const validEmail = "EricTodd@$";
-            const validPass = "EricTodd@1$";
+    <div class="row">
+      <span>Status</span>
+      <span class="amount positive">Active</span>
+    </div>
 
-            if (email === validEmail && pass === validPass) {
-                localStorage.setItem("loggedIn", "true");
-                localStorage.setItem("profileName", "Eric Todd");
-                window.location.href = "dashboard.html";
-            } else {
-                alert("Invalid login. Please try again.");
-            }
-        }
-    </script>
+    <div class="actions">
+      <button>Transfer</button>
+      <button>Pay Bill</button>
+      <button>Deposit Check</button>
+      <button>Statements</button>
+    </div>
+  </section>
+
+  <!-- LOAN OVERVIEW -->
+  <section class="card loan">
+    <h3>Loan Overview</h3>
+    <p>Track payoff progress in real time</p>
+
+    <div class="row">
+      <span>Auto Loan Remaining</span>
+      <span class="amount">$18,400.00</span>
+    </div>
+
+    <div class="row">
+      <span>APR</span>
+      <span class="amount">2.9%</span>
+    </div>
+
+    <div class="row">
+      <span>Next Payment</span>
+      <span class="amount">$420.00 – Jun 28</span>
+    </div>
+  </section>
+
+  <!-- DOCUMENT VAULT -->
+  <section class="card vault">
+    <h3>Secure Document Vault</h3>
+    <p>Statements, tax docs, and agreements</p>
+
+    <ul class="doc-list">
+      <li>2024 Tax Summary — PDF · Uploaded May 2 · 1.2 MB</li>
+      <li>Mortgage Agreement — PDF · Signed Jan 14 · 2.8 MB</li>
+      <li>VUB Terms — PDF · Updated Mar 9 · 0.6 MB</li>
+    </ul>
+
+    <div class="actions">
+      <button>Upload Document</button>
+      <button>Manage Access</button>
+    </div>
+  </section>
+
+  <!-- REWARDS -->
+  <section class="card rewards">
+    <h3>Rewards & Cashback</h3>
+    <p>Earned across all VUB products</p>
+
+    <div class="row">
+      <span>Points Balance</span>
+      <span class="amount">12,500 Points</span>
+    </div>
+
+    <div class="row">
+      <span>Cashback</span>
+      <span class="amount">$320.00</span>
+    </div>
+
+    <div class="row">
+      <span>Next Bonus</span>
+      <span class="amount positive">+2,000 Points projected</span>
+    </div>
+
+    <button>View Rewards</button>
+  </section>
+
+  <!-- SUBSCRIPTIONS -->
+  <section class="card subs">
+    <h3>Subscriptions</h3>
+    <p>Recurring charges monitored automatically</p>
+
+    <ul class="sub-list">
+      <li>Netflix — $19.99 · Monthly · Next: Jun 21</li>
+      <li>Spotify — $10.99 · Monthly · Next: Jun 25</li>
+      <li>iCloud Storage — $2.99 · Monthly · Next: Jul 1</li>
+    </ul>
+
+    <div class="actions">
+      <button>Add Subscription</button>
+      <button>View Insights</button>
+    </div>
+  </section>
+
+  <!-- QUICK PAYMENTS -->
+  <section class="card quickpay">
+    <h3>Quick Payments</h3>
+    <p>Recent billers and payees</p>
+
+    <ul class="pay-list">
+      <li>Georgia Power — Last paid Jun 3 — $142.18</li>
+      <li>AT&T Fiber — Last paid Jun 29 — $89.00</li>
+      <li>Amex Platinum — Last paid May 26 — $1,250.00</li>
+    </ul>
+
+    <div class="actions">
+      <button>Pay Now</button>
+      <button>Schedule Payment</button>
+    </div>
+  </section>
+
+</main>
 
 </body>
 </html>
