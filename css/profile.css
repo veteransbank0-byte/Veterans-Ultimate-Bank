@@ -1,0 +1,137 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    background: #0a0f24;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* TOP GLASS BAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #4da3ff;
+}
+
+.page-title {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-pic {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 230px;
+    height: calc(100vh - 65px);
+    background: #0d132d;
+    padding-top: 20px;
+}
+
+.sidebar-section {
+    display: block;
+    padding: 15px 20px;
+    font-size: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-section:hover,
+.sidebar-section.active {
+    background: rgba(77, 163, 255, 0.15);
+    border-left: 4px solid #4da3ff;
+    opacity: 1;
+}
+
+/* MAIN CONTENT */
+.content {
+    margin-left: 260px;
+    padding: 100px 40px;
+}
+
+/* PROFILE CARD */
+.profile-box {
+    width: 450px;
+    background: linear-gradient(145deg, #0d132d, #0a0f24);
+    border: 1px solid rgba(77, 163, 255, 0.3);
+    box-shadow: 0 0 18px rgba(77, 163, 255, 0.25);
+    border-radius: 14px;
+    padding: 30px;
+}
+
+/* PROFILE IMAGE PREVIEW */
+.profile-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #4da3ff;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+/* LABELS */
+label {
+    display: block;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+/* INPUT FIELDS */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background: #0a0f24;
+    border: 1px solid rgba(77, 163, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+}
+
+/* SAVE BUTTON */
+.save-btn {
+    margin-top: 25px;
+    padding: 12px;
+    width: 100%;
+    background: #4da3ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #0a0f24;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.save-btn:hover {
+    background: #77baff;
+}
