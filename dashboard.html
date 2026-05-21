@@ -3,79 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUB - Accounts</title>
-    <link rel="stylesheet" href="css/accounts.css">
+    <title>Veterans Ultimate Bank — Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: white;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: #111;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 30px;
+            border-right: 1px solid #222;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 22px;
+            color: #00aaff;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 14px 25px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .sidebar a:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .main {
+            margin-left: 260px;
+            padding: 30px;
+        }
+
+        .header {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #00aaff;
+        }
+
+        .balance {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .quick-actions {
+            margin-top: 40px;
+        }
+
+        .quick-actions button {
+            background: #00aaff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .quick-actions button:hover {
+            background: #0088cc;
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- TOP GLASS NAVBAR -->
-    <header class="topbar">
-        <div class="logo">VUB</div>
-        <div class="page-title">Accounts</div>
-        <div class="profile-area">
-            <span class="notif">🔔</span>
-            <img src="images/profile.jpg" class="profile-pic" alt="Profile">
+    <div class="sidebar">
+        <h2>VUB Dashboard</h2>
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="account.html">💳 Accounts</a>
+        <a href="transactions.html">📄 Transactions</a>
+        <a href="payments.html">💸 Payments</a>
+        <a href="transfers.html">🔁 Transfers</a>
+        <a href="cards.html">💳 Cards</a>
+        <a href="subscriptions.html">📦 Subscriptions</a>
+        <a href="rewards.html">🎁 Rewards</a>
+        <a href="settings.html">⚙️ Settings</a>
+    </div>
+
+    <div class="main">
+        <div class="header">Welcome back, Eric Todd</div>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Checking Account</h3>
+                <div class="balance">$4,920.55</div>
+            </div>
+
+            <div class="card">
+                <h3>Savings Account</h3>
+                <div class="balance">$12,440.22</div>
+            </div>
+
+            <div class="card">
+                <h3>Credit Card Balance</h3>
+                <div class="balance">$1,120.00</div>
+            </div>
+
+            <div class="card">
+                <h3>Loan Overview</h3>
+                <div class="balance">$8,300 Remaining</div>
+            </div>
+
         </div>
-    </header>
 
-    <!-- EXPANDED CHASE-STYLE SIDEBAR -->
-    <aside class="sidebar">
-        <a href="dashboard.html" class="sidebar-section">Dashboard</a>
-        <a href="accounts.html" class="sidebar-section active">Accounts</a>
-        <a href="cards.html" class="sidebar-section">Cards</a>
-        <a href="payments.html" class="sidebar-section">Payments</a>
-        <a href="transfers.html" class="sidebar-section">Transfers</a>
-        <a href="spending.html" class="sidebar-section">Spending Insights</a>
-        <a href="subscriptions.html" class="sidebar-section">Subscriptions</a>
-        <a href="rewards.html" class="sidebar-section">Rewards</a>
-        <a href="vault.html" class="sidebar-section">Document Vault</a>
-        <a href="settings.html" class="sidebar-section">Settings</a>
-    </aside>
+        <div class="quick-actions">
+            <button onclick="location.href='payments.html'">Make Payment</button>
+            <button onclick="location.href='transfers.html'">Transfer Funds</button>
+            <button onclick="location.href='transactions.html'">View Transactions</button>
+        </div>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
-        <h2>Your Accounts</h2>
-
-        <section class="account-grid">
-
-            <!-- CHECKING -->
-            <div class="account-card glass-card">
-                <div class="card-header">
-                    <h3>Checking Account</h3>
-                    <span class="tag primary">Primary</span>
-                </div>
-                <p class="acc-number">Account •••• 7281</p>
-                <p class="acc-balance">$629,733,289.52</p>
-                <p class="acc-label">Available balance</p>
-                <button class="view-btn">View Details</button>
-            </div>
-
-            <!-- AVAILABLE BALANCE (SAME ACCOUNT) -->
-            <div class="account-card glass-card">
-                <div class="card-header">
-                    <h3>Available Balance</h3>
-                    <span class="tag neutral">Checking</span>
-                </div>
-                <p class="acc-number">Account •••• 7281</p>
-                <p class="acc-balance">$567,529,624.69</p>
-                <p class="acc-label">After pending transactions</p>
-                <button class="view-btn">View Activity</button>
-            </div>
-
-            <!-- SAVINGS -->
-            <div class="account-card glass-card">
-                <div class="card-header">
-                    <h3>Savings Account</h3>
-                    <span class="tag savings">High Yield</span>
-                </div>
-                <p class="acc-number">Account •••• 9924</p>
-                <p class="acc-balance">$3,497,362,919.07</p>
-                <p class="acc-label">Total savings balance</p>
-                <button class="view-btn">View Details</button>
-            </div>
-
-        </section>
-    </main>
+    </div>
 
 </body>
 </html>
