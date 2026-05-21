@@ -5,249 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterans Ultimate Bank — Dashboard</title>
 
-    <style>
-        :root {
-            --bg: #020617;
-            --card: #0b1220;
-            --accent: #38bdf8;
-            --accent-soft: rgba(56,189,248,0.15);
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
-            color: var(--text-main);
-        }
-
-        .app-shell {
-            max-width: 480px;
-            margin: 0 auto;
-            min-height: 100vh;
-            padding: 16px 16px 32px;
-        }
-
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .brand {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-title {
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
-
-        .brand-sub {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .profile {
-            width: 40px;
-            height: 40px;
-            border-radius: 999px;
-            border: 2px solid var(--accent);
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            text-transform: uppercase;
-            color: var(--text-main);
-        }
-
-        .hello {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }
-
-        .user-name {
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .hero-card {
-            margin-top: 8px;
-            margin-bottom: 20px;
-            padding: 16px 16px 18px;
-            border-radius: 18px;
-            background: radial-gradient(circle at top left, #1d4ed8 0, #020617 55%);
-            border: 1px solid rgba(148,163,184,0.35);
-            box-shadow: 0 18px 45px rgba(15,23,42,0.9);
-        }
-
-        .hero-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #bfdbfe;
-            margin-bottom: 6px;
-        }
-
-        .hero-amount {
-            font-size: 26px;
-            font-weight: 700;
-        }
-
-        .hero-sub {
-            font-size: 12px;
-            color: #e5e7eb;
-            opacity: 0.85;
-            margin-top: 4px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-
-        @media (min-width: 420px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 14px 14px 16px;
-            border: 1px solid rgba(148,163,184,0.35);
-            box-shadow: 0 10px 30px rgba(15,23,42,0.8);
-        }
-
-        .card-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .card-title {
-            font-size: 13px;
-            color: var(--text-main);
-            margin-bottom: 4px;
-        }
-
-        .card-amount {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .card-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 8px;
-            padding: 4px 8px;
-            border-radius: 999px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 11px;
-        }
-
-        .loan-amount {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .loan-sub {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .actions {
-            margin-top: 22px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            flex: 1 1 45%;
-            min-width: 120px;
-            border-radius: 999px;
-            border: none;
-            padding: 10px 14px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #020617;
-        }
-
-        .btn-primary:hover {
-            background: #0ea5e9;
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid rgba(148,163,184,0.6);
-        }
-
-        .btn-ghost:hover {
-            background: rgba(15,23,42,0.8);
-        }
-
-        .nav-links {
-            margin-top: 26px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(30,64,175,0.6);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            font-size: 13px;
-        }
-
-        .nav-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            padding: 6px 8px;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-link span {
-            font-size: 15px;
-        }
-
-        .nav-link:hover {
-            border-color: rgba(148,163,184,0.7);
-            color: var(--text-main);
-            background: rgba(15,23,42,0.9);
-        }
-    </style>
+    <!-- CONNECT TO YOUR UPDATED CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
 <div class="app-shell">
 
@@ -257,9 +18,7 @@
             <div class="brand-title">Veterans Ultimate Bank</div>
             <div class="brand-sub">Secure Digital Banking</div>
         </div>
-        <div class="profile">
-            ET
-        </div>
+        <div class="profile">ET</div>
     </div>
 
     <!-- Greeting -->
@@ -282,22 +41,16 @@
         <div class="card">
             <div class="card-label">Funds Available</div>
             <div class="card-title">Available Balance</div>
-            <div class="card-amount">$635,792,466.00</div>
-            <div class="card-pill">
-                <span>●</span>
-                Instantly available for payments and transfers
-            </div>
+            <div class="card-amount">$635,792,466</div>
+            <div class="card-pill"><span>●</span> Instantly available</div>
         </div>
 
         <!-- Savings Balance -->
         <div class="card">
             <div class="card-label">Savings Account</div>
             <div class="card-title">Savings Balance</div>
-            <div class="card-amount">$469,857.00</div>
-            <div class="card-pill">
-                <span>★</span>
-                Earning interest daily
-            </div>
+            <div class="card-amount">$469,857</div>
+            <div class="card-pill"><span>★</span> Earning interest</div>
         </div>
 
         <!-- Loan Overview -->
@@ -305,52 +58,33 @@
             <div class="card-label">Loan Overview</div>
             <div class="card-title">Personal Loan</div>
             <div class="loan-amount">$4,200 Remaining</div>
-            <div class="loan-sub">On‑time · No past‑due payments reported.</div>
+            <div class="loan-sub">On‑time · No past‑due payments</div>
         </div>
 
-        <!-- Credit / Extra card (optional) -->
+        <!-- Credit Card -->
         <div class="card">
             <div class="card-label">Credit Profile</div>
             <div class="card-title">Veterans Rewards Card</div>
             <div class="card-amount">$0.00 Due Today</div>
-            <div class="card-pill">
-                <span>🎁</span>
-                Rewards available in Rewards Center
-            </div>
+            <div class="card-pill"><span>🎁</span> Rewards available</div>
         </div>
 
     </div>
 
     <!-- Quick actions -->
     <div class="actions">
-        <button class="btn btn-primary" onclick="location.href='payments.html'">
-            💸 Make Payment
-        </button>
-        <button class="btn btn-ghost" onclick="location.href='transfers.html'">
-            🔁 Transfer Funds
-        </button>
+        <button class="btn btn-primary" onclick="location.href='payments.html'">💸 Make Payment</button>
+        <button class="btn btn-ghost" onclick="location.href='transfers.html'">🔁 Transfer Funds</button>
     </div>
 
     <!-- Navigation links -->
     <div class="nav-links">
-        <a class="nav-link" href="transactions.html">
-            <span>📄</span> Transactions
-        </a>
-        <a class="nav-link" href="account.html">
-            <span>💳</span> Accounts
-        </a>
-        <a class="nav-link" href="cards.html">
-            <span>💳</span> Cards
-        </a>
-        <a class="nav-link" href="rewards.html">
-            <span>🎁</span> Rewards
-        </a>
-        <a class="nav-link" href="subscriptions.html">
-            <span>📦</span> Subscriptions
-        </a>
-        <a class="nav-link" href="settings.html">
-            <span>⚙️</span> Settings
-        </a>
+        <a class="nav-link" href="transactions.html"><span>📄</span> Transactions</a>
+        <a class="nav-link" href="account.html"><span>💳</span> Accounts</a>
+        <a class="nav-link" href="cards.html"><span>💳</span> Cards</a>
+        <a class="nav-link" href="rewards.html"><span>🎁</span> Rewards</a>
+        <a class="nav-link" href="subscriptions.html"><span>📦</span> Subscriptions</a>
+        <a class="nav-link" href="settings.html"><span>⚙️</span> Settings</a>
     </div>
 
 </div>
